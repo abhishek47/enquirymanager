@@ -1,0 +1,22 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css");
+
+@import "../../../node_modules/sweetalert/dist/sweetalert.css";
+
+body{
+	background-color: #f5f8fa;
+	padding-top: 100px;
+}
+
+.navbar-inverse .navbar-nav .nav-link {
+	color: #fff;
+}
+
+
