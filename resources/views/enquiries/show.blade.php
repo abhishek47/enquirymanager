@@ -3,6 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title>Enquiry #{{$enquiry->id}}</title>
+
+    <style type="text/css" media="print">
+@page {
+    size: auto;   /* auto is the initial value */
+    margin: 0;  /* this affects the margin in the printer settings */
+}
+</style>
     
     <style>
     .invoice-box{

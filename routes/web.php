@@ -35,4 +35,4 @@ Route::post('/enquiries/update/{enquiry}', 'EnquiriesController@update')->name('
 Route::post('/enquiries/status/{enquiry}/{status}', 'EnquiriesController@status')->name('enquiries.status');
 Route::get('/followups', 'FollowupsController@index')->name('enquiries.followups');
 
-
+Route::get('/statistics', 'StatisticsController@index')->name('statistics');

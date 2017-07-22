@@ -18,10 +18,13 @@
                 <div class="card-title"> 
                    <div class="row">
                      <div class="col col-sm-8">
-                        <h4>Enquiries - {{ $date }} </h4>
+                        <h4>{{$title}} - {{ $date }} </h4>
                      </div>
                      <div class="col col-sm-4">
-                        <form method="GET" action="/followups" class="form-inline">
+                        <form method="GET" action="/enquiries" class="form-inline">
+                         @if(Request::has('cat'))
+                          <input type="hidden" name="cat" value="{{ request('cat') }}">
+                        @endif  
                           <input type="date" value="{{ $date }}" name="date" id="date" class="form-control" style="margin-right: 4px;">
                           <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -51,7 +54,7 @@
                               <td>{{ $enquiry->phone }}</td>
                               <td>{{ $enquiry->contact_date }}</td>
                               <td>{{ $enquiry->vehicle_id }}</td>
-                              <td><a href="{{ route('enquiries.show', ['enquiry' => $enquiry->id ])}}" class="btn btn-primary btn-sm">View</a> 
+                              <td><a target="_blank" href="{{ route('enquiries.show', ['enquiry' => $enquiry->id ])}}" class="btn btn-primary btn-sm">View</a> 
                                   <a href="{{ route('enquiries.edit', ['enquiry' => $enquiry->id ])}}" class="btn btn-success btn-sm">Edit</a> 
                                   <a href="#" @click="deleteEnquiry({{ $enquiry->id  }})" class="btn btn-danger btn-sm">Delete</a>
                               </td>
@@ -64,7 +67,7 @@
                 </div>
             </div>
 
-
+</div>
 
 @endsection
 

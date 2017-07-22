@@ -51,10 +51,13 @@
         <li class="nav-item"><a class="nav-link"  href="{{ route('register') }}">Register</a></li>
     @else
     <li class="nav-item">
-        <a class="nav-link" href="#">Enquiries</a>
+        <a class="nav-link" href="/enquiries">Enquiries</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Statistics</a>
+        <a class="nav-link" href="/statistics">Statistics</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/vehicles">Vehicles</a>
       </li>
       <li class="nav-item ">
         <a class="nav-link" href="#">Campaigns</a>

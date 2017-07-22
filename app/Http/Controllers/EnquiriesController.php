@@ -29,6 +29,7 @@ class EnquiriesController extends Controller
      */
     public function index(Request $request)
     {
+        $title = 'All Enquiries';
     	$date = Carbon::today()->format('Y-m-d');
     	
     	if($request->has('date'))
@@ -36,9 +37,24 @@ class EnquiriesController extends Controller
     		$date = (new Carbon($request->get('date')))->format('Y-m-d');
     	}
 
-    	$enquiries = auth()->user()->company->enquiries()->whereDate('created_at', $date)->latest()->get();
+    	$enquiries = auth()->user()->company->enquiries()->whereDate('created_at', $date)->latest();
 
-    	return view('enquiries.index', compact('enquiries', 'date'));
+        if($request->has('cat'))
+        {
+            $cat = $request->get('cat');
+            
+            if($cat == 1)
+            {
+                $title = 'Converted Enquiries';
+            } else {
+                $title = 'Cancelled Enquiries';
+            }
+            $enquiries = $enquiries->where('status', $cat);
+        }
+
+        $enquiries = $enquiries->get();
+
+    	return view('enquiries.index', compact('enquiries', 'date', 'title'));
 
     }
 

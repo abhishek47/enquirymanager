@@ -12,52 +12,15 @@
           
          </div>
         </div>
-  
-  <div class="row justify-content-center" id="stats">
-    <div class="col-md">
-      <div class="card bg-primary" style="color: #fff;">
-          <div class="card-block">
-              <div class="card-title"><b>Enquiries Made</b></div>
 
-              <h4>{{ $enquiriesCount }}</h4>
-          </div>
-      </div>
-    </div>
-    <div class="col-md">
-      <div class="card bg-success" style="color: #fff;">
-           <div class="card-block">
-               <div class="card-title"><b>Enquiries Converted</b></div>
-                <h4>{{ $enquiriesSold }}</h4>
-           </div>
-      </div>
-    </div>
-    <div class="col-md">
-      <div class="card bg-danger" style="color: #fff;">
-           <div class="card-block">
-               <div class="card-title"><b>Enquiries Cancelled</b></div>
-                <h4>{{ $enquiriesCancelled }}</h4>
-           </div>
-      </div>
-    </div>
-    <div class="col-md">
-      <div class="card">
-           <div class="card-block bg-info" style="color: #fff;">
-               <div class="card-title"><b>Today's Follow Ups</b></div>
-                <h4>{{ $followups }}</h4>
-           </div>
-      </div>
-    </div>
-  </div>
-  <br>
-
-    <div class="row justify-content-center">
+          <div class="row justify-content-center">
         <div class="col col-md-12">
             <div class="card">
                 <div class="card-block">
                 
                  <div class="row">
                   
-                   <div class="col-md-6">
+                   <div class="col-md-9">
                     <h5> 
                     Company : <b> {{ auth()->user()->company->name }} </b> 
                     </h5>
@@ -68,45 +31,79 @@
                         <h5>  Enquiries Made Today : <b>{{ $enquiriesToday }}</b> </h5>
                    </div>
 
-                    <div class="col-md">
-                     <h5> 
-                        Follow Up's For Today : <b>{{ $followups }}</b>
-                     </h5> 
-
-                    </div>
+                    
 
 
                    
 
                     </div>
 
-                    <hr>
-
-                    <p> 
-                      <a href="{{ route('enquiries.create') }}"  class="btn btn-success">Add New Enquiry</a>
-                      <a href="{{ route('enquiries.followups') }}"  class="btn btn-warning">Manage Follow Up's</a>
-                    </p>
+                    
                     
                 </div>
             </div>
 
+            </div>
+
+            </div>
+
             <br>
+  
+  <div class="row justify-content-center" id="stats">
+    <div class="col-md">
+      <a href="/enquiries" class="card bg-primary" style="color: #fff;">
+          <div class="card-block">
+              <div class="card-title"><b>Total Enquiries</b></div>
+
+              <h4>{{ $enquiriesCount }}</h4>
+          </div>
+      </a>
+    </div>
+    <div class="col-md">
+      <a href="/enquiries?cat=1" class="card bg-success" style="color: #fff;">
+           <div class="card-block">
+               <div class="card-title"><b>Enquiries Converted</b></div>
+                <h4>{{ $enquiriesSold }}</h4>
+           </div>
+      </a>
+    </div>
+    <div class="col-md">
+      <a href="/enquiries?cat=2" class="card bg-danger" style="color: #fff;">
+           <div class="card-block">
+               <div class="card-title"><b>Enquiries Cancelled</b></div>
+                <h4>{{ $enquiriesCancelled }}</h4>
+           </div>
+      </a>
+    </div>
+    <div class="col-md">
+      <a href="/followups" class="card bg-info" style="color: #fff;">
+           <div class="card-block" >
+               <div class="card-title"><b>Today's Follow Ups</b></div>
+                <h4>{{ $followups }}</h4>
+           </div>
+      </a>
+    </div>
+  </div>
+  <br>
+
+  
+
 
             <div class="row justify-content-center">
                 <div class="col-md">
                   <div class="card">
                       <div class="card-block">
-                          <div class="card-title"><b>Daily Chart</b></div>
+                          <div class="card-title"><b>Last 7 Days</b></div>
 
-                          <canvas id="myChart" width="400" height="400"></canvas>
+                          <canvas id="weekChart" width="400" height="300"></canvas>
                       </div>
                   </div>
                 </div>
                 <div class="col-md">
                   <div class="card" >
                        <div class="card-block">
-                           <div class="card-title"><b>Monthly Chart</b></div>
-                            <h4>{{ count($enquiries) }}</h4>
+                           <div class="card-title"><b>Monthly Stats</b></div>
+                            <canvas id="monthChart" width="400" height="300"></canvas>
                        </div>
                   </div>
                 </div>
@@ -140,7 +137,7 @@
                               <td>{{ $enquiry->phone }}</td>
                               <td>{{ $enquiry->contact_date }}</td>
                               <td>{{ $enquiry->vehicle_id }}</td>
-                              <td><a href="{{ route('enquiries.show', ['enquiry' => $enquiry->id ])}}" class="btn btn-primary btn-sm">View</a> 
+                              <td><a target="_blank" href="{{ route('enquiries.show', ['enquiry' => $enquiry->id ])}}" class="btn btn-primary btn-sm">View</a> 
                                   <a href="{{ route('enquiries.edit', ['enquiry' => $enquiry->id ])}}" class="btn btn-success btn-sm">Edit</a> 
                                   <a href="#" @click="deleteEnquiry({{ $enquiry->id  }})" class="btn btn-danger btn-sm">Delete</a>
                               </td>
@@ -153,8 +150,7 @@
                 </div>
             </div>
 
-            
-        </div>
+        <br><br><br>
        
       
     </div>
@@ -164,29 +160,61 @@
 @section('js')
 
 <script>
-var ctx = document.getElementById("myChart");
+var ctx = document.getElementById("monthChart");
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Count of Enquiries',
+            data: [12, 19, 3, 5, 2, 14, 18],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
                 'rgba(54, 162, 235, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<script>
+var ctx = document.getElementById("weekChart");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["16 Jul", "17 Jul", "18 Jul", "19 Jul", "20 Jul", "21 Jul", "22 July"],
+        datasets: [{
+            label: 'Count of Enquiries',
+            data: [12, 19, 3, 5, 2, 14, 18],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)'
             ],
             borderWidth: 1
         }]
