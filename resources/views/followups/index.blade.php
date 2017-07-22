@@ -12,16 +12,24 @@
           
          </div>
         </div>
+
+         <div class="card">
+                <div class="card-block">
+   <h4>Follow Ups - {{ $date }} </h4>
+    </div>
+    </div>
+
+    <br>
     
     <div class="card">
                 <div class="card-block">
                 <div class="card-title">
                   <div class="row">
                      <div class="col col-sm-8">
-                        <h4>Follow Ups - {{ $date }} </h4>
+                        
                      </div>
                      <div class="col col-sm-4">
-                        <form method="GET" action="/followups" class="form-inline">
+                        <form method="GET" action="/followups" class="form-inline float-right">
                           <input type="date" value="{{ $date }}" name="date" id="date" class="form-control" style="margin-right: 4px;">
                           <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -36,7 +44,7 @@
                           <th>#</th>
                           <th>Name</th>
                           <th>Phone</th>
-                          <th>Contact Date</th>
+                          <th>Enquiry Date</th>
                           <th>Model</th>
                           <th>Actions</th>
                         </tr>
@@ -49,7 +57,7 @@
                               <th scope="row">{{ $enquiry->id }}</th>
                               <td>{{ $enquiry->name }}</td>
                               <td>{{ $enquiry->phone }}</td>
-                              <td>{{ $enquiry->contact_date }}</td>
+                              <td>{{ $enquiry->created_at->format('d-m-Y') }}</td>
                               <td>{{ $enquiry->vehicle->name }}</td>
                               <td><a href="{{ route('enquiries.show', ['enquiry' => $enquiry->id ])}}" class="btn btn-primary btn-sm">View</a> 
                                   <a href="{{ route('enquiries.edit', ['enquiry' => $enquiry->id ])}}" class="btn btn-success btn-sm">Edit</a> 

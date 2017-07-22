@@ -15,7 +15,17 @@
 
     <div class="card">
                 <div class="card-block">
-    <h4>{{$title}} - {{ $date }} </h4>
+   
+    <div class="row">
+                     <div class="col col-sm-8">
+                      <h4>{{$title}} - {{ $date }} </h4>
+                       
+                     </div>
+                     <div class="col col-sm-4">
+                        <a href="{{ route('enquiries.create') }}" class="btn btn-success float-right">Add New Enquiry</a>
+                     </div>
+
+                   </div>
     </div>
     </div>
 
@@ -26,10 +36,10 @@
                 <div class="card-title"> 
                    <div class="row">
                      <div class="col col-sm-8">
-                        <a href="{{ route('enquiries.create') }}" class="btn btn-success">Add New Enquiry</a>
+                        
                      </div>
                      <div class="col col-sm-4">
-                        <form method="GET" action="/enquiries" class="form-inline">
+                        <form method="GET" action="/enquiries" class="form-inline float-right">
                          @if(Request::has('cat'))
                           <input type="hidden" name="cat" value="{{ request('cat') }}">
                         @endif  

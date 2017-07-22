@@ -22,7 +22,7 @@ class FollowupsController extends Controller
         
     }
 
-    
+
     public function index(Request $request)
     {
     	$date = Carbon::today()->format('Y-m-d');
@@ -32,7 +32,7 @@ class FollowupsController extends Controller
     		$date = (new Carbon($request->get('date')))->format('Y-m-d');
     	}
 
-    	$followups = auth()->user()->company->enquiries()->where('contact_date', $date)->latest()->get();
+    	$followups = auth()->user()->company->enquiries()->where('contact_date', $date)->where('status', 0)->latest()->get();
 
     	return view('followups.index', compact('followups', 'date'));
 
