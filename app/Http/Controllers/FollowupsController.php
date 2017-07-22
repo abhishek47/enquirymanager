@@ -8,6 +8,21 @@ use Carbon\Carbon;
 
 class FollowupsController extends Controller
 {
+
+	/**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        
+         $this->middleware('company-registered');
+        
+    }
+
+    
     public function index(Request $request)
     {
     	$date = Carbon::today()->format('Y-m-d');

@@ -136,7 +136,7 @@
                               <td>{{ $enquiry->name }}</td>
                               <td>{{ $enquiry->phone }}</td>
                               <td>{{ $enquiry->contact_date }}</td>
-                              <td>{{ $enquiry->vehicle_id }}</td>
+                              <td>{{ $enquiry->vehicle->name }}</td>
                               <td><a target="_blank" href="{{ route('enquiries.show', ['enquiry' => $enquiry->id ])}}" class="btn btn-primary btn-sm">View</a> 
                                   <a href="{{ route('enquiries.edit', ['enquiry' => $enquiry->id ])}}" class="btn btn-success btn-sm">Edit</a> 
                                   <a href="#" @click="deleteEnquiry({{ $enquiry->id  }})" class="btn btn-danger btn-sm">Delete</a>

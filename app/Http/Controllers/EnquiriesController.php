@@ -95,7 +95,8 @@ class EnquiriesController extends Controller
      */
     public function create()
     {
-        return view('enquiries.new');
+    	$vehicles = auth()->user()->company->vehicles;
+        return view('enquiries.new', compact('vehicles'));
     }
 
 
@@ -114,7 +115,7 @@ class EnquiriesController extends Controller
 
         flash()->overlay('<h3>Enquiry ID : <b>' . $enq->id . '</b></h3>', 'Enquiry Recorded');
 
-        return redirect('/home');
+        return redirect('/enquiries');
     }
 
 
@@ -125,8 +126,8 @@ class EnquiriesController extends Controller
      */
     public function edit(Request $request, Enquiry $enquiry)
     {
-
-        return view('enquiries.edit', compact('enquiry'));
+    	$vehicles = auth()->user()->company->vehicles;
+        return view('enquiries.edit', compact('enquiry', 'vehicles'));
 
     }
 
@@ -143,7 +144,7 @@ class EnquiriesController extends Controller
 
         flash('<b>Enquiry #' . $enquiry->id . '</b> Updated successfully!')->success();
 
-        return redirect('/home');
+        return redirect('/enquiries');
     }
 
     /**

@@ -26,7 +26,7 @@ class CreateEnquiriesTable extends Migration
             $table->integer('payment_type');
             $table->integer('vehicle_id');
             $table->double('vehicle_cost');
-            $table->integer('vehicle_color');
+            $table->string('vehicle_color');
             $table->double('rto_charges');
             $table->double('insuarance_charges');
             $table->double('hpa_charges');

@@ -178,13 +178,13 @@
                                
                                     <label for="vehicle_id" class="control-label">Vehicle Model</label>
                                     <select id="vehicle_id" name="vehicle_id" class="form-control">
-                                       @if(!old('vehicle_id'))
-                                        <option value="1" {{ $enquiry->vehicle_id == 1 ? 'selected' : '' }} >Maestro</option>
-                                        <option value="2" {{ $enquiry->vehicle_id == 2 ? 'selected' : '' }}>Splendor</option>
-                                       @else
-                                         <option value="1" {{ old('vehicle_id') == 1 ? 'selected' : '' }} >Maestro</option>
-                                        <option value="2" {{ old('vehicle_id') == 2 ? 'selected' : '' }}>Splendor</option>
-                                       @endif   
+                                      @foreach($vehicles as $vehicle)
+                                         @if(!old('vehicle_id'))
+                                          <option value="{{ $vehicle->id }}" {{ $enquiry->vehicle_id == $vehicle->id ? 'selected' : '' }} >{{ $vehicle->name }}</option>
+                                         @else
+                                           <option value="{{ $vehicle->id }}" {{ old('vehicle_id') == $vehicle->id ? 'selected' : '' }} >{{ $vehicle->name }}</option>
+                                         @endif   
+                                      @endforeach 
                                     </select>
 
                                     @if ($errors->has('vehicle_id'))
@@ -200,16 +200,8 @@
                             <div class="form-group{{ $errors->has('vehicle_color') ? ' has-error' : '' }}">
                                
                                     <label for="vehicle_color" class="control-label">Vehicle Color (Preference)</label>
-                                    <select id="vehicle_color" name="vehicle_color" class="form-control">
-                                      @if(!old('vehicle_color'))
-                                        <option value="1" {{ $enquiry->vehicle_color == 1 ? 'selected' : '' }}>Red</option>
-                                        <option value="2" {{ $enquiry->vehicle_color == 2 ? 'selected' : '' }}>White</option>
-                                      @else
-                                        <option value="1" {{ old('vehicle_color') == 1 ? 'selected' : '' }}>Red</option>
-                                        <option value="2" {{ old('vehicle_color') == 2 ? 'selected' : '' }}>White</option>
-                                      @endif  
-
-                                    </select>
+                                    <input id="vehicle_color" placeholder="Ex.: White" type="text" class="form-control" name="vehicle_color" 
+                                     value="{{ old('vehicle_color') ? old('vehicle_color') : $enquiry->vehicle_color }}" required>
 
                                     @if ($errors->has('vehicle_color'))
                                         <span class="help-block">

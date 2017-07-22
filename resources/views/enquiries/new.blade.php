@@ -162,9 +162,10 @@
                             <div class="form-group{{ $errors->has('vehicle_id') ? ' has-error' : '' }}">
                                
                                     <label for="vehicle_id" class="control-label">Vehicle Model</label>
-                                    <select id="vehicle_id" name="vehicle_id" class="form-control">
-                                        <option value="1">Maestro</option>
-                                        <option value="2">Splendor</option>
+                                    <select id="vehicle_id" name="vehicle_id" class="form-control"> 
+                                      @foreach($vehicles as $vehicle)
+                                        <option value="{{ $vehicle->id }}">{{ $vehicle->name }}</option>
+                                      @endforeach  
                                     </select>
 
                                     @if ($errors->has('vehicle_id'))
@@ -180,10 +181,8 @@
                             <div class="form-group{{ $errors->has('vehicle_color') ? ' has-error' : '' }}">
                                
                                     <label for="vehicle_color" class="control-label">Vehicle Color (Preference)</label>
-                                    <select id="vehicle_color" name="vehicle_color" class="form-control">
-                                        <option value="1">Red</option>
-                                        <option value="2">White</option>
-                                    </select>
+                                     <input id="vehicle_color" placeholder="Ex.: White" type="text" class="form-control" name="vehicle_color" 
+                                     value="{{ old('vehicle_color') }}" required>
 
                                     @if ($errors->has('vehicle_color'))
                                         <span class="help-block">

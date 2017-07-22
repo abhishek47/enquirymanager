@@ -22,6 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/company/register', 'CompanyController@register')->name('company.register');
 Route::post('/company/store', 'CompanyController@store')->name('company.store');
+Route::get('/company/edit', 'CompanyController@edit')->name('company.edit');
+Route::post('/company/update', 'CompanyController@update')->name('company.update');
 
 Route::get('/enquiries', 'EnquiriesController@index')->name('enquiries');
 Route::get('/enquiries/new', 'EnquiriesController@create')->name('enquiries.create');
@@ -36,3 +38,11 @@ Route::post('/enquiries/status/{enquiry}/{status}', 'EnquiriesController@status'
 Route::get('/followups', 'FollowupsController@index')->name('enquiries.followups');
 
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
+
+Route::get('/vehicles', 'VehiclesController@index')->name('vehicles');
+Route::get('/vehicles/create', 'VehiclesController@create')->name('vehicles.create');
+Route::post('/vehicles/store', 'VehiclesController@store')->name('vehicles.store');
+Route::get('/vehicles/edit/{vehicle}', 'VehiclesController@edit')->name('vehicles.edit');
+Route::post('/vehicles/delete/{vehicle}', 'VehiclesController@destroy')->name('vehicles.delete');
+Route::post('/vehicles/update/{vehicle}', 'VehiclesController@update')->name('vehicles.update');
+

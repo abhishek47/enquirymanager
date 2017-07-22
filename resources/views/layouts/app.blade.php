@@ -36,8 +36,9 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="{{ route('enquiries.create') }}">Add New Enquiry</a>
+          <a class="dropdown-item" href="{{ route('vehicles.create') }}">Add New Vehicle</a>
           <a class="dropdown-item" href="#">Create New Campaign</a>
-          <a class="dropdown-item" href="#">Add New User</a>
+          <a class="dropdown-item" href="#">Add New Employee</a>
         </div>
       </li>
       @endif
@@ -67,8 +68,9 @@
           {{ Auth::user()->name }} <span class="caret"></span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item" href="#">Users</a>
+          <a class="dropdown-item" href="#">Manage Profile</a>
+          <a class="dropdown-item" href="{{ route('company.edit') }}">Company Settings</a>
+          <a class="dropdown-item" href="#">Manage Employees</a>
            <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">Logout</a>

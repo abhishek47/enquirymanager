@@ -59,6 +59,26 @@ const app = new Vue({
 				  .catch(function (error) {
 				    console.log(error);
 				  });
+    	},
+
+    	deleteVehicle(id)
+    	{
+    		var r = confirm("Are you sure, you want to delete the vehicle?");
+			if (r == true) {
+			    axios.post('/vehicles/delete/' + id, {
+				    id: id,
+				  })
+				  .then(function (response) {
+				  	$('#vehicle-' + id).hide(); 
+				  	swal('Vehicle Deleted', '', 'success');
+				    console.log(response);
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+				  });
+			} else {
+			   
+			}
     	}
 
 
