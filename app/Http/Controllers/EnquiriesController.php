@@ -144,7 +144,7 @@ class EnquiriesController extends Controller
 
         flash('<b>Enquiry #' . $enquiry->id . '</b> Updated successfully!')->success();
 
-        return redirect('/enquiries');
+        return back();
     }
 
     /**
