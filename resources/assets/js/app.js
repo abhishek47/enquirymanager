@@ -79,6 +79,26 @@ const app = new Vue({
 			} else {
 			   
 			}
+    	},
+
+    	deleteEmployee(id)
+    	{
+    		var r = confirm("Are you sure, you want to delete the employee?");
+			if (r == true) {
+			    axios.post('/employees/delete/' + id, {
+				    id: id,
+				  })
+				  .then(function (response) {
+				  	$('#employee-' + id).hide(); 
+				  	swal('Employee Deleted', '', 'success');
+				    console.log(response);
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+				  });
+			} else {
+			   
+			}
     	}
 
 

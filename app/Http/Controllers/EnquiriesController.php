@@ -29,16 +29,20 @@ class EnquiriesController extends Controller
      */
     public function index(Request $request)
     {
+        
         $title = 'All Enquiries';
-    	$date = Carbon::today()->format('Y-m-d');
+    	
+        $date = '';
+        
+        $enquiries = auth()->user()->company->enquiries();
     	
     	if($request->has('date'))
     	{
     		$date = (new Carbon($request->get('date')))->format('Y-m-d');
+            $enquiries = auth()->user()->company->enquiries()->whereDate('created_at', $date)->latest();
     	}
 
-    	$enquiries = auth()->user()->company->enquiries()->whereDate('created_at', $date)->latest();
-
+    	
         if($request->has('cat'))
         {
             $cat = $request->get('cat');

@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role', 'company_id'
     ];
 
     /**
@@ -37,5 +37,20 @@ class User extends Authenticatable
      public function enquiries()
     {
         return $this->hasMany(Enquiry::class);
+    }
+
+    public static function findOrCreate($data)
+    {
+       $user = static::where('email', $data['email'])->first();
+       if(!$user)
+       {
+            $user =  static::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'role' => $data['role'],
+            'password' => bcrypt('123456'),
+        ]);
+       } 
+       return $user;
     }
 }

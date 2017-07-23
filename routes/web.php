@@ -46,3 +46,9 @@ Route::get('/vehicles/edit/{vehicle}', 'VehiclesController@edit')->name('vehicle
 Route::post('/vehicles/delete/{vehicle}', 'VehiclesController@destroy')->name('vehicles.delete');
 Route::post('/vehicles/update/{vehicle}', 'VehiclesController@update')->name('vehicles.update');
 
+Route::get('/employees', 'EmployeesController@index')->name('employees');
+Route::get('/employees/create', 'EmployeesController@create')->name('employees.create');
+Route::post('/employees/store', 'EmployeesController@store')->name('employees.store');
+Route::get('/employees/edit/{user}', 'EmployeesController@edit')->name('employees.edit');
+Route::post('/employees/delete/{user}', 'EmployeesController@destroy')->name('employees.delete');
+Route::post('/employees/update/{user}', 'EmployeesController@update')->name('employees.update');

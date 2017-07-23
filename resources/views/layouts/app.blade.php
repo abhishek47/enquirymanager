@@ -37,8 +37,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="{{ route('enquiries.create') }}">Add New Enquiry</a>
           <a class="dropdown-item" href="{{ route('vehicles.create') }}">Add New Vehicle</a>
-          <a class="dropdown-item" href="#">Create New Campaign</a>
-          <a class="dropdown-item" href="#">Add New Employee</a>
+        <!--  <a class="dropdown-item" href="#">Create New Campaign</a> -->
+          <a class="dropdown-item" href="{{ route('employees.create') }}">Add New Employee</a>
         </div>
       </li>
       @endif
@@ -60,8 +60,12 @@
       <li class="nav-item ">
         <a class="nav-link" href="/vehicles">Vehicles</a>
       </li>
-      <li class="nav-item ">
+    <!--  <li class="nav-item ">
         <a class="nav-link" href="#">Campaigns</a>
+      </li> -->
+
+      <li class="nav-item ">
+        <a class="nav-link" href="/employees">Employees</a>
       </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
