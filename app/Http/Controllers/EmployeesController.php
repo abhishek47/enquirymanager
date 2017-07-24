@@ -103,7 +103,7 @@ class EmployeesController extends Controller
 	}
 
 
-    public function update(SubmitUserRequest $request, User $user)
+    public function update(Request $request, User $user)
     {
     	$data = $request->all();
 

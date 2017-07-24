@@ -61,6 +61,22 @@
               </div>
 
 
+              <br>
+
+              <div class="row justify-content-center">
+                <div class="col-md-6">
+                  <div class="card">
+                      <div class="card-block">
+                          <div class="card-title"><b>Vehicle Wise Stats</b></div>
+
+                          <canvas id="vwiseChart" width="400" height="300"></canvas>
+                      </div>
+                  </div>
+                </div>
+               
+              </div>
+
+
               <br><br><br>
 
 
@@ -79,25 +95,20 @@ var myChart = new Chart(ctx, {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
         datasets: [{
             label: 'Count of Enquiries',
+            data: [20, 25, 8, 16, 12, 24, 28],
+            backgroundColor:'rgba(255, 99, 132, 0.2)',
+               
+            borderColor: 'rgba(255,99,132,1)',
+          
+            borderWidth: 1
+        },
+        {
+            label: 'Count of Sales',
             data: [12, 19, 3, 5, 2, 14, 18],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)'
-            ],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            
+            borderColor: 'rgba(75, 192, 192, 1)',
+            
             borderWidth: 1
         }]
     },
@@ -170,6 +181,75 @@ var myChart = new Chart(ctx, {
         options: {
             responsive: true
         }
+});
+</script>
+
+
+
+<script>
+var ctx = document.getElementById("epwiseChart");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Rahul Bhat", "Ajay Shetty", "Ravi Sonawane", "Sunny Pande"],
+        datasets: [{
+            label: 'Count of Sales',
+            data: [12, 19, 3, 24],
+            backgroundColor: [
+                'rgba(64, 64, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<script>
+var ctx = document.getElementById("vwiseChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Maestro", "Splendor", "Achiever", "Passion Pro", "Ignitor", "Karizma"],
+        datasets: [{
+            label: 'Count of Enquiries',
+            data: [20, 25, 8, 16, 12, 24, 28],
+            backgroundColor: 'rgb(255, 99, 132)',
+            
+            borderColor: 'rgb(255, 99, 132)',
+            
+            borderWidth: 1
+        },
+        {
+            label: 'Count of Sales',
+            data: [12, 19, 3, 5, 2, 14, 18],
+            backgroundColor: 'rgb(100, 99, 255)',
+            
+            borderColor: 'rgb(100, 99, 255)',
+            
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
 });
 </script>
 

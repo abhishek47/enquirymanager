@@ -16,9 +16,14 @@ class CompanyDetailsAdded
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::user()->company) {
-            return redirect('company/register');
-        }
+        if(Auth::user()->role == 0)
+        {
+
+            if (!Auth::user()->company) {
+                return redirect('company/register');
+            }
+
+         }
 
         return $next($request);
     }

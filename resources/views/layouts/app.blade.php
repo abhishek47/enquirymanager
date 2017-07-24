@@ -36,9 +36,11 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="{{ route('enquiries.create') }}">Add New Enquiry</a>
+           @if(auth()->user()->isAdmin())
           <a class="dropdown-item" href="{{ route('vehicles.create') }}">Add New Vehicle</a>
         <!--  <a class="dropdown-item" href="#">Create New Campaign</a> -->
           <a class="dropdown-item" href="{{ route('employees.create') }}">Add New Employee</a>
+          @endif
         </div>
       </li>
       @endif
@@ -54,9 +56,15 @@
     <li class="nav-item">
         <a class="nav-link" href="/enquiries">Enquiries</a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href="/statistics">Statistics</a>
       </li>
+
+      
+       @if(auth()->user()->isAdmin())
+      
+      
       <li class="nav-item ">
         <a class="nav-link" href="/vehicles">Vehicles</a>
       </li>
@@ -67,14 +75,18 @@
       <li class="nav-item ">
         <a class="nav-link" href="/employees">Employees</a>
       </li>
+
+      @endif
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{ Auth::user()->name }} <span class="caret"></span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Manage Profile</a>
+          @if(auth()->user()->isAdmin())
           <a class="dropdown-item" href="{{ route('company.edit') }}">Company Settings</a>
           <a class="dropdown-item" href="#">Manage Employees</a>
+          @endif
            <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">Logout</a>

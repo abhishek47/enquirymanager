@@ -88,7 +88,7 @@
 
   
 
-
+          @if(auth()->user()->isAdmin())
             <div class="row justify-content-center">
                 <div class="col-md">
                   <div class="card">
@@ -111,6 +111,11 @@
               </div>
               
               <br>
+
+
+              @endif
+
+
              <div class="card">
                 <div class="card-block">
                 <div class="card-title"><h4>Enquiries <small style="font-size: 15px;"><a href="/enquiries">View All Enquiries</a></small></h4></div>

@@ -31,7 +31,11 @@ class User extends Authenticatable
 
     public function company()
     {
-        return $this->hasOne(Company::class);
+        if($this->role == 0) {
+          return $this->hasOne(Company::class);
+        } else {
+            return $this->belongsTo(Company::class);
+        }
     }
 
      public function enquiries()
@@ -52,5 +56,11 @@ class User extends Authenticatable
         ]);
        } 
        return $user;
+    }
+
+
+    public function isAdmin()
+    {
+        return $this->role == 0 ? true : false;
     }
 }
