@@ -40,7 +40,11 @@ class User extends Authenticatable
 
      public function enquiries()
     {
-        return $this->hasMany(Enquiry::class);
+        if($this->role == 0) {
+          return $this->hasMany(Enquiry::class);
+        } else {
+            return $this->hasMany(Enquiry::class)->where('user_id', auth()->id());
+        }
     }
 
     public static function findOrCreate($data)

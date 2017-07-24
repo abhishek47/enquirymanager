@@ -16,7 +16,7 @@
         max-width:800px;
         margin:auto;
         padding:30px;
-        border:1px solid #eee;
+        border:1px solid #000;
         box-shadow:0 0 10px rgba(0, 0, 0, .15);
         font-size:16px;
         line-height:24px;
@@ -41,7 +41,7 @@
 
     .invoice-box table tr.top table td{
         padding-bottom:20px;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #000;
     }
     
     .invoice-box table tr.top table td.title{
@@ -56,7 +56,7 @@
     
     .invoice-box table tr.heading td{
         background:#eee;
-        border-bottom:1px solid #ddd;
+        border-bottom:1px solid #000;
         font-weight:bold;
     }
     
@@ -65,7 +65,7 @@
     }
     
     .invoice-box table tr.item td{
-        border-bottom:1px solid #eee;
+        border-bottom:1px solid #000;
     }
     
     .invoice-box table tr.item.last td{
@@ -73,7 +73,7 @@
     }
     
     .invoice-box table tr.total td:nth-child(2){
-        border-top:2px solid #eee;
+        border-top:2px solid #000;
         font-weight:bold;
     }
     

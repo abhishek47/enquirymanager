@@ -85,7 +85,7 @@
           <a class="dropdown-item" href="#">Manage Profile</a>
           @if(auth()->user()->isAdmin())
           <a class="dropdown-item" href="{{ route('company.edit') }}">Company Settings</a>
-          <a class="dropdown-item" href="#">Manage Employees</a>
+          <a class="dropdown-item" href="/employees">Manage Employees</a>
           @endif
            <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
