@@ -23,7 +23,7 @@ class Company extends Model
 
     public function enquiries()
     {
-    	if(auth()->user()->isAdmin()) {
+    	if(auth()->user()->role < 2) {
          return $this->hasMany(Enquiry::class);
        } else {
        	 return $this->hasMany(Enquiry::class)->where('user_id', auth()->id());

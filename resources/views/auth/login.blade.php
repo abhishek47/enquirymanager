@@ -47,16 +47,16 @@
                             
                         </div>
 
-                        <div class="form-group">
-                                <button type="submit" class="btn btn-success">
+                        <button type="submit" class="btn btn-success" style="display:block;width: 100%;">
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                
+
+                                <a class="btn btn-link" href="{{ route('password.request') }}" style="display:block;width:50%;margin:0 auto;margin-top: 8px;">
                                     Forgot Your Password?
                                 </a>
-                            
-                        </div>
+                       
                     </form>
                 </div>
             </div>

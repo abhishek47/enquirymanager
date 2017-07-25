@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect('/login');
 });
 
 Auth::routes();
@@ -43,6 +44,7 @@ Route::get('/vehicles', 'VehiclesController@index')->name('vehicles');
 Route::get('/vehicles/create', 'VehiclesController@create')->name('vehicles.create');
 Route::post('/vehicles/store', 'VehiclesController@store')->name('vehicles.store');
 Route::get('/vehicles/edit/{vehicle}', 'VehiclesController@edit')->name('vehicles.edit');
+Route::get('/vehicles/cost/{vehicle}', 'VehiclesController@cost')->name('vehicles.cost');
 Route::post('/vehicles/delete/{vehicle}', 'VehiclesController@destroy')->name('vehicles.delete');
 Route::post('/vehicles/update/{vehicle}', 'VehiclesController@update')->name('vehicles.update');
 

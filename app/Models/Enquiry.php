@@ -15,7 +15,7 @@ class Enquiry extends Model
      */
     protected $fillable = [
 
-        'company_id', 'name', 'vehicle_cost', 'rto_charges', 'insuarance_charges', 'accessories', 'hpa_charges', 'address', 'phone', 'buy_date', 'contact_date', 'vehicle_color', 'total', 'payment_type', 'occupation', 'vehicle_id'
+        'company_id', 'name', 'vehicle_cost', 'rto_charges', 'insuarance_charges', 'hpa_charges', 'address', 'phone', 'buy_date', 'contact_date', 'vehicle_color', 'total', 'payment_type', 'occupation', 'vehicle_id'
     ];
 
     public function company()
@@ -25,7 +25,7 @@ class Enquiry extends Model
 
     public function creator()
     {
-    	return $this->belongsTo(User::class);
+    	return $this->belongsTo(User::class, 'user_id');
     }
 
     public function vehicle()

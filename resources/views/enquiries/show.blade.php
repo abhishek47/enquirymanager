@@ -120,30 +120,21 @@
                     <table>
                         <tr>
                             <td>
-                                <p><b>Name :</b> {{ $enquiry->name }}<br></p>
-                                <p><b>Address :</b> {{ $enquiry->address }}<br></p>
-                                <p><b>Phone :</b> {{ $enquiry->phone }}<br></p>
+                                <b>Name :</b> {{ $enquiry->name }}<br>
+                                <b>Address :</b> {{ $enquiry->address }}<br>
+                                <b>Phone :</b> {{ $enquiry->phone }}<br>
                                <!-- <b>Vehicle Model : </b> {{ $enquiry->vehicle_id }} | {{ $enquiry->vehicle_color }} -->
                                 <b>Vehicle Model : </b> Maestro | White Color
                             </td>
 
                             <td>
-                                <p><b>Quotation #: </b>{{ $enquiry->id }}<br></p>
+                                <b>Quotation #: </b>{{ $enquiry->id }}<br>
                                 <b>Created:</b> {{ $enquiry->created_at->format('M d, Y') }}<br>
                           </td>
                             
                         </tr>
-                       
-                          
-                        
-                    </table>
-                </td>
-            </tr>
 
-            <tr class="information">
-              <td colspan="2">
-                      <table>
-                          <tr>
+                        <tr>
                               <td>
                                   <b>Expected Date :</b> {{ $enquiry->buy_date }}
                               </td>
@@ -151,9 +142,14 @@
                               <td><b>Contact Date :</b> {{ $enquiry->contact_date }}</td>
                               
                           </tr>
-                      </table>
-                  </td>
-            </tr>    
+                       
+                          
+                        
+                    </table>
+                </td>
+            </tr>
+
+               
 
           
             
@@ -217,7 +213,7 @@
                 </td>
             </tr>
 
-            <tr class="item">
+            <tr class="item last">
                 <td>
                     H.P.A.
                 </td>
@@ -227,15 +223,7 @@
                 </td>
             </tr>
 
-            <tr class="item last">
-                <td>
-                    Accessories
-                </td>
-                
-                <td>
-                    Rs. {{ $enquiry->accessories }}
-                </td>
-            </tr>
+           
             
             <tr class="total">
                 <td></td>
@@ -246,5 +234,9 @@
             </tr>
         </table>
     </div>
+
+    <script type="text/javascript">
+      window.print();
+    </script>
 </body>
 </html>

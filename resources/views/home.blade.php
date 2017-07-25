@@ -59,6 +59,7 @@
           </div>
       </a>
     </div>
+    @if(auth()->user()->isAdmin())
     <div class="col-md">
       <a href="/enquiries?cat=1" class="card bg-success" style="color: #fff;">
            <div class="card-block">
@@ -75,6 +76,7 @@
            </div>
       </a>
     </div>
+    @endif
     <div class="col-md">
       <a href="/followups" class="card bg-info" style="color: #fff;">
            <div class="card-block" >
@@ -88,32 +90,6 @@
 
   
 
-          @if(auth()->user()->isAdmin())
-            <div class="row justify-content-center">
-                <div class="col-md">
-                  <div class="card">
-                      <div class="card-block">
-                          <div class="card-title"><b>Last 7 Days</b></div>
-
-                          <canvas id="weekChart" width="400" height="300"></canvas>
-                      </div>
-                  </div>
-                </div>
-                <div class="col-md">
-                  <div class="card" >
-                       <div class="card-block">
-                           <div class="card-title"><b>Monthly Stats</b></div>
-                            <canvas id="monthChart" width="400" height="300"></canvas>
-                       </div>
-                  </div>
-                </div>
-                
-              </div>
-              
-              <br>
-
-
-              @endif
 
 
              <div class="card">
@@ -127,9 +103,11 @@
                           <th>#</th>
                           <th>Name</th>
                           <th>Phone</th>
-                          <th>Contact Date</th>
+                          <th>Enquiry To</th>
                           <th>Model</th>
+                          @if(auth()->user()->role < 2)
                           <th>Actions</th>
+                          @endif
                         </tr>
                       </thead>
                       <tbody>
@@ -140,12 +118,16 @@
                               <th scope="row">{{ $enquiry->id }}</th>
                               <td>{{ $enquiry->name }}</td>
                               <td>{{ $enquiry->phone }}</td>
-                              <td>{{ $enquiry->contact_date }}</td>
+                              <td>{{ $enquiry->creator->name }}</td>
                               <td>{{ $enquiry->vehicle->name }}</td>
+                                @if(auth()->user()->isAdmin())
                               <td><a target="_blank" href="{{ route('enquiries.show', ['enquiry' => $enquiry->id ])}}" class="btn btn-primary btn-sm">View</a> 
                                   <a href="{{ route('enquiries.edit', ['enquiry' => $enquiry->id ])}}" class="btn btn-success btn-sm">Edit</a> 
                                   <a href="#" @click="deleteEnquiry({{ $enquiry->id  }})" class="btn btn-danger btn-sm">Delete</a>
                               </td>
+                              @elseif(auth()->user()->role == 1)
+                                 <td><a target="_blank" href="{{ route('enquiries.show', ['enquiry' => $enquiry->id ])}}" class="btn btn-primary btn-sm">Print Quote</a> </td>
+                              @endif
                             </tr>
 
                         @endforeach

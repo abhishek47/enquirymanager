@@ -38,6 +38,51 @@
                           
                         </div>
 
+                        <div class="form-group{{ $errors->has('vehicle_cost') ? ' has-error' : '' }}">
+                            <label for="vehicle_cost" class="control-label">Vehicle Cost</label>
+
+                            
+                                <input id="vehicle_cost" type="text" class="form-control" name="vehicle_cost" 
+                                 value="{{ old('vehicle_cost') ? old('vehicle_cost') : $vehicle->vehicle_cost }}" required autofocus>
+
+                                @if ($errors->has('vehicle_cost'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('vehicle_cost') }}</strong>
+                                    </span>
+                                @endif
+                          
+                        </div>
+
+                         <div class="form-group{{ $errors->has('rto_charges') ? ' has-error' : '' }}">
+                            <label for="rto_charges" class="control-label">R.T.O Charges</label>
+
+                            
+                                <input id="rto_charges" type="text" class="form-control" name="rto_charges" 
+                                  value="{{ old('rto_charges') ? old('rto_charges') : $vehicle->rto_charges }}" required autofocus>
+
+                                @if ($errors->has('rto_charges'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('rto_charges') }}</strong>
+                                    </span>
+                                @endif
+                          
+                        </div>
+
+                         <div class="form-group{{ $errors->has('insuarance_charges') ? ' has-error' : '' }}">
+                            <label for="insuarance_charges" class="control-label">Insuarance Charges</label>
+
+                            
+                                <input id="insuarance_charges" type="text" class="form-control" name="insuarance_charges" value="{{ old('insuarance_charges') ? old('insuarance_charges') : $vehicle->insuarance_charges }}" required autofocus>
+
+                                @if ($errors->has('insuarance_charges'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('insuarance_charges') }}</strong>
+                                    </span>
+                                @endif
+                          
+                        </div>
+
+
                         
 
 

@@ -30,7 +30,6 @@ class CreateEnquiriesTable extends Migration
             $table->double('rto_charges');
             $table->double('insuarance_charges');
             $table->double('hpa_charges');
-            $table->double('accessories');
             $table->double('total');
 
             $table->integer('status')->default(0);

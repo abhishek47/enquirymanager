@@ -19,6 +19,8 @@ class EnquiriesController extends Controller
         $this->middleware('auth');
         
         $this->middleware('company-registered');
+
+        $this->middleware('is-staff')->except('create');
         
     }
 
@@ -30,18 +32,26 @@ class EnquiriesController extends Controller
     public function index(Request $request)
     {
         
-        $title = 'All Enquiries';
-    	
+        $title = 'All Enquiries - ';
+
         $date = '';
         
         $enquiries = auth()->user()->company->enquiries();
+
+        if($request->has('phone'))
+        {
+        	$enquiries->where('phone', $request->get('phone'));
+        	$title = 'Enquiries by "' . $request->get('phone') . '"';
+        }
     	
-    	if($request->has('date'))
+        if($request->has('date'))
     	{
     		$date = (new Carbon($request->get('date')))->format('Y-m-d');
-            $enquiries = auth()->user()->company->enquiries()->whereDate('created_at', $date)->latest();
+    		$enquiries = $enquiries->whereDate('created_at', $date);
+           
     	}
-
+        
+         
     	
         if($request->has('cat'))
         {
@@ -56,7 +66,7 @@ class EnquiriesController extends Controller
             $enquiries = $enquiries->where('status', $cat);
         }
 
-        $enquiries = $enquiries->get();
+        $enquiries = $enquiries->latest()->get();
 
     	return view('enquiries.index', compact('enquiries', 'date', 'title'));
 
@@ -112,7 +122,7 @@ class EnquiriesController extends Controller
 
         $data['company_id'] = auth()->user()->company->id;
          
-        $data['total'] = $data['vehicle_cost'] + $data['rto_charges'] + $data['insuarance_charges'] + $data['hpa_charges'] + $data['accessories'];
+        $data['total'] = $data['vehicle_cost'] + $data['rto_charges'] + $data['insuarance_charges'] + $data['hpa_charges'] ;
 
        
         $enq = auth()->user()->enquiries()->create($data);

@@ -99,6 +99,47 @@ const app = new Vue({
 			} else {
 			   
 			}
+    	},
+
+    	loadCost()
+    	{
+    		    var select = document.getElementById("vehicle_id");
+    		    var id = select.options[select.selectedIndex].value;
+			    axios.get('/vehicles/cost/' + id, {
+				    id: id,
+				  })
+				  .then(function (response) {
+				  	$('#vehicle_cost').val(response.data.vehicle_cost);
+				  	$('#rto_charges').val(response.data.rto_charges); 
+				  	$('#insuarance_charges').val(response.data.insuarance_charges);
+				  	$('#total').val(response.data.vehicle_cost + response.data.insuarance_charges + response.data.rto_charges + parseInt($('#hpa_charges').val())); 
+
+				    console.log(response.data);
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+				  });
+			
+    	},
+
+    	loadHpa()
+    	{
+    		    var select = document.getElementById("payment_type");
+    		    var val = select.options[select.selectedIndex].value;
+
+    		    if(val > 0) {
+
+    		       $('#hpa_charges').val(500);
+
+    		    } else {
+    		    	$('#hpa_charges').val(0);
+    		    }
+
+    		    $('#total').val(parseInt($('#vehicle_cost').val()) + parseInt($('#insuarance_charges').val()) + parseInt($('#rto_charges').val()) + parseInt($('#hpa_charges').val())); 
+
+                
+			   
+			
     	}
 
 

@@ -18,11 +18,14 @@
    
     <div class="row">
                      <div class="col col-sm-8">
-                      <h4>{{$title}} - {{ $date }} </h4>
+                      <h4>{{$title}} {{ $date }} </h4>
                        
                      </div>
                      <div class="col col-sm-4">
-                        <a href="{{ route('enquiries.create') }}" class="btn btn-success float-right">Add New Enquiry</a>
+                      <span class="float-right">
+                      <a href="{{ Request::url() }}" class="btn btn-primary ">Reload</a> 
+                        <a href="{{ route('enquiries.create') }}" class="btn btn-success ">Add New Enquiry</a>
+                        </span>
                      </div>
 
                    </div>
@@ -36,12 +39,37 @@
                 <div class="card-title"> 
                    <div class="row">
                      <div class="col col-sm-8">
+                     <form method="GET" action="{{ Request::url() }}" class="form-inline" style="width: 100%;">
+                          <select class="form-control" name="employee" style="margin-right: 4px;width: 200px;">
+                            <option value="all" {{request('employee') == 'all' ? 'selected' : '' }}>All</option>
+                            <option value="1" {{request('employee') == '1' ? 'selected' : '' }}>Rahul</option>
+                            <option value="2" {{request('employee') == '2' ? 'selected' : '' }}>Irfan</option>
+                            <option value="3" {{request('employee') == '3' ? 'selected' : '' }}>Amit</option>
+                            <option value="4" {{request('employee') == '4' ? 'selected' : '' }}>Ashish</option>
+                          </select>
+                          @if(Request::has('phone'))
+                          <input type="hidden" name="phone" value="{{ request('phone') }}">
+                        @endif
+                          @if(Request::has('cat'))
+                          <input type="hidden" name="cat" value="{{ request('cat') }}">
+                        @endif
+                         @if(Request::has('date'))
+                          <input type="hidden" name="date" value="{{ request('date') }}">
+                        @endif
+                          <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
                         
                      </div>
                      <div class="col col-sm-4">
                         <form method="GET" action="/enquiries" class="form-inline float-right">
+                         @if(Request::has('phone'))
+                          <input type="hidden" name="phone" value="{{ request('phone') }}">
+                        @endif
                          @if(Request::has('cat'))
                           <input type="hidden" name="cat" value="{{ request('cat') }}">
+                        @endif
+                         @if(Request::has('employee'))
+                          <input type="hidden" name="employee" value="{{ request('employee') }}">
                         @endif  
                           <input type="date" value="{{ $date }}" name="date" id="date" class="form-control" style="margin-right: 4px;">
                           <button type="submit" class="btn btn-primary">Submit</button>
@@ -57,7 +85,7 @@
                           <th>#</th>
                           <th>Name</th>
                           <th>Phone</th>
-                          <th>Contact Date</th>
+                          <th>Enquiry To</th>
                           <th>Model</th>
                           <th>Actions</th>
                         </tr>
@@ -70,12 +98,18 @@
                               <th scope="row">{{ $enquiry->id }}</th>
                               <td>{{ $enquiry->name }}</td>
                               <td>{{ $enquiry->phone }}</td>
-                              <td>{{ $enquiry->contact_date }}</td>
+                              <td>{{ $enquiry->creator->name }}</td>
                               <td>{{ $enquiry->vehicle->name }}</td>
+                               @if(auth()->user()->isAdmin())
                               <td><a target="_blank" href="{{ route('enquiries.show', ['enquiry' => $enquiry->id ])}}" class="btn btn-primary btn-sm">View</a> 
                                   <a href="{{ route('enquiries.edit', ['enquiry' => $enquiry->id ])}}" class="btn btn-success btn-sm">Edit</a> 
                                   <a href="#" @click="deleteEnquiry({{ $enquiry->id  }})" class="btn btn-danger btn-sm">Delete</a>
                               </td>
+                              @elseif(auth()->user()->role == 1)
+
+                                 <td><a href="{{ route('enquiries.edit', ['enquiry' => $enquiry->id ])}}" class="btn btn-success btn-sm">Edit</a> <a target="_blank" href="{{ route('enquiries.show', ['enquiry' => $enquiry->id ])}}" class="btn btn-primary btn-sm">Print Quote</a> </td>
+                              @endif
+                            </tr>
                             </tr>
 
                         @endforeach

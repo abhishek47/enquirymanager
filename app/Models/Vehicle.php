@@ -13,7 +13,7 @@ class Vehicle extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name', 'vehicle_cost', 'rto_charges', 'insuarance_charges'
     ];
 
     public function company()

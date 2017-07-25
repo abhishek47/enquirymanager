@@ -24,7 +24,15 @@ class SubmitEnquiryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+            'name' => 'required',
+            'phone' => 'required',
+            'contact_date' => 'required',
+            'buy_date' => 'required',
+            'vehicle_id' => 'required',
+            'payment_type' => 'required',
+            'occupation' => 'required',
+            'address' => 'required',
+            'vehicle_color' => 'required'
         ];
     }
 }

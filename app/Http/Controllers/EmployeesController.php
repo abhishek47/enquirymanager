@@ -17,6 +17,8 @@ class EmployeesController extends Controller
         $this->middleware('auth');
         
         $this->middleware('company-registered');
+
+        $this->middleware('is-staff');
         
     }
 

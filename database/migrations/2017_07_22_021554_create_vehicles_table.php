@@ -17,6 +17,9 @@ class CreateVehiclesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('company_id');
+            $table->double('vehicle_cost');
+            $table->double('rto_charges');
+            $table->double('insuarance_charges');
             $table->timestamps();
         });
     }

@@ -17,6 +17,8 @@ class VehiclesController extends Controller
         $this->middleware('auth');
         
          $this->middleware('company-registered');
+
+         $this->middleware('is-staff');
         
     }
 
@@ -46,6 +48,11 @@ class VehiclesController extends Controller
     public function edit(Vehicle $vehicle)
     {
     	return view('vehicles.edit', compact('vehicle'));
+    }
+
+     public function cost(Vehicle $vehicle)
+    {
+    	return $vehicle;
     }
 
 

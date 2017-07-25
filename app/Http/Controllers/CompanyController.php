@@ -15,6 +15,8 @@ class CompanyController extends Controller
     {
         $this->middleware('auth');
 
+        $this->middleware('is-staff');
+
 
     }
 

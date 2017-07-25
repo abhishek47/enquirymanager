@@ -17,9 +17,11 @@ class StatisticsController extends Controller
         $this->middleware('auth');
         
          $this->middleware('company-registered');
+
+         $this->middleware('is-staff');
         
     }
-    
+
     public function index()
     {
     	return view('statistics.index');
