@@ -30,7 +30,7 @@
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                
                                     <label for="name" class="control-label">Name</label>
-                                    <input id="name" placeholder="Enquirer Name" type="text" class="form-control{{ $errors->has('name') ? ' form-control-danger' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                    <input id="name" placeholder="Enquirer Name" type="text" class="form-control{{ $errors->has('name') ? ' form-control-danger' : '' }}" name="name" value="{{ old('name') }}" autocomplete="off" required autofocus>
 
                                     @if ($errors->has('name'))
                                         <span class="form-control-feedback">
@@ -46,7 +46,7 @@
                             <div class="form-group{{ $errors->has('phone') ? ' has-danger' : '' }}">
                                
                                     <label for="phone" class="control-label">Contact Number</label>
-                                    <input id="phone" placeholder="Ex.: 9922367414" type="text" class="form-control{{ $errors->has('phone') ? ' form-control-danger' : '' }}" name="phone" value="{{ old('phone') }}" required>
+                                    <input id="phone" placeholder="Ex.: 9922367414" type="number" class="form-control{{ $errors->has('phone') ? ' form-control-danger' : '' }}" name="phone" value="{{ old('phone') }}" autocomplete="off" required>
 
                                     @if ($errors->has('phone'))
                                         <span class="form-control-feedback">
@@ -98,7 +98,7 @@
                             <div class="form-group{{ $errors->has('address') ? ' has-danger' : '' }}">
                                
                                     <label for="address" class="control-label">Address</label>
-                                    <textarea id="address" rows="3" placeholder="Enquires's Permanent Address"  class="form-control {{ $errors->has('address') ? ' form-control-danger' : '' }}" name="address">{{ old('address') }}</textarea>
+                                    <textarea id="address" rows="3" placeholder="Enquires's Permanent Address"  class="form-control {{ $errors->has('address') ? ' form-control-danger' : '' }}" autocomplete="off" name="address">{{ old('address') }}</textarea>
 
                                     @if ($errors->has('address'))
                                         <span class="form-control-feedback">
@@ -185,7 +185,7 @@
                             <div class="form-group{{ $errors->has('vehicle_color') ? ' has-danger' : '' }}">
                                
                                     <label for="vehicle_color" class="control-label">Vehicle Color (Preference)</label>
-                                     <input id="vehicle_color" placeholder="Ex.: White" type="text" class="form-control {{ $errors->has('vehicle_color') ? ' form-control-danger' : '' }}" name="vehicle_color" 
+                                     <input id="vehicle_color" autocomplete="off" placeholder="Ex.: White" type="text" class="form-control {{ $errors->has('vehicle_color') ? ' form-control-danger' : '' }}" name="vehicle_color" 
                                      value="{{ old('vehicle_color') }}">
 
                                     @if ($errors->has('vehicle_color'))
