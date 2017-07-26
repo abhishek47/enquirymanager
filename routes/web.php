@@ -28,7 +28,8 @@ Route::post('/company/update', 'CompanyController@update')->name('company.update
 
 Route::get('/enquiries', 'EnquiriesController@index')->name('enquiries');
 Route::get('/enquiries/new', 'EnquiriesController@create')->name('enquiries.create');
-Route::get('/enquiries/{enquiry}', 'EnquiriesController@show')->name('enquiries.show');
+Route::get('/enquiries/{enquiry}', 'EnquiriesController@show')->name('enquiries.show'
+Route::get('/enquiries/recorded/{enquiry}', 'EnquiriesController@recorded')->name('enquiries.recorded');
 Route::get('/enquiries/print/{enquiry}', 'EnquiriesController@print')->name('enquiries.print');
 Route::get('/enquiries/print/{enquiry}/view', 'EnquiriesController@printview')->name('enquiries.printview');
 Route::get('/enquiries/edit/{enquiry}', 'EnquiriesController@edit')->name('enquiries.edit');

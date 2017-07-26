@@ -20,7 +20,7 @@ class EnquiriesController extends Controller
         
         $this->middleware('company-registered');
 
-        $this->middleware('is-staff')->except('create', 'store');
+        $this->middleware('is-staff')->except('create', 'store', 'recorded');
         
     }
 
@@ -127,14 +127,20 @@ class EnquiriesController extends Controller
        
         $enq = auth()->user()->enquiries()->create($data);
 
-        flash('<h3>Enquiry ID : <b>' . $enq->id . '</b></h3>', 'Enquiry Recorded')->success();
+        flash('<h3>Enquiry Recorded!Enquiry ID : <b>' . $enq->id . '</b></h3>')->success();
         
         if(auth()->user()->role < 2){
             return redirect('/enquiries');
         } else {
-            return redirect('/enquiries/new');
+            return redirect('/enquiries/recorded/' . $enq->id);
         }
         
+    }
+    
+    public function recorded(Enquiry $enquiry)
+    {
+       $enq = $enquiry;
+        return view('enquiries.recorded', compact('enq'));
     }
 
 
