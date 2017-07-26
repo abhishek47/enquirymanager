@@ -20,7 +20,7 @@ class EnquiriesController extends Controller
         
         $this->middleware('company-registered');
 
-        $this->middleware('is-staff')->except('create');
+        $this->middleware('is-staff')->except('create', 'store');
         
     }
 

@@ -18,7 +18,7 @@ class VehiclesController extends Controller
         
          $this->middleware('company-registered');
 
-         $this->middleware('is-staff');
+         $this->middleware('is-staff')->except('cost');
         
     }
 
