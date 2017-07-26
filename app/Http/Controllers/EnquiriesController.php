@@ -132,7 +132,7 @@ class EnquiriesController extends Controller
         if(auth()->user()->role < 2){
             return redirect('/enquiries');
         } else {
-            return redirect('/enquiries/create');
+            return redirect('/enquiries/new');
         }
         
     }
