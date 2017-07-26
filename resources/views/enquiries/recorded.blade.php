@@ -23,11 +23,13 @@
                      <div class="card-title"><h2>Enquiry Recorded</h2></div>
                      <hr>
 
-                     <h3><b># ID : </b> {{ $enq->id }}</h3>
+                     <p style="margin-bottom: 3px;"><b># ID : </b> {{ $enq->id }}</p>
 
-                     <h3><b>Name : </b> {{ $enq->name }}</h3>
+                     <p style="margin-bottom: 3px;"><b>Name : </b> {{ $enq->name }}</p>
 
-                     <h3><b>Phone : </b> {{ $enq->phone }}</h3>
+                     <p style="margin-bottom: 3px;"><b>Phone : </b> {{ $enq->phone }}</p>
+
+                     <hr>
 
                      <p><a href="/enquiries/new" class="btn btn-success">Create New Enquiry</a></p>
 

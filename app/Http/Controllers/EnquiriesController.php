@@ -127,9 +127,9 @@ class EnquiriesController extends Controller
        
         $enq = auth()->user()->enquiries()->create($data);
 
-        flash('<h3>Enquiry Recorded!Enquiry ID : <b>' . $enq->id . '</b></h3>')->success();
-        
+      
         if(auth()->user()->role < 2){
+            flash('<h3>Enquiry Recorded!Enquiry ID : <b>' . $enq->id . '</b></h3>')->success();
             return redirect('/enquiries');
         } else {
             return redirect('/enquiries/recorded/' . $enq->id);
