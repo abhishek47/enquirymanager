@@ -128,8 +128,13 @@ class EnquiriesController extends Controller
         $enq = auth()->user()->enquiries()->create($data);
 
         flash()->overlay('<h3>Enquiry ID : <b>' . $enq->id . '</b></h3>', 'Enquiry Recorded');
-
-        return redirect('/enquiries');
+        
+        if(auth()->user()->role < 2){
+            return redirect('/enquiries');
+        } else {
+            return redirect('/enquiries/create');
+        }
+        
     }
 
 
