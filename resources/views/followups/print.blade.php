@@ -55,7 +55,8 @@
     }
     
     .invoice-box table tr.heading td{
-        background:#eee;
+        background:#000;
+        color: #fff;
         border-bottom:1px solid #000;
         font-weight:bold;
     }
