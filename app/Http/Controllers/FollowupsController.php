@@ -41,7 +41,7 @@ class FollowupsController extends Controller
 
         if($request->has('employee'))
         {
-            $followups->where('employee', $request->get('employee'));
+            $followups->where('user_id', $request->get('employee'));
         }
 
     	$followups = $followups->get();
