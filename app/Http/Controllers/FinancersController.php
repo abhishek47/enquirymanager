@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Financer;
+use App\Models\Financer;
 use Illuminate\Http\Request;
 
 class FinancersController extends Controller
