@@ -63,7 +63,7 @@
     
     .invoice-box table tr.details td{
         padding-bottom:20px;
-        text-align: left;
+        text-align: center;
     }
     
     .invoice-box table tr.item td{
