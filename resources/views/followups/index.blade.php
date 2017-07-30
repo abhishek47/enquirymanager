@@ -55,6 +55,7 @@
                           <th>#</th>
                           <th>Name</th>
                           <th>Phone</th>
+                          <th>Enquiry To</th>
                           <th>Enquiry Date</th>
                           <th>Model</th>
                            @if(auth()->user()->isAdmin())
@@ -70,6 +71,7 @@
                               <th scope="row">{{ $enquiry->id }}</th>
                               <td>{{ $enquiry->name }}</td>
                               <td>{{ $enquiry->phone }}</td>
+                              <td>{{ $enquiry->creator->name }}</td>
                               <td>{{ $enquiry->created_at->format('d-m-Y') }}</td>
                               <td>{{ $enquiry->vehicle->name }}</td>
                               @if(auth()->user()->isAdmin())
