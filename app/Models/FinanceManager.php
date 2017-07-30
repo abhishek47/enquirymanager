@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Financer extends Model
+class ModelsFinanceManager extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,7 +12,7 @@ class Financer extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'name', 'company_id'
     ];
 
     public function company()
@@ -20,13 +20,13 @@ class Financer extends Model
         return $this->belongsTo(Company::class);
     }
 
+     public function financer()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
     public function enquiries()
     {
        return $this->hasMany(Enquiry::class);
-    }
-
-    public function managers()
-    {
-       return $this->hasMany(FinanceManager::class);
     }
 }

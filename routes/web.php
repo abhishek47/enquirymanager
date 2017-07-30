@@ -54,9 +54,13 @@ Route::get('/financers', 'FinancersController@index')->name('financers');
 Route::get('/financers/create', 'FinancersController@create')->name('financers.create');
 Route::post('/financers/store', 'FinancersController@store')->name('financers.store');
 Route::get('/financers/edit/{financer}', 'FinancersController@edit')->name('financers.edit');
-Route::get('/financers/cost/{financer}', 'FinancersController@cost')->name('financers.cost');
 Route::post('/financers/delete/{financer}', 'FinancersController@destroy')->name('financers.delete');
 Route::post('/financers/update/{financer}', 'FinancersController@update')->name('financers.update');
+
+Route::post('/financers/{financer}/store', 'FinanceManagersController@store')->name('finance_managers.store');
+Route::get('/financers/managers/{financer}/{financeManager}', 'FinanceManagersController@edit')->name('finance_managers.edit');
+Route::post('/financers/delete/managers/{financer}/{financeManager}', 'FinanceManagersController@destroy')->name('finance_managers.delete');
+Route::post('/financers/update/managers/{financer}/{financeManager}', 'FinanceManagersController@update')->name('finance_managers.update');
 
 Route::get('/employees', 'EmployeesController@index')->name('employees');
 Route::get('/employees/create', 'EmployeesController@create')->name('employees.create');
