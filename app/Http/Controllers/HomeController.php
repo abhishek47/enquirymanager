@@ -40,7 +40,7 @@ class HomeController extends Controller
 
         $data['enquiriesCancelled'] = auth()->user()->company->enquiries()->where('status', 2)->count();
 
-        $data['followups'] = auth()->user()->company->enquiries()->where('contact_date', $data['date'])->where('status', 0)->count();
+        $data['followups'] = auth()->user()->company->enquiries()->where('contact_date', $data['date'])->where('status', -1)->count();
 
         $data['enquiriesToday'] = auth()->user()->company->enquiries()->whereDate('created_at', Carbon::today()->toDateString())->count();
 
