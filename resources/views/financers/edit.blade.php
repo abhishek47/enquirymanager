@@ -135,7 +135,7 @@
                               <td>{{ $manager->name }}</td>
                               <td>{{ $manager->created_at->diffForHumans() }}</td>
                               <td>
-                                  <a href="{{ route('managers.edit', ['manager' => $manager->id]) }}" class="btn btn-success btn-sm">Edit</a> 
+                                  <a href="{{ route('finance_managers.edit', ['manager' => $manager->id]) }}" class="btn btn-success btn-sm">Edit</a> 
                                   <a href="#" @click="deleteManager({{ $financer->id }},{{ $manager->id  }})" class="btn btn-danger btn-sm">Delete</a>
                               </td>
                             </tr>
