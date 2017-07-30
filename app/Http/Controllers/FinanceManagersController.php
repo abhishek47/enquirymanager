@@ -44,7 +44,7 @@ class FinanceManagersController extends Controller
 
     public function edit(Financer $financer, FinanceManager $financeManager)
     {
-        return view('financers.managers.edit', compact('financer', financeManager));
+        return view('financers.managers.edit', compact('financer', 'financeManager'));
     }
 
     
@@ -56,7 +56,7 @@ class FinanceManagersController extends Controller
 
         flash('Finance Manager Updated!')->success();
 
-        return back();
+        return redirect('/financers/edit/' . $financer->id);
 
     }
 
