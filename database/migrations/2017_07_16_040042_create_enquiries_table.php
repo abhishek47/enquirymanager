@@ -32,7 +32,7 @@ class CreateEnquiriesTable extends Migration
             $table->double('hpa_charges');
             $table->double('total');
 
-            $table->integer('status')->default(0);
+            $table->integer('status')->default(-1);
 
             $table->timestamps();
         });

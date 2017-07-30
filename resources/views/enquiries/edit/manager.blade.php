@@ -19,7 +19,7 @@
                        <div class="row">
                         <div class="col col-sm-9">
                           <h2>Editing Enquiry - #{{ $enquiry->id }} <span id="status" style="font-size: 16px;" class="badge badge-primary">
-                             {{ $enquiry->status == 0 ? 'void' : ($enquiry->status == 1 ? 'sold' : 'cancelled') }}</span></h2>
+                           {{ $enquiry->status == -1 ? '' : ($enquiry->status == 0 ? 'void' : ($enquiry->status == 1 ? 'sold' : 'cancelled')) }}</span></h2>
                         </div>
                         <div class="col col-sm-3" style="padding-top: 10px;">
                           <a href="#" @click="updateEnquiryStatus({{ $enquiry->id }}, 1)" class="btn btn-success btn-sm">Sold</a> 

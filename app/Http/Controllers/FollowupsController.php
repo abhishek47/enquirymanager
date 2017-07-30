@@ -37,7 +37,7 @@ class FollowupsController extends Controller
     		$date = (new Carbon($request->get('date')))->format('Y-m-d');
     	}
 
-        $followups =  auth()->user()->company->enquiries()->where('contact_date', $date)->where('status', 0)->latest();
+        $followups =  auth()->user()->company->enquiries()->where('contact_date', $date)->where('status', -1)->latest();
 
         if($request->has('employee') && $request->get('employee') != 'all')
         {
@@ -61,7 +61,7 @@ class FollowupsController extends Controller
     {
         $date = Carbon::today()->format('Y-m-d');
 
-        $followups =  auth()->user()->company->enquiries()->where('contact_date', $date)->where('status', 0)->latest();
+        $followups =  auth()->user()->company->enquiries()->where('contact_date', $date)->where('status', -1)->latest();
 
         if($request->has('employee') && $request->get('employee') != 'all')
         {
