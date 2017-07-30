@@ -46,7 +46,7 @@
                               <td>{{ $financer->name }}</td>
                               <td>{{ $financer->created_at->diffForHumans() }}</td>
                               <td>
-                                  <a href="{{ route('financer.edit', ['financer' => $financer->id]) }}" class="btn btn-success btn-sm">Edit</a> 
+                                  <a href="{{ route('financers.edit', ['financer' => $financer->id]) }}" class="btn btn-success btn-sm">Edit</a> 
                                   <a href="#" @click="deleteFinancer({{ $financer->id  }})" class="btn btn-danger btn-sm">Delete</a>
                               </td>
                             </tr>
