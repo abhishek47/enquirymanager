@@ -114,10 +114,7 @@
                     </table>
                 </td>
             </tr>
-            
-            <tr class="information" >
-                
-            </tr>
+     
           
             
             

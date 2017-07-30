@@ -89,9 +89,9 @@
                     </table>
                     
                     @if(Request::has('employee'))
-                     <a href="/followups/print?employee={{request('employee')}}" class="btn btn-primary">Print List</a>
+                     <a target="_blank" href="/followups/print?employee={{request('employee')}}" class="btn btn-primary">Print List</a>
                     @else
-                     <a href="/followups/print" class="btn btn-primary">Print List</a>
+                     <a target="_blank" href="/followups/print" class="btn btn-primary">Print List</a>
                     @endif
                 </div>
             </div>
