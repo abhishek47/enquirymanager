@@ -33,7 +33,7 @@ class FinanceManagersController extends Controller
 
     	$data['company_id'] = auth()->user()->company->id;
        
-        $financer->managers()->create($request->all());
+        $financer->managers()->create($data);
 
         flash('New Finance Manager Added!')->success();
 
