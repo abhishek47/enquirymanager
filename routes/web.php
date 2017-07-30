@@ -38,6 +38,7 @@ Route::post('/enquiries/delete/{enquiry}', 'EnquiriesController@destroy')->name(
 Route::post('/enquiries/update/{enquiry}', 'EnquiriesController@update')->name('enquiries.update');
 Route::post('/enquiries/status/{enquiry}/{status}', 'EnquiriesController@status')->name('enquiries.status');
 Route::get('/followups', 'FollowupsController@index')->name('enquiries.followups');
+Route::get('/followups/print', 'FollowupsController@show')->name('followups.show');
 
 Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 

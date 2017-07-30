@@ -51,4 +51,22 @@ class FollowupsController extends Controller
     	return view('followups.index', compact('followups', 'date', 'employees'));
 
     }
+
+    /**
+     * Show the enquiry form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Request $request)
+    {
+        $followups =  auth()->user()->company->enquiries()->where('contact_date', $date)->where('status', 0)->latest();
+
+        if($request->has('employee') && $request->get('employee') != 'all')
+        {
+            $followups->where('user_id', $request->get('employee'));
+        }
+
+        return view('followups.print', compact('followups'));
+
+    }
 }
