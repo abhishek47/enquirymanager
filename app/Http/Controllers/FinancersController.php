@@ -47,7 +47,8 @@ class FinancersController extends Controller
 
     public function edit(Financer $financer)
     {
-        return view('financers.edit', compact('financer'));
+        $managers = $financer->managers;
+        return view('financers.edit', compact('financer', 'managers'));
     }
 
     
