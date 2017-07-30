@@ -113,7 +113,7 @@
                 </td>
 
                 <td>
-                    Enquiry Date
+                    Phone
                 </td>
 
                 <td>
@@ -142,7 +142,7 @@
                 </td>
 
                 <td>
-                    {{ $followup->created_at->format('d-m-Y') }}
+                    {{ $followup->phone }}
                 </td>
 
                 <td>
