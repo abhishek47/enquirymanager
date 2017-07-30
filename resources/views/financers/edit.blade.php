@@ -57,7 +57,7 @@
     </div>
 
 
-    <br><br><br>
+    <br><br>
 
     <div class="row justify-content-center">
         <div class="col col-md-12">
@@ -102,7 +102,7 @@
     </div>
 
 
-    <br><br><br>
+    <br><br>
 
      <div class="card">
                 <div class="card-block">
@@ -148,5 +148,9 @@
             </div>
 
 </div>
+
+<br><br>
+
+
 
 @endsection
