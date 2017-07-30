@@ -101,6 +101,26 @@ const app = new Vue({
 			}
     	},
 
+    	deleteFinancer(id)
+    	{
+    		var r = confirm("Are you sure, you want to delete the financer?");
+			if (r == true) {
+			    axios.post('/financers/delete/' + id, {
+				    id: id,
+				  })
+				  .then(function (response) {
+				  	$('#financer-' + id).hide(); 
+				  	swal('Financer Deleted', '', 'success');
+				    console.log(response);
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+				  });
+			} else {
+			   
+			}
+    	},
+
     	loadCost()
     	{
     		    var select = document.getElementById("vehicle_id");

@@ -50,6 +50,14 @@ Route::get('/vehicles/cost/{vehicle}', 'VehiclesController@cost')->name('vehicle
 Route::post('/vehicles/delete/{vehicle}', 'VehiclesController@destroy')->name('vehicles.delete');
 Route::post('/vehicles/update/{vehicle}', 'VehiclesController@update')->name('vehicles.update');
 
+Route::get('/financers', 'FinancersController@index')->name('financers');
+Route::get('/financers/create', 'FinancersController@create')->name('financers.create');
+Route::post('/financers/store', 'FinancersController@store')->name('financers.store');
+Route::get('/financers/edit/{vehicle}', 'FinancersController@edit')->name('financers.edit');
+Route::get('/financers/cost/{vehicle}', 'FinancersController@cost')->name('financers.cost');
+Route::post('/financers/delete/{vehicle}', 'FinancersController@destroy')->name('financers.delete');
+Route::post('/financers/update/{vehicle}', 'FinancersController@update')->name('financers.update');
+
 Route::get('/employees', 'EmployeesController@index')->name('employees');
 Route::get('/employees/create', 'EmployeesController@create')->name('employees.create');
 Route::post('/employees/store', 'EmployeesController@store')->name('employees.store');
