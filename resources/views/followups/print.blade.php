@@ -96,25 +96,8 @@
 <body>
     <div class="invoice-box">
         <table cellpadding="0" cellspacing="0">
-            <tr class="top">
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td class="title">
-                                <img src="http://acem.edu.np/techbihani/img/hero.png" style="width:100%; max-width:100px;">
-                            </td>
-                            
-                            <td>
-                                <b>Shivang Automobiles</b><br>
-                                {{ auth()->user()->company->address }} <br>
-                                <b>Phone : </b> {{ str_replace(',', '/', auth()->user()->company->phones) }} | <b>Fax : </b> {{ auth()->user()->company->fax }}<br>
-                                <b>Website : </b> {{ auth()->user()->company->website }}
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-     
+              
+
           
             
             

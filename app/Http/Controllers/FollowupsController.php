@@ -68,6 +68,8 @@ class FollowupsController extends Controller
             $followups->where('user_id', $request->get('employee'));
         }
 
+        $followups = $followups->get();
+
         return view('followups.print', compact('followups', 'date'));
 
     }
