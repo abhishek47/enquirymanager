@@ -75,7 +75,7 @@ class EnquiriesController extends Controller
 
         $enquiries = $enquiries->latest()->get();
 
-        $employees = User::where('company_id', auth()->user()->company_id)->where('role', 2)->get();
+        $employees = User::where('company_id', auth()->user()->company->id)->where('role', 2)->get();
 
 	return view('enquiries.index', compact('enquiries', 'date', 'title', 'employees'));
 
