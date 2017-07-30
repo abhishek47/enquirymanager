@@ -89,7 +89,8 @@
   <br>
 
   
-
+  
+  @if(auth()->user()->isAdmin())
 
 
              <div class="card">
@@ -138,9 +139,11 @@
             </div>
 
         <br><br><br>
-       
+      
       
     </div>
+
+     @endif
 @endsection
 
 
