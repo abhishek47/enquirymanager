@@ -63,11 +63,12 @@
     
     .invoice-box table tr.details td{
         padding-bottom:20px;
-        text-align: center;
+
     }
     
     .invoice-box table tr.item td{
         border-bottom:1px solid #000;
+        text-align: center;
     }
     
     .invoice-box table tr.item.last td{
