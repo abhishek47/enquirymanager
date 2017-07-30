@@ -60,7 +60,7 @@ class FollowupsController extends Controller
     public function show(Request $request)
     {
         $date = Carbon::today()->format('Y-m-d');
-        
+
         $followups =  auth()->user()->company->enquiries()->where('contact_date', $date)->where('status', 0)->latest();
 
         if($request->has('employee') && $request->get('employee') != 'all')
@@ -68,7 +68,7 @@ class FollowupsController extends Controller
             $followups->where('user_id', $request->get('employee'));
         }
 
-        return view('followups.print', compact('followups'));
+        return view('followups.print', compact('followups', 'date'));
 
     }
 }

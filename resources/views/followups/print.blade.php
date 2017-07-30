@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Enquiry #{{$enquiry->id}}</title>
+    <title>Follow Ups - {{ $date }}</title>
 
     <style type="text/css" media="print">
 @page {
