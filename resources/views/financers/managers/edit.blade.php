@@ -22,7 +22,7 @@
                 <div class="card-block">
                     <div class="card-title"><b>Edit Finance Manager #{{$financeManager->id}}</b></div>
                     <hr>
-                    <form class="form-horizontal" method="POST" action="{{ route('finance_managers.update', ['financer' => $financer->id,  'financeManager' => $manager->id]) }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('finance_managers.update', ['financer' => $financer->id,  'financeManager' => $financeManager->id]) }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
