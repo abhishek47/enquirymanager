@@ -48,7 +48,7 @@ class EnquiriesController extends Controller
         if($request->has('employee') && $request->get('employee') != 'all')
         {
             $enquiries->where('user_id', $request->get('employee'));
-            $title = 'Enquiries To "' . Employee::where('id', $request->get('employee'))->first()->name . '"';
+            $title = 'Enquiries To "' . User::where('id', $request->get('employee'))->first()->name . '"';
         }
     	
         if($request->has('date'))
