@@ -44,6 +44,12 @@ class EnquiriesController extends Controller
         	$enquiries->where('phone', $request->get('phone'));
         	$title = 'Enquiries by "' . $request->get('phone') . '"';
         }
+
+        if($request->has('employee'))
+        {
+            $enquiries->where('employee', $request->get('employee'));
+            $title = 'Enquiries To "' . Employee::where('id', $request->get('employee'))->first()->name . '"';
+        }
     	
         if($request->has('date'))
     	{

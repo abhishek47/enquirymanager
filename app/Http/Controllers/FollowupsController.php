@@ -29,15 +29,24 @@ class FollowupsController extends Controller
     public function index(Request $request)
     {
     	$date = Carbon::today()->format('Y-m-d');
+
+        
     	
     	if($request->has('date'))
     	{
     		$date = (new Carbon($request->get('date')))->format('Y-m-d');
     	}
 
-    	$followups = auth()->user()->company->enquiries()->where('contact_date', $date)->where('status', 0)->latest()->get();
+        $followups =  auth()->user()->company->enquiries()->where('contact_date', $date)->where('status', 0)->latest();
 
-         $employees = User::where('company_id', auth()->user()->company_id)->where('role', 2)->get();
+        if($request->has('employee'))
+        {
+            $followups->where('employee', $request->get('employee'));
+        }
+
+    	$followups = $followups->get();
+
+        $employees = User::where('company_id', auth()->user()->company_id)->where('role', 2)->get();
 
     	return view('followups.index', compact('followups', 'date', 'employees'));
 

@@ -41,8 +41,8 @@
                      </div>
                      <div class="col col-sm-4">
                         <form method="GET" action="/followups" class="form-inline float-right">
-                          <input type="date" value="{{ $date }}" name="date" id="date" class="form-control" style="margin-right: 4px;">
-                          <button type="submit" class="btn btn-success">Submit</button>
+                          <input type="date" value="{{ $date }}" name="date" id="date" class="form-control" style="margin-right: 4px;" readonly="true">
+                          {{-- <button type="submit" class="btn btn-success">Submit</button> --}}
                         </form>
                      </div>
                   </div>   
