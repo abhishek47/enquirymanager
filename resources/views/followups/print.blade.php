@@ -56,7 +56,7 @@
     
     .invoice-box table tr.heading td{
         background:#eee;
-        border-bottom:1px solid #000;
+        border:1px solid #000;
         font-weight:bold;
         text-align: center;
     }
@@ -67,7 +67,7 @@
     }
     
     .invoice-box table tr.item td{
-        border-bottom:1px solid #000;
+        border:1px solid #000;
         text-align: center;
     }
     
