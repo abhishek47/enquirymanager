@@ -6,5 +6,6 @@
    @include('enquiries.edit.admin')
  @elseif(auth()->user()->role == 1)
    @include('enquiries.edit.manager')
- @endif  
+ @endif
+   
 @endsection

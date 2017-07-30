@@ -42,10 +42,11 @@
                      <form method="GET" action="{{ Request::url() }}" class="form-inline" style="width: 100%;">
                           <select class="form-control" name="employee" style="margin-right: 4px;width: 200px;">
                             <option value="all" {{request('employee') == 'all' ? 'selected' : '' }}>All</option>
-                            <option value="1" {{request('employee') == '1' ? 'selected' : '' }}>Rahul</option>
-                            <option value="2" {{request('employee') == '2' ? 'selected' : '' }}>Irfan</option>
-                            <option value="3" {{request('employee') == '3' ? 'selected' : '' }}>Amit</option>
-                            <option value="4" {{request('employee') == '4' ? 'selected' : '' }}>Ashish</option>
+                            @foreach($employees as $employee)
+                              <option value="{{ $employee->id }}" {{request('employee') == $employee->id ? 'selected' : '' }}>
+                                {{ $employee->name }} 
+                              </option>
+                            @endforeach
                           </select>
                           @if(Request::has('phone'))
                           <input type="hidden" name="phone" value="{{ request('phone') }}">

@@ -36,7 +36,9 @@ class FollowupsController extends Controller
 
     	$followups = auth()->user()->company->enquiries()->where('contact_date', $date)->where('status', 0)->latest()->get();
 
-    	return view('followups.index', compact('followups', 'date'));
+         $employees = User::where('company_id', auth()->user()->company_id)->where('role', 2)->get();
+
+    	return view('followups.index', compact('followups', 'date', 'employees');
 
     }
 }

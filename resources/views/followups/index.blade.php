@@ -28,10 +28,12 @@
                      <div class="col col-sm-8">
                      <form method="GET" action="/followups" class="form-inline" style="width: 100%;">
                           <select class="form-control" name="employee" style="margin-right: 4px;width: 200px;">
-                            <option>Rahul</option>
-                            <option>Irfan</option>
-                            <option>Amit</option>
-                            <option>Ashish</option>
+                            <option value="all" {{request('employee') == 'all' ? 'selected' : '' }}>All</option>
+                            @foreach($employees as $employee)
+                              <option value="{{ $employee->id }}" {{request('employee') == $employee->id ? 'selected' : '' }}>
+                                {{ $employee->name }} 
+                              </option>
+                            @endforeach
                           </select>
                           <button type="submit" class="btn btn-success">Submit</button>
                         </form>

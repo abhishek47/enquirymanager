@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Models\Enquiry;
 use Illuminate\Http\Request;
 use App\Http\Requests\SubmitEnquiryRequest;
@@ -68,7 +69,9 @@ class EnquiriesController extends Controller
 
         $enquiries = $enquiries->latest()->get();
 
-    	return view('enquiries.index', compact('enquiries', 'date', 'title'));
+        $employees = User::where('company_id', auth()->user()->company_id)->where('role', 2)->get();
+
+	return view('enquiries.index', compact('enquiries', 'date', 'title', 'employees'));
 
     }
 
