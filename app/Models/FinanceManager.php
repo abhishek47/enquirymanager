@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ModelsFinanceManager extends Model
+class FinanceManager extends Model
 {
     /**
      * The attributes that are mass assignable.

@@ -101,4 +101,52 @@
         </div>
     </div>
 
+
+    <br><br><br>
+
+     <div class="card">
+                <div class="card-block">
+                <div class="card-title"> 
+                     <div class="row">
+                       <div class="col-md-9">
+                          <h4>Finance Managers </h4>
+                        </div>
+                        
+                    </div>
+                     
+                   </div>
+
+                <hr>
+                    <table class="table">
+                      <thead class="thead-inverse">
+                        <tr>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Date Added</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                       @foreach($managers as $manager)
+                       
+                            <tr id="vehicle-{{$vehicle->id}}">
+                              <th scope="row">{{ $manager->id }}</th>
+                              <td>{{ $manager->name }}</td>
+                              <td>{{ $manager->created_at->diffForHumans() }}</td>
+                              <td>
+                                  <a href="{{ route('managers.edit', ['manager' => $manager->id]) }}" class="btn btn-success btn-sm">Edit</a> 
+                                  <a href="#" @click="deleteManager({{ $financer->id }},{{ $manager->id  }})" class="btn btn-danger btn-sm">Delete</a>
+                              </td>
+                            </tr>
+
+                        @endforeach
+                        
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+
+</div>
+
 @endsection
