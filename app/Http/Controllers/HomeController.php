@@ -19,7 +19,7 @@ class HomeController extends Controller
         
         $this->middleware('company-registered');
 
-        $this->middleware('is-staff')->except('profile');
+        $this->middleware('is-staff')->only('index');
         
     }
 
@@ -52,6 +52,21 @@ class HomeController extends Controller
 
 
     public function profile()
+    {
+        return view('profile.manage');
+    }
+
+    public function updateProfile(Request $request)
+    {
+        auth()->user()->name = $request->get('name');
+        auth()->user()->email = $request->get('email');
+
+        auth()->user()->save();
+
+        return back();
+    }
+
+    public function password(Request $request)
     {
         return view('profile.manage');
     }

@@ -70,3 +70,7 @@ Route::post('/employees/store', 'EmployeesController@store')->name('employees.st
 Route::get('/employees/edit/{user}', 'EmployeesController@edit')->name('employees.edit');
 Route::post('/employees/delete/{user}', 'EmployeesController@destroy')->name('employees.delete');
 Route::post('/employees/update/{user}', 'EmployeesController@update')->name('employees.update');
+
+
+Route::post('/profile/update', 'HomeController@updateProfile')->name('profile.update');
+Route::post('/profile/password', 'HomeController@password')->name('password.update');

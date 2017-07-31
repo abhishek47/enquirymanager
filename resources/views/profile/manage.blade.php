@@ -18,7 +18,7 @@
                 
                 <div class="card-block">
                     <div class="card-title"><h2>Manage Profile</h2></div>
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('user.update') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -64,14 +64,14 @@
                 </div>
             </div>
              
-            <br><br>   
+            <br><br>       
 
             <div class="card">
                 
                 <div class="card-block">
                     <div class="card-title"><h2>Manage Password</h2></div>
 
-                    <form>
+                    <form class="form-horizontal" method="POST" action="{{ route('password.update') }}">
                         
                         <div class="form-group{{ $errors->has('old_password') ? ' has-error' : '' }}">
                             <label for="old_password" class="control-label">Old Password</label>
@@ -121,6 +121,9 @@
 
             </div>    
         </div>
+
+
+        <br><br>
     </div>
 
 @endsection
