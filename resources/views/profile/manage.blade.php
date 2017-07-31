@@ -6,15 +6,14 @@
 
            <nav class="breadcrumb" style="background-color: #fff;">
               <a class="breadcrumb-item" href="/home">Home</a>
-              <a class="breadcrumb-item" href="/enquiries">Enquiries</a>
-              <span class="breadcrumb-item active">New</span>
+              <span class="breadcrumb-item active">Profile</span>
             </nav>
           
          </div>
         </div>
 
     <div class="row justify-content-center">
-        <div class="col col-md-8">
+        <div class="col col-md-12">
             <div class="card">
                 
                 <div class="card-block">
@@ -59,10 +58,21 @@
                         </div>
 
 
-                        <hr>
+                    
 
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                
+                <div class="card-block">
+                    <div class="card-title"><h2>Manage Password</h2></div>
+
+                    <form>
+                        
                         <div class="form-group{{ $errors->has('old_password') ? ' has-error' : '' }}">
-                            <label for="old_password" class="control-label">Password</label>
+                            <label for="old_password" class="control-label">Old Password</label>
 
                            
                                 <input id="old_password" type="old_password" class="form-control" name="old_password" required>
@@ -76,7 +86,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="control-label">Password</label>
+                            <label for="password" class="control-label"> New Password</label>
 
                            
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -90,7 +100,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="control-label">Confirm Password</label>
+                            <label for="password-confirm" class="control-label">Confirm New Password</label>
 
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             
@@ -104,8 +114,10 @@
                             
                         </div>
                     </form>
+
                 </div>
-            </div>
+
+            </div>    
         </div>
     </div>
 
