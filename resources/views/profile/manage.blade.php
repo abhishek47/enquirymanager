@@ -72,12 +72,14 @@
                     <div class="card-title"><h2>Manage Password</h2></div>
 
                     <form class="form-horizontal" method="POST" action="{{ route('password.update') }}">
+
+                    {{ csrf_field() }}
                         
                         <div class="form-group{{ $errors->has('old_password') ? ' has-error' : '' }}">
                             <label for="old_password" class="control-label">Old Password</label>
 
                            
-                                <input id="old_password" type="old_password" class="form-control" name="old_password" required>
+                                <input id="old_password" type="password" class="form-control" name="old_password" required>
 
                                 @if ($errors->has('old_password'))
                                     <span class="help-block">
