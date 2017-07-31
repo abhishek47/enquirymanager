@@ -131,7 +131,7 @@
                        @foreach($managers as $index => $manager)
                        
                             <tr id="manager-{{$manager->id}}">
-                              <th scope="row">{{ $index }}</th>
+                              <th scope="row">{{ $index+1 }}</th>
                               <td>{{ $manager->name }}</td>
                               <td>{{ $manager->created_at->diffForHumans() }}</td>
                               <td>
