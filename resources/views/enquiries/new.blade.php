@@ -138,7 +138,7 @@
 
 
                          
-                         <div class="col-md-6" >
+                         
                         <div class="col-md-6">
                             <div class="form-group{{ $errors->has('finance_manager_id') ? ' has-danger' : '' }}">
                                
