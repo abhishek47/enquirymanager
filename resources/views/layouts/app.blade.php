@@ -48,6 +48,8 @@
           <a class="dropdown-item" href="{{ route('vehicles.create') }}">Add New Vehicle</a>
         <!--  <a class="dropdown-item" href="#">Create New Campaign</a> -->
           <a class="dropdown-item" href="{{ route('employees.create') }}">Add New Employee</a>
+
+            <a class="dropdown-item" href="{{ route('financers.create') }}">Add New Financer</a>
          
         </div>
       </li>
