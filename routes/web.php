@@ -20,6 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/profile', 'HomeController@profile')->name('profile');
+
 
 Route::get('/company/register', 'CompanyController@register')->name('company.register');
 Route::post('/company/store', 'CompanyController@store')->name('company.store');

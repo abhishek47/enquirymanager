@@ -19,7 +19,7 @@ class HomeController extends Controller
         
         $this->middleware('company-registered');
 
-        $this->middleware('is-staff');
+        $this->middleware('is-staff')->except('profile');
         
     }
 
@@ -48,5 +48,11 @@ class HomeController extends Controller
 
 
         return view('home', $data);
+    }
+
+
+    public function profile()
+    {
+        return view('profile.manage');
     }
 }

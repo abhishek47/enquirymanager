@@ -97,7 +97,7 @@
           {{ Auth::user()->name }} <span class="caret"></span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Manage Profile</a>
+          <a class="dropdown-item" href="/profile">Manage Profile</a>
           @if(auth()->user()->isAdmin())
           <a class="dropdown-item" href="{{ route('company.edit') }}">Company Settings</a>
           <a class="dropdown-item" href="/financers">Manage Financers</a>
