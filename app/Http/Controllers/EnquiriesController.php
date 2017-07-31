@@ -119,7 +119,8 @@ class EnquiriesController extends Controller
     public function create()
     {
     	$vehicles = auth()->user()->company->vehicles;
-        return view('enquiries.new', compact('vehicles'));
+        $financers = auth()->user()->company->financers; 
+        return view('enquiries.new', compact('vehicles', 'financers'));
     }
 
 

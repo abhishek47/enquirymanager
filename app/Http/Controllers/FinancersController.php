@@ -18,7 +18,7 @@ class FinancersController extends Controller
         
          $this->middleware('company-registered');
 
-         $this->middleware('is-staff');
+         $this->middleware('is-staff')->except('managers');
         
     }
 
@@ -42,6 +42,12 @@ class FinancersController extends Controller
 
         return redirect('financers');
 
+    }
+
+     public function managers(Financer $financer)
+    {
+        $managers = $financer->managers;
+        return $managers;
     }
 
 

@@ -142,6 +142,22 @@ const app = new Vue({
 			
     	},
 
+    	loadFinanceManagers()
+    	{
+    		    var select = document.getElementById("financer_id");
+    		    var id = select.options[select.selectedIndex].value;
+			    axios.get('/financers/managers/' + id, {
+				    id: id,
+				  })
+				  .then(function (response) {
+				  	 console.log(response.data);
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+				  });
+			
+    	},
+
     	loadHpa()
     	{
     		    var select = document.getElementById("payment_type");
