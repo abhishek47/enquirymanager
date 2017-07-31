@@ -128,10 +128,10 @@
                       </thead>
                       <tbody>
 
-                       @foreach($managers as $manager)
+                       @foreach($managers as $index => $manager)
                        
                             <tr id="manager-{{$manager->id}}">
-                              <th scope="row">{{ $manager->id }}</th>
+                              <th scope="row">{{ $index }}</th>
                               <td>{{ $manager->name }}</td>
                               <td>{{ $manager->created_at->diffForHumans() }}</td>
                               <td>
