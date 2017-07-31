@@ -111,7 +111,55 @@
 
                          </div>
                          
-                         <div class="row justify-content-center"> 
+                        
+                          
+                          <div class="row justify-content-center"> 
+
+                         <div class="col-md-6">
+                            <div class="form-group{{ $errors->has('occupation') ? ' has-danger' : '' }}">
+                               
+                                    <label for="occupation" class="control-label">Occupation</label>
+                                    <select id="occupation" name="occupation" class="form-control {{ $errors->has('occupation') ? ' form-control-danger' : '' }}">
+                                       <option disabled selected value>--Select Occupation--</option> 
+                                        <option value="job">Job</option>
+                                        <option value="business">Business</option>
+                                    </select>
+
+                                    @if ($errors->has('occupation'))
+                                        <span class="form-control-feedback">
+                                            {{ $errors->first('occupation') }}
+                                        </span>
+                                    @endif
+                               
+                            </div>
+                         </div>
+
+
+
+
+                         
+                         <div class="col-md-6" >
+                            <div class="form-group{{ $errors->has('payment_type') ? ' has-danger' : '' }}">
+                               
+                                    <label for="payment_type" class="control-label">Payment Type</label>
+                                    <select id="payment_type" @change="loadHpa()" name="payment_type" class="form-control {{ $errors->has('payment_type') ? ' form-control-danger' : '' }}">
+                                        <option disabled selected value>--Select Payment Type--</option> 
+                                        <option value="1">Finance</option>
+                                        <option value="0">Cash</option>
+                                    </select>
+
+                                    @if ($errors->has('payment_type'))
+                                        <span class="form-control-feedback">
+                                            {{ $errors->first('payment_type') }}
+                                        </span>
+                                    @endif
+                               
+                            </div>
+                         </div>
+
+                          </div>
+
+                           <div class="row justify-content-center"> 
 
                          <div class="col-md-6">
                             <div class="form-group{{ $errors->has('financer_id') ? ' has-danger' : '' }}">
@@ -157,52 +205,6 @@
                             </div>
                          </div>
 
-
-                          </div>
-                          
-                          <div class="row justify-content-center"> 
-
-                         <div class="col-md-6">
-                            <div class="form-group{{ $errors->has('occupation') ? ' has-danger' : '' }}">
-                               
-                                    <label for="occupation" class="control-label">Occupation</label>
-                                    <select id="occupation" name="occupation" class="form-control {{ $errors->has('occupation') ? ' form-control-danger' : '' }}">
-                                       <option disabled selected value>--Select Occupation--</option> 
-                                        <option value="job">Job</option>
-                                        <option value="business">Business</option>
-                                    </select>
-
-                                    @if ($errors->has('occupation'))
-                                        <span class="form-control-feedback">
-                                            {{ $errors->first('occupation') }}
-                                        </span>
-                                    @endif
-                               
-                            </div>
-                         </div>
-
-
-
-
-                         
-                         <div class="col-md-6" >
-                            <div class="form-group{{ $errors->has('payment_type') ? ' has-danger' : '' }}">
-                               
-                                    <label for="payment_type" class="control-label">Payment Type</label>
-                                    <select id="payment_type" @change="loadHpa()" name="payment_type" class="form-control {{ $errors->has('payment_type') ? ' form-control-danger' : '' }}">
-                                        <option disabled selected value>--Select Payment Type--</option> 
-                                        <option value="1">Finance</option>
-                                        <option value="0">Cash</option>
-                                    </select>
-
-                                    @if ($errors->has('payment_type'))
-                                        <span class="form-control-feedback">
-                                            {{ $errors->first('payment_type') }}
-                                        </span>
-                                    @endif
-                               
-                            </div>
-                         </div>
 
                           </div>
 
