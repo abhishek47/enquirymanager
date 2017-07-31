@@ -72,5 +72,5 @@ Route::post('/employees/delete/{user}', 'EmployeesController@destroy')->name('em
 Route::post('/employees/update/{user}', 'EmployeesController@update')->name('employees.update');
 
 
-Route::post('/profile/update', 'HomeController@updateProfile')->name('profile.update');
+Route::post('/profile/update', 'HomeController@updateProfile')->name('user.update');
 Route::post('/profile/password', 'HomeController@password')->name('password.update');
