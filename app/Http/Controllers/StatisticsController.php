@@ -56,6 +56,10 @@ class StatisticsController extends Controller
 
         $data['vehicleWiseEnquiries'] = auth()->user()->company->enquiries()->get()->groupBy('vehicle_id'); 
         $data['vehicleWiseConvertedEnquiries'] = auth()->user()->company->enquiries()->where('status', '1')->get()->groupBy('vehicle_id'); 
+
+        $data['employees'] = auth()->user()->company->employees()->where('role', 2)->get();
+
+        $data['vehicles'] = auth()->user()->company->vehicles()->get();
         
 
 

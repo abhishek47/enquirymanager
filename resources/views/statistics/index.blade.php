@@ -132,7 +132,7 @@ var myChart = new Chart(ctx, {
         labels: getLastDays(7),
         datasets: [{
             label: 'Count of Enquiries',
-            data: [12, 19, 3, 5, 2, 14, 18],
+            data: $enquiries7Days,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)'
             ],
@@ -162,9 +162,9 @@ var myChart = new Chart(ctx, {
         data: {
             datasets: [{
                 data: [
-                    45,
-                    55,
-                    32,
+                    $totalEnquiriesConverted,
+                    $totalEnquiriesCancelled,
+                    $totalEnquiriesVoid,
                 ],
                 backgroundColor: [
                     'rgb(255, 99, 132)',
@@ -191,10 +191,10 @@ var ctx = document.getElementById("epwiseChart");
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["Rahul Bhat", "Ajay Shetty", "Ravi Sonawane", "Sunny Pande"],
+        labels: $employees,
         datasets: [{
             label: 'Count of Sales',
-            data: [12, 19, 3, 24],
+            data: $employeeWiseEnquiries,
             backgroundColor: [
                 'rgba(64, 64, 255, 0.2)'
             ],
@@ -221,10 +221,10 @@ var ctx = document.getElementById("vwiseChart");
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Maestro", "Splendor", "Achiever", "Passion Pro", "Ignitor", "Karizma"],
+        labels: $vehicles,
         datasets: [{
             label: 'Count of Enquiries',
-            data: [20, 25, 8, 16, 12, 24, 28],
+            data: $vehicleWiseEnquiries,
             backgroundColor: 'rgb(255, 99, 132)',
             
             borderColor: 'rgb(255, 99, 132)',
@@ -233,7 +233,7 @@ var myChart = new Chart(ctx, {
         },
         {
             label: 'Count of Sales',
-            data: [12, 19, 3, 5, 2, 14, 18],
+            data: $vehicleWiseEnquiriesConverted,
             backgroundColor: 'rgb(100, 99, 255)',
             
             borderColor: 'rgb(100, 99, 255)',
