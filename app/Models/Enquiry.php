@@ -15,7 +15,7 @@ class Enquiry extends Model
      */
     protected $fillable = [
 
-        'company_id', 'name', 'vehicle_cost', 'rto_charges', 'insuarance_charges', 'hpa_charges', 'address', 'phone', 'buy_date', 'contact_date', 'vehicle_color', 'total', 'payment_type', 'occupation', 'vehicle_id'
+        'company_id', 'name', 'vehicle_cost', 'rto_charges', 'insuarance_charges', 'hpa_charges', 'address', 'phone', 'buy_date', 'contact_date', 'vehicle_color', 'total', 'payment_type', 'occupation', 'vehicle_id', 'financer_id', 'finance_manager_id'
     ];
 
     public function company()
