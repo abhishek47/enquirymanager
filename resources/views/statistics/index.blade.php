@@ -129,7 +129,7 @@ var ctx = document.getElementById("weekChart");
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["16 Jul", "17 Jul", "18 Jul", "19 Jul", "20 Jul", "21 Jul", "22 July"],
+        labels: getLastDays(7),
         datasets: [{
             label: 'Count of Enquiries',
             data: [12, 19, 3, 5, 2, 14, 18],

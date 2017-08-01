@@ -161,6 +161,23 @@
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <script src="{{ asset('js/moment.js') }}"></script>
+    <script src="{{ asset('js/helpers.js') }}"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+
+
+
+
+
+    <script type="text/javascript">
+        moment.fn.diffSecs = function (a) {
+                var duration = moment().diff(this, 'seconds');
+                return duration;
+            }
+    </script>
+    
   </body>
 
   <script>
