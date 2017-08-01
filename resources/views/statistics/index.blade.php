@@ -90,7 +90,7 @@ var myChart = new Chart(ctx, {
         labels: getLastDays(7),
         datasets: [{
             label: 'Count of Enquiries',
-            data: {{ $enquiries7days }},
+            data: {!! json_encode($enquiries7days) !!},
             backgroundColor:'rgba(255, 99, 132, 0.2)',
                
             borderColor: 'rgba(255,99,132,1)',
@@ -99,7 +99,7 @@ var myChart = new Chart(ctx, {
         },
         {
             label: 'Count of Sales',
-            data: {{ $enquiriesConverted7Days }},
+            data: {!! json_encode($enquiriesConverted7Days) !!},
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             
             borderColor: 'rgba(75, 192, 192, 1)',
