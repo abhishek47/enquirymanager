@@ -26,6 +26,11 @@ class StatisticsController extends Controller
 
     public function index()
     {
+
+         $data['employees'] = auth()->user()->company->employees()->where('role', 2)->orderBy('id')->pluck('name')->toArray();
+
+        $data['vehicles'] = auth()->user()->company->vehicles()->orderBy('id')->pluck('name')->toArray();
+
         $e7days = auth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(7))
                          ->where(\DB::raw('DATE(created_at)', '<', Carbon::now()->format('d-m-Y')))->get()
         ->groupBy(function($date) {
@@ -35,9 +40,13 @@ class StatisticsController extends Controller
 
         $data['enquiries7days'] = array();
 
+        
+
         foreach ($e7days as $key => $day) {
             $data['enquiries7days'][] = count($day);
         }
+
+
 
 
         $e7daysConverted = auth()->user()->company->enquiries()->where('status', '1')->where('created_at', '>', Carbon::now()->subDays(7))
@@ -62,8 +71,12 @@ class StatisticsController extends Controller
 
         $data['employeeWiseEnquiries'] = array(); 
 
+        foreach ($data['employees'] as $key => $em) {
+            $data['employeeWiseEnquiries'][] = 0;
+        }
+
         foreach ($epwise as $key => $ep) {
-            $data['employeeWiseEnquiries'][] = count($ep);
+            $data['employeeWiseEnquiries'][$key] = count($ep);
         }
 
         $epwiseC = auth()->user()->company->enquiries()->select('user_id')->where('status', '1')->orderBy('user_id')->get()->groupBy('user_id');
@@ -92,9 +105,7 @@ class StatisticsController extends Controller
       
 
 
-        $data['employees'] = auth()->user()->company->employees()->where('role', 2)->orderBy('id')->pluck('name')->toArray();
-
-        $data['vehicles'] = auth()->user()->company->vehicles()->orderBy('id')->pluck('name')->toArray();
+       
 
         
         
