@@ -159,7 +159,7 @@
 
                           </div>
 
-                           <div class="row justify-content-center"> 
+                           <div class="row justify-content-center" id="financer" style="visibility: hidden;"> 
 
                          <div class="col-md-6">
                             <div class="form-group{{ $errors->has('financer_id') ? ' has-danger' : '' }}">

@@ -173,9 +173,13 @@ const app = new Vue({
 
     		    if(val > 0) {
 
+    		       $('#financer').show();	 
+
     		       $('#hpa_charges').val(500);
 
     		    } else {
+    		    	$('#financer').hide();
+
     		    	$('#hpa_charges').val(0);
     		    }
 
