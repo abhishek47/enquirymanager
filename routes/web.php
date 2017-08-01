@@ -54,6 +54,7 @@ Route::post('/vehicles/update/{vehicle}', 'VehiclesController@update')->name('ve
 
 Route::get('/financers', 'FinancersController@index')->name('financers');
 Route::get('/financers/create', 'FinancersController@create')->name('financers.create');
+Route::get('/financers/managers/{financer}', 'FinancersController@managers')->name('financers.managers');
 Route::post('/financers/store', 'FinancersController@store')->name('financers.store');
 Route::get('/financers/edit/{financer}', 'FinancersController@edit')->name('financers.edit');
 Route::post('/financers/delete/{financer}', 'FinancersController@destroy')->name('financers.delete');
