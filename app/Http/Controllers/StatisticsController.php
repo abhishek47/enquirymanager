@@ -68,7 +68,7 @@ class StatisticsController extends Controller
         $data['totalEnquiriesCancelled'] = auth()->user()->company->enquiries()->where('status', '2')->count(); 
         
         
-        $employees = auth()->user()->company->employees;
+        $employees = auth()->user()->company->employees()->get();
 
         $data['employeeWiseEnquiries'] = array(); 
 
