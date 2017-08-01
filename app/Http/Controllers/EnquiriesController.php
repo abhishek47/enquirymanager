@@ -161,8 +161,9 @@ class EnquiriesController extends Controller
      */
     public function edit(Request $request, Enquiry $enquiry)
     {
+        $financers = auth()->user()->company->financers; 
     	$vehicles = auth()->user()->company->vehicles;
-        return view('enquiries.edit', compact('enquiry', 'vehicles'));
+        return view('enquiries.edit', compact('enquiry', 'vehicles', 'financers'));
 
     }
 
