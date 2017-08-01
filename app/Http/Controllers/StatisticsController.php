@@ -28,12 +28,12 @@ class StatisticsController extends Controller
     {
         $enquiries7days = Enquiry::where('created_at', '>', Carbon::now()->subDays(7))->get()
         ->groupBy(function($date) {
-            return Carbon::parse($date->created_at)->format('d'); // grouping by years
+            return Carbon::parse($date->created_at)->format('d-m-Y'); // grouping by years
             //return Carbon::parse($date->created_at)->format('m'); // grouping by months
         }); 
 
         dd($enquiries7days);
-        
+
     	return view('statistics.index');
     }
 }
