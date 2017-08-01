@@ -55,7 +55,8 @@ const app = new Vue({
 				    id: id, status: status, reason: reason
 				  })
 				  .then(function (response) {
-				  	sm = 'void';
+				  	var reason = select.options[select.selectedIndex].value;
+				  	sm = 'void-' + reason;
 				  	$('#status').html(sm);
 				  	swal('Enquiry status updated to ' + sm + '!', '', 'success');
 				    console.log(response);
