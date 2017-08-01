@@ -151,8 +151,8 @@
                                
                                     <label for="payment_type" class="control-label">Payment Type</label>
                                     <select id="payment_type" name="payment_type" class="form-control">
-                                        <option value="0" {{ $enquiry->payment_type == 0 ? 'selected' : '' }}>Finance</option>
-                                        <option value="1" {{ $enquiry->payment_type == 1 ? 'selected' : '' }}>Cash</option>
+                                        <option value="0" {{ $enquiry->payment_type == 1 ? 'selected' : '' }}>Finance</option>
+                                        <option value="1" {{ $enquiry->payment_type == 0 ? 'selected' : '' }}>Cash</option>
                                     </select>
 
                                     @if ($errors->has('payment_type'))
@@ -165,6 +165,8 @@
                          </div>
 
                           </div>
+
+                          @if($enquiry->payment_type)
 
 
                            <div class="row justify-content-center" id="financer"> 
@@ -218,6 +220,8 @@
 
 
                           </div>
+
+                          @endif
                        
 
                        <div class="row justify-content-center"> 
