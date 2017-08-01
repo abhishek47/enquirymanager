@@ -132,7 +132,7 @@ var myChart = new Chart(ctx, {
         labels: getLastDays(7),
         datasets: [{
             label: 'Count of Enquiries',
-            data: {{ $enquiries7Days }},
+            data: {{ $enquiries7days }},
             backgroundColor:'rgba(255, 99, 132, 0.2)',
                
             borderColor: 'rgba(255,99,132,1)',
