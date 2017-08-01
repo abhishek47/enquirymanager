@@ -67,36 +67,33 @@ class StatisticsController extends Controller
         $data['totalEnquiriesConverted'] = auth()->user()->company->enquiries()->where('status', '1')->count();
         $data['totalEnquiriesCancelled'] = auth()->user()->company->enquiries()->where('status', '2')->count(); 
         
-        $epwise = auth()->user()->company->enquiries()->select('user_id')->orderBy('user_id')->get()->groupBy('user_id');
+      
 
         $data['employeeWiseEnquiries'] = array(); 
 
-        foreach ($epwise as $key => $ep) {
-            $data['employeeWiseEnquiries'][] = count($ep);
+        foreach ($data['employees'] as $employee) {
+            $data['employeeWiseEnquiries'][] = $employee->enquiries()->count();
         }
 
-        $epwiseC = auth()->user()->company->enquiries()->select('user_id')->where('status', '1')->orderBy('user_id')->get()->groupBy('user_id');
-
+       
         $data['employeeWiseConvertedEnquiries'] = array(); 
 
-        foreach ($epwiseC as $key => $ep) {
-            $data['employeeWiseConvertedEnquiries'][] = count($ep);
+        foreach ($data['employees'] as $employee) {
+            $data['employeeWiseConvertedEnquiries'][] = $employee->enquiries()->where('status', 1)->count();
         }
 
-        $vwise = auth()->user()->company->enquiries()->select('vehicle_id')->orderBy('vehicle_id')->get()->groupBy('vehicle_id');
 
         $data['vehicleWiseEnquiries'] = array(); 
 
-        foreach ($vwise as $key => $ep) {
-            $data['vehicleWiseEnquiries'][] = count($ep);
+        foreach ($data['vehicles']  as $vehicle) {
+            $data['vehicleWiseEnquiries'][] = $vehicle->enquiries()->count();
         }
 
-        $vwiseC = auth()->user()->company->enquiries()->select('vehicle_id')->where('status', '1')->orderBy('vehicle_id')->get()->groupBy('vehicle_id');
-
+        
         $data['vehicleWiseConvertedEnquiries'] = array(); 
 
-        foreach ($vwiseC as $key => $ep) {
-            $data['vehicleWiseConvertedEnquiries'][] = count($ep);
+        foreach ($data['vehicles']  as $vehicle) {
+            $data['vehicleWiseConvertedEnquiries'][] = $vehicle->enquiries()->where('status', 1)->count();
         }
       
 
