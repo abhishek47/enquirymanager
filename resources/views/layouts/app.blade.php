@@ -32,10 +32,12 @@
    
    <ul class="navbar-nav mr-auto">
     @if(!Auth::guest())
+    @if(auth()->user()->role == 1)
     <form method="GET" action="/enquiries" class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" name="phone" placeholder="Phone Number">
       <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    @endif
     @if(auth()->user()->isAdmin())
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
