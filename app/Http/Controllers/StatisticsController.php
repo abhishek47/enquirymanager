@@ -85,9 +85,10 @@ class StatisticsController extends Controller
       
 
 
-        $data['employees'] = auth()->user()->company->employees()->select('name')->where('role', 2)->orderBy('id')->get();
+        $data['employees'] = auth()->user()->company->employees()->where('role', 2)->orderBy('id')->pluck('name')->toArray();
 
-        $data['vehicles'] = auth()->user()->company->vehicles()->select('name')->orderBy('id')->get();
+        $data['vehicles'] = auth()->user()->company->vehicles()->orderBy('id')->pluck('name')->toArray();
+
         
         
 
