@@ -127,10 +127,13 @@
                             <div class="form-group{{ $errors->has('occupation') ? ' has-error' : '' }}">
                                
                                     <label for="occupation" class="control-label">Occupation</label>
-                                    <select id="occupation" name="occupation" class="form-control" readonly>
+
+                                    <select id="occupation" name="occupation" class="form-control" disabled>
                                         <option value="job" {{ $enquiry->occupation == 'job' ? 'selected' : '' }}>Job</option>
                                         <option value="business" {{ $enquiry->occupation == 'business' ? 'selected' : '' }}>Business</option>
                                     </select>
+
+                                     <input type="hidden" name="occupation" class="form-control" value="{{ $enquiry->occupation }}">
 
                                     @if ($errors->has('occupation'))
                                         <span class="help-block">
@@ -149,10 +152,13 @@
                             <div class="form-group{{ $errors->has('payment_type') ? ' has-error' : '' }}">
                                
                                     <label for="payment_type" class="control-label">Payment Type</label>
-                                    <select id="payment_type" name="payment_type" class="form-control" readonly>
+                                    <select id="payment_type" name="payment_type" class="form-control" disabled>
                                         <option value="0" {{ $enquiry->payment_type == 0 ? 'selected' : '' }}>Finance</option>
                                         <option value="1" {{ $enquiry->payment_type == 1 ? 'selected' : '' }}>Cash</option>
                                     </select>
+
+                                       <input type="hidden" name="payment_type" class="form-control" value="{{ $enquiry->payment_type }}">
+
 
                                     @if ($errors->has('payment_type'))
                                         <span class="help-block">
@@ -165,18 +171,22 @@
 
                           </div>
 
+                          @if($enquiry->payment_type == 0)
+
                            <div class="row justify-content-center" id="financer"> 
 
                          <div class="col-md-6">
                             <div class="form-group{{ $errors->has('financer_id') ? ' has-danger' : '' }}">
                                
                                     <label for="financer_id" class="control-label">Financer Company</label>
-                                    <select id="financer_id" name="financer_id"  class="form-control {{ $errors->has('financer_id') ? ' form-control-danger' : '' }}" readonly>
+                                    <select id="financer_id" name="financer_id"  class="form-control {{ $errors->has('financer_id') ? ' form-control-danger' : '' }}" disabled>
                                      <option disabled selected value>--Select Financer--</option> 
                                       @foreach($financers as $financer)
                                         <option value="{{ $financer->id }}" {{ $enquiry->financer_id == $financer->id ? 'selected' : '' }}>{{ $financer->name }}</option>
                                       @endforeach  
                                     </select>
+
+                                     <input type="hidden" name="financer_id" class="form-control" value="{{ $enquiry->financer_id }}">
 
                                     @if ($errors->has('financer_id'))
                                         <span class="form-control-feedback">
@@ -197,13 +207,15 @@
                             <div class="form-group{{ $errors->has('finance_manager_id') ? ' has-danger' : '' }}">
                                
                                     <label for="finance_manager_id" class="control-label">Finance Manager</label>
-                                <select id="finance_manager_id" name="finance_manager_id" class="form-control {{ $errors->has('finance_manager_id') ? ' form-control-danger' : '' }}" readonly>
+                                <select id="finance_manager_id" name="finance_manager_id" class="form-control {{ $errors->has('finance_manager_id') ? ' form-control-danger' : '' }}" disabled>
                                      <option disabled selected value>--Select Finance Manager--</option> 
                                       @foreach($enquiry->financer->managers as $manager) 
                                           <option value="{{ $manager->id }}" {{ $enquiry->finance_manager_id == $manager->id ? 'selected' : '' }}>{{ $manager->name }}</option>
                                       @endforeach
                                       
                                     </select>
+
+                                    <input type="hidden" name="finance_manager_id" class="form-control" value="{{ $enquiry->finance_manager_id }}">
 
                                     @if ($errors->has('finance_manager_id'))
                                         <span class="form-control-feedback">
@@ -217,6 +229,8 @@
 
                           </div>
                        
+
+                       @endif
                        
 
                        <div class="row justify-content-center"> 
