@@ -889,18 +889,3 @@ body {
   color: #fff;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #D91E18;
-  border-color: #D91E18;
-}
-
-.bg-primary {
-  background-color: #D91E18 !important;
-}
-
-.bg-primary:hover {
-  text-decoration: underline;
-  background-color: #D91E18 !important;
-}
-
