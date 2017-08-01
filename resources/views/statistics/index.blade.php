@@ -104,7 +104,7 @@ var myChart = new Chart(ctx, {
         },
         {
             label: 'Count of Sales',
-            data: [12, 19, 3, 5, 2, 14, 18],
+            data: {{ $enquiriesConverted7Months }},
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             
             borderColor: 'rgba(75, 192, 192, 1)',
@@ -127,18 +127,25 @@ var myChart = new Chart(ctx, {
 <script>
 var ctx = document.getElementById("weekChart");
 var myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: getLastDays(7),
         datasets: [{
             label: 'Count of Enquiries',
-            data: {{ $enquiries7days }},
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)'
-            ],
+            data: {{ $enquiries7Days }},
+            backgroundColor:'rgba(255, 99, 132, 0.2)',
+               
+            borderColor: 'rgba(255,99,132,1)',
+          
+            borderWidth: 1
+        },
+        {
+            label: 'Count of Sales',
+            data: {{ $enquiriesConverted7Days }},
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            
+            borderColor: 'rgba(75, 192, 192, 1)',
+            
             borderWidth: 1
         }]
     },
