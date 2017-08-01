@@ -38,7 +38,7 @@ class EnquiriesController extends Controller
         $date = '';
         
         if(auth()->user()->isAdmin()) {
-            $enquiries = auth()->user()->company->enquiries()
+            $enquiries = auth()->user()->company->enquiries();
         } else {
           $enquiries = auth()->user()->company->enquiries()->where('status', '-1');
         }
