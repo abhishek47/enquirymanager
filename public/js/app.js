@@ -17451,7 +17451,7 @@ var app = new Vue({
 				id: id
 			}).then(function (response) {
 				console.log(response.data);
-				select.innerHTML = "";
+				select_managers.innerHTML = "";
 				response.data.forEach(function (item) {
 					var opt = document.createElement('option');
 					opt.value = item.id;
