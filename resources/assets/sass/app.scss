@@ -29,3 +29,8 @@ body{
 .bg-primary {
     background-color: #D91E18!important;
 }
+
+.bg-primary:hover {
+	text-decoration: underline;
+    background-color: #D91E18!important;
+}
