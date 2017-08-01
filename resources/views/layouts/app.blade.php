@@ -138,7 +138,7 @@
         @yield('content')
 
 
-        <p class="text-center">Powered by <a href="http://www.trumpetstechnologies.com">Trumpets.</a></p>
+        <p class="text-center">Powered by <a target="_blank" href="http://www.trumpetstechnologies.com">Trumpets.</a></p>
 
         </div>
 
