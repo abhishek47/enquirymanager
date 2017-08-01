@@ -26,34 +26,34 @@ class StatisticsController extends Controller
 
     public function index()
     {
-        $data['enquiries7days'] = auth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(7))
-                         ->where(\DB::raw('DATE(created_at)', '<=', Carbon::now()->format('d-m-Y')))->get()
+        $7days = uth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(7))
+                         ->where(\DB::raw('DATE(created_at)', '<', Carbon::now()->format('d-m-Y')))->get()
         ->groupBy(function($date) {
             return Carbon::parse($date->created_at)->format('d-m-Y'); // grouping by years
             //return Carbon::parse($date->created_at)->format('m'); // grouping by months
         }); 
 
-        $data['enquiriesConverted7Days'] = auth()->user()->company->enquiries()->where('status', '1')->where('created_at', '>', Carbon::now()->subDays(7))
-                         ->where(\DB::raw('DATE(created_at)', '<=', Carbon::now()->format('d-m-Y')))->get()
+        $data['enquiries7days'] = array();
+
+        foreach ($7days as $key => $day) {
+            $data['enquiries7days'][] = count($day);
+        }
+
+
+        $7daysConverted = auth()->user()->company->enquiries()->where('status', '1')->where('created_at', '>', Carbon::now()->subDays(7))
+                         ->where(\DB::raw('DATE(created_at)', '<', Carbon::now()->format('d-m-Y')))->get()
         ->groupBy(function($date) {
             return Carbon::parse($date->created_at)->format('d-m-Y'); // grouping by years
             //return Carbon::parse($date->created_at)->format('m'); // grouping by months
         }); 
 
-        $data['enquiries7Months'] = auth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subMonths(7))
-                         ->where(\DB::raw('MONTH(created_at)', '<', Carbon::now()->format('m')))->get()
-        ->groupBy(function($date) {
-            return Carbon::parse($date->created_at)->format('m'); // grouping by years
-            //return Carbon::parse($date->created_at)->format('m'); // grouping by months
-        }); 
+        $data['enquiriesConverted7Days'] = array();
 
-        $data['enquiriesConverted7Months'] = auth()->user()->company->enquiries()->where('status', '1')->where('created_at', '>', Carbon::now()->subMonths(7))
-                         ->where(\DB::raw('MONTH(created_at)', '<', Carbon::now()->format('m')))->get()
-        ->groupBy(function($date) {
-            return Carbon::parse($date->created_at)->format('m'); // grouping by years
-            //return Carbon::parse($date->created_at)->format('m'); // grouping by months
-        }); 
+        foreach ($7daysConverted as $key => $day) {
+            $data['enquiriesConverted7Days'][] = count($day);
+        }
 
+       
         $data['totalEnquiriesVoid'] = auth()->user()->company->enquiries()->where('status', '0')->count();
         $data['totalEnquiriesConverted'] = auth()->user()->company->enquiries()->where('status', '1')->count();
         $data['totalEnquiriesCancelled'] = auth()->user()->company->enquiries()->where('status', '2')->count(); 

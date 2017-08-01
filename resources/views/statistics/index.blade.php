@@ -25,11 +25,12 @@
                   </div>
                 </div>
                 <div class="col-md">
-                  <div class="card" >
-                       <div class="card-block">
-                           <div class="card-title"><b>Monthly Stats</b></div>
-                            <canvas id="monthChart" width="400" height="300"></canvas>
-                       </div>
+                  <div class="card">
+                      <div class="card-block">
+                          <div class="card-title"><b>Overall Stats</b></div>
+
+                          <canvas id="overallChart" width="400" height="300"></canvas>
+                      </div>
                   </div>
                 </div>
                 
@@ -40,16 +41,8 @@
 
 
 <div class="row justify-content-center">
-                <div class="col-md">
-                  <div class="card">
-                      <div class="card-block">
-                          <div class="card-title"><b>Overall Stats</b></div>
-
-                          <canvas id="overallChart" width="400" height="300"></canvas>
-                      </div>
-                  </div>
-                </div>
-                <div class="col-md">
+                
+                <div class="col-md-12">
                   <div class="card" >
                        <div class="card-block">
                            <div class="card-title"><b>Employee Wise Stats</b></div>
@@ -87,42 +80,7 @@
 
 @section('js')
 
-<script>
-var ctx = document.getElementById("monthChart");
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-        datasets: [{
-            label: 'Count of Enquiries',
-            data: {{ $enquiries7Months }},
-            backgroundColor:'rgba(255, 99, 132, 0.2)',
-               
-            borderColor: 'rgba(255,99,132,1)',
-          
-            borderWidth: 1
-        },
-        {
-            label: 'Count of Sales',
-            data: {{ $enquiriesConverted7Months }},
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            
-            borderColor: 'rgba(75, 192, 192, 1)',
-            
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-</script>
+
 
 <script>
 var ctx = document.getElementById("weekChart");
