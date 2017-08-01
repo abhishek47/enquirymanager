@@ -32,4 +32,9 @@ class Enquiry extends Model
     {
     	return $this->belongsTo(Vehicle::class);
     }
+
+    public function financer()
+    {
+        return $this->belongsTo(Financer::class);
+    }
 }

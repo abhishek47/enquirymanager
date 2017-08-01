@@ -164,6 +164,59 @@
                          </div>
 
                           </div>
+
+                           <div class="row justify-content-center" id="financer"> 
+
+                         <div class="col-md-6">
+                            <div class="form-group{{ $errors->has('financer_id') ? ' has-danger' : '' }}">
+                               
+                                    <label for="financer_id" class="control-label">Financer Company</label>
+                                    <select id="financer_id" name="financer_id"  class="form-control {{ $errors->has('financer_id') ? ' form-control-danger' : '' }}" readonly>
+                                     <option disabled selected value>--Select Financer--</option> 
+                                      @foreach($financers as $financer)
+                                        <option value="{{ $financer->id }}" {{ $enquiry->financer_id == $financer->id ? 'selected' : '' }}>{{ $financer->name }}</option>
+                                      @endforeach  
+                                    </select>
+
+                                    @if ($errors->has('financer_id'))
+                                        <span class="form-control-feedback">
+                                           {{ $errors->first('financer_id') }}
+                                        </span>
+                                    @endif
+                               
+                            </div>
+                         </div>
+
+
+
+
+
+                         
+                         
+                        <div class="col-md-6">
+                            <div class="form-group{{ $errors->has('finance_manager_id') ? ' has-danger' : '' }}">
+                               
+                                    <label for="finance_manager_id" class="control-label">Finance Manager</label>
+                                <select id="finance_manager_id" name="finance_manager_id" class="form-control {{ $errors->has('finance_manager_id') ? ' form-control-danger' : '' }}" readonly>
+                                     <option disabled selected value>--Select Finance Manager--</option> 
+                                      @foreach($enquiry->financer->managers as $manager) 
+                                          <option value="{{ $manager->id }}" {{ $enquiry->finance_manager_id == $manager->id ? 'selected' : '' }}>{{ $manager->name }}</option>
+                                      @endforeach
+                                      
+                                    </select>
+
+                                    @if ($errors->has('finance_manager_id'))
+                                        <span class="form-control-feedback">
+                                           {{ $errors->first('finance_manager_id') }}
+                                        </span>
+                                    @endif
+                               
+                            </div>
+                         </div>
+
+
+                          </div>
+                       
                        
 
                        <div class="row justify-content-center"> 
