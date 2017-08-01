@@ -137,6 +137,14 @@ class EnquiriesController extends Controller
        
         $enq = auth()->user()->enquiries()->create($data);
 
+        $message = 'Thank You for making an enquiry at Shivang Automobiles!Your Enquiry ID is : #' . $enq->id . ".Save this is ID for further reference at Shivang Automobiles!";
+
+        $client = new GuzzleHttp\Client();
+        $res = $client->get('https://49.50.67.32/smsapi/httpapi.jsp', 
+                    ['username' => 'SHIVAN03', 'password' => 'SHIVAN03@123', 
+                    'to' => $data['phone'], 'from' => 'SHIVAN', 
+                    'text' => $message, 'coding' => 0 ]);
+
       
         if(auth()->user()->role < 2){
             flash('<h3>Enquiry Recorded!Enquiry ID : <b>' . $enq->id . '</b></h3>')->success();
