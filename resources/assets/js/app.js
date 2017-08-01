@@ -47,11 +47,15 @@ const app = new Vue({
 
     	updateEnquiryStatus(id, status)
     	{
-    		axios.post('/enquiries/status/' + id + '/' + status, {
-				    id: id, status: status
+    		if(status == 0)
+    		{
+    			var select = document.getElementById("void_reason");
+    		    var reason = select.options[select.selectedIndex].value;
+    		    axios.post('/enquiries/status/' + id + '/' + status, {
+				    id: id, status: status, reason: reason
 				  })
 				  .then(function (response) {
-				  	sm = status == 0 ? 'void' : (status == 1 ? 'sold' : 'cancelled');
+				  	sm = 'void';
 				  	$('#status').html(sm);
 				  	swal('Enquiry status updated to ' + sm + '!', '', 'success');
 				    console.log(response);
@@ -59,6 +63,22 @@ const app = new Vue({
 				  .catch(function (error) {
 				    console.log(error);
 				  });
+
+    		} else {
+    			axios.post('/enquiries/status/' + id + '/' + status, {
+				    id: id, status: status
+				  })
+				  .then(function (response) {
+				  	sm = status == 1 ? 'sold' : 'cancelled';
+				  	$('#status').html(sm);
+				  	swal('Enquiry status updated to ' + sm + '!', '', 'success');
+				    console.log(response);
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+				  });
+    		}
+    		
     	},
 
     	deleteVehicle(id)

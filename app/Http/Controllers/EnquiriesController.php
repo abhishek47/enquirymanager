@@ -185,6 +185,11 @@ class EnquiriesController extends Controller
      */
     public function status(Request $request, Enquiry $enquiry, $status)
     {
+        if($status == 0)
+        {
+            $enquiry->void_reason = $request->get('reason');
+        }
+        
         $enquiry->status = $status;
         
         $enquiry->save();

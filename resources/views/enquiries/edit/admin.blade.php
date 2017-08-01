@@ -25,7 +25,7 @@
                         <div class="col col-sm-3" style="padding-top: 10px;">
                           <a href="#" @click="updateEnquiryStatus({{ $enquiry->id }}, 1)" class="btn btn-success btn-sm">Sold</a> 
                                   <a href="#" @click="updateEnquiryStatus({{ $enquiry->id }}, 2)" class="btn btn-danger btn-sm">Cancelled</a> 
-                                  <a href="#" @click="updateEnquiryStatus({{ $enquiry->id }}, 0)" class="btn btn-primary btn-sm">Void</a>
+                                  <a href="#" data-toggle="modal" data-target="#voidModal" class="btn btn-primary btn-sm">Void</a>
                         </div>
                        </div>
                      </div>
