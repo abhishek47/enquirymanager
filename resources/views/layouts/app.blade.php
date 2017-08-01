@@ -26,7 +26,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
    <div class="container">
-   <a class="navbar-brand" href="/home"><b>EnquiryManager</b></a>
+   <a class="navbar-brand" href="/home"><b>Shivang Hero</b></a>
     
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
    
