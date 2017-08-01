@@ -26,7 +26,7 @@ class StatisticsController extends Controller
 
     public function index()
     {
-        $e7days = uth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(7))
+        $e7days = auth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(7))
                          ->where(\DB::raw('DATE(created_at)', '<', Carbon::now()->format('d-m-Y')))->get()
         ->groupBy(function($date) {
             return Carbon::parse($date->created_at)->format('d-m-Y'); // grouping by years
