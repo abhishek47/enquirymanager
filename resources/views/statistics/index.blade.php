@@ -193,14 +193,21 @@ var myChart = new Chart(ctx, {
     data: {
         labels: {!! json_encode($employees) !!},
         datasets: [{
-            label: 'Count of Sales',
+            label: 'Count of Enquiries',
             data: {{ json_encode($employeeWiseEnquiries) }},
-            backgroundColor: [
-                'rgba(64, 64, 255, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)'
-            ],
+            backgroundColor: 'rgb(255, 99, 132)',
+            
+            borderColor: 'rgb(255, 99, 132)',
+            
+            borderWidth: 1
+        },
+        {
+            label: 'Count of Sales',
+            data: {{ json_encode($employeeWiseConvertedEnquiries) }},
+            backgroundColor: 'rgb(100, 99, 255)',
+            
+            borderColor: 'rgb(100, 99, 255)',
+            
             borderWidth: 1
         }]
     },
