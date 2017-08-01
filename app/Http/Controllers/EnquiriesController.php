@@ -143,9 +143,9 @@ class EnquiriesController extends Controller
         $res = $client->get('https://49.50.67.32/smsapi/httpapi.jsp', 
                     ['username' => 'SHIVAN03', 'password' => 'SHIVAN03@123', 
                     'to' => $data['phone'], 'from' => 'SHIVAN', 
-                    'text' => 'hello+world', 'coding' => 0 ]);
+                    'text' => 'hello+world' ]);
 
-        dd($res);
+        dd($res->getBody());
 
       
         if(auth()->user()->role < 2){
