@@ -33,7 +33,6 @@ class StatisticsController extends Controller
             //return Carbon::parse($date->created_at)->format('m'); // grouping by months
         }); 
 
-        dd($enquiries7days);
 
     	return view('statistics.index');
     }
