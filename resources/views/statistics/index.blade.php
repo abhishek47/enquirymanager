@@ -64,7 +64,7 @@
               <br>
 
               <div class="row justify-content-center">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="card">
                       <div class="card-block">
                           <div class="card-title"><b>Vehicle Wise Stats</b></div>
