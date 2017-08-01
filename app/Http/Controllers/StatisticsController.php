@@ -91,8 +91,12 @@ class StatisticsController extends Controller
 
         $data['vehicleWiseEnquiries'] = array(); 
 
-        foreach ($vwise as $key => $ep) {
-            $data['vehicleWiseEnquiries'][] = count($ep);
+        foreach ($data['vehicles'] as $key => $v) {
+            $data['vehicleWiseEnquiries'][] = 0;
+        }
+
+        foreach ($vwise as $key => $v) {
+            $data['vehicleWiseEnquiries'][$key] = count($v);
         }
 
         $vwiseC = auth()->user()->company->enquiries()->select('vehicle_id')->where('status', '1')->orderBy('vehicle_id')->get()->groupBy('vehicle_id');
