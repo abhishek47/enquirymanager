@@ -145,6 +145,7 @@ const app = new Vue({
     	loadFinanceManagers() 
     	{
     		    var select = document.getElementById("financer_id");
+    		    var select_managers = document.getElementById("finance_manager_id");
     		    var id = select.options[select.selectedIndex].value;
 			    axios.get('/financers/managers/' + id, {
 				    id: id,
@@ -156,7 +157,7 @@ const app = new Vue({
 				  	 	var opt = document.createElement('option');
 					    opt.value = item.id;
 					    opt.innerHTML = item.name;
-					    select.appendChild(opt);
+					    select_managers.appendChild(opt);
 				  	 })
 				  })
 				  .catch(function (error) {
