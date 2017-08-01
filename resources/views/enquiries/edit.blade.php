@@ -28,7 +28,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" @click="updateEnquiryStatus({{ $enquiry->id }}, 0)">Save</button>
+        <button type="button" class="btn btn-primary" @click="updateEnquiryStatus({{ $enquiry->id }}, 0)" data-dismiss="modal">Save</button>
       </div>
     </div>
   </div>
