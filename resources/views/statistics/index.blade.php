@@ -95,7 +95,7 @@ var myChart = new Chart(ctx, {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
         datasets: [{
             label: 'Count of Enquiries',
-            data: [20, 25, 8, 16, 12, 24, 28],
+            data: {{ $enquiries7Months }},
             backgroundColor:'rgba(255, 99, 132, 0.2)',
                
             borderColor: 'rgba(255,99,132,1)',
@@ -132,7 +132,7 @@ var myChart = new Chart(ctx, {
         labels: getLastDays(7),
         datasets: [{
             label: 'Count of Enquiries',
-            data: $enquiries7Days,
+            data: {{ $enquiries7days }},
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)'
             ],
@@ -162,9 +162,9 @@ var myChart = new Chart(ctx, {
         data: {
             datasets: [{
                 data: [
-                    $totalEnquiriesConverted,
-                    $totalEnquiriesCancelled,
-                    $totalEnquiriesVoid,
+                   {{ $totalEnquiriesConverted }},
+                    {{ $totalEnquiriesCancelled }},
+                    {{ $totalEnquiriesVoid }},
                 ],
                 backgroundColor: [
                     'rgb(255, 99, 132)',
@@ -191,10 +191,10 @@ var ctx = document.getElementById("epwiseChart");
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: $employees,
+        labels: {{ json_encode($employees) }},
         datasets: [{
             label: 'Count of Sales',
-            data: $employeeWiseEnquiries,
+            data: {{ json_encode($employeeWiseEnquiries) }},
             backgroundColor: [
                 'rgba(64, 64, 255, 0.2)'
             ],
@@ -221,10 +221,10 @@ var ctx = document.getElementById("vwiseChart");
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: $vehicles,
+        labels: {{ json_encode($vehicles) }},
         datasets: [{
             label: 'Count of Enquiries',
-            data: $vehicleWiseEnquiries,
+            data: {{ json_encode($vehicleWiseEnquiries) }},
             backgroundColor: 'rgb(255, 99, 132)',
             
             borderColor: 'rgb(255, 99, 132)',
@@ -233,7 +233,7 @@ var myChart = new Chart(ctx, {
         },
         {
             label: 'Count of Sales',
-            data: $vehicleWiseEnquiriesConverted,
+            data: {{ json_encode($vehicleWiseConvertedEnquiries) }},
             backgroundColor: 'rgb(100, 99, 255)',
             
             borderColor: 'rgb(100, 99, 255)',
