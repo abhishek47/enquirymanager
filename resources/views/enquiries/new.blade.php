@@ -191,7 +191,7 @@
                             <div class="form-group{{ $errors->has('finance_manager_id') ? ' has-danger' : '' }}">
                                
                                     <label for="finance_manager_id" class="control-label">Finance Manager</label>
-                                    <select id="finance_manager_id" name="finance_manager_id" class="form-control {{ $errors->has('finance_manager_id') ? ' form-control-danger' : '' }}">
+                                <select id="finance_manager_id" name="finance_manager_id" class="form-control {{ $errors->has('finance_manager_id') ? ' form-control-danger' : '' }}">
                                      <option disabled selected value>--Select Finance Manager--</option> 
                                       
                                     </select>
