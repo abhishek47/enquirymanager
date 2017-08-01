@@ -191,7 +191,7 @@ var ctx = document.getElementById("epwiseChart");
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: {{ json_encode($employees) }},
+        labels: {!! json_encode($employees) !!},
         datasets: [{
             label: 'Count of Sales',
             data: {{ json_encode($employeeWiseEnquiries) }},
@@ -221,7 +221,7 @@ var ctx = document.getElementById("vwiseChart");
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: {{ json_encode($vehicles) }},
+        labels: {!! json_encode($vehicles) !!},
         datasets: [{
             label: 'Count of Enquiries',
             data: {{ json_encode($vehicleWiseEnquiries) }},
