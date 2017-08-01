@@ -27,14 +27,14 @@ class StatisticsController extends Controller
     public function index()
     {
         $data['enquiries7days'] = auth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(7))
-                         ->where(\DB::raw('DATE(created_at)', '<', Carbon::now()->format('d-m-Y')))->get()
+                         ->where(\DB::raw('DATE(created_at)', '<=', Carbon::now()->format('d-m-Y')))->get()
         ->groupBy(function($date) {
             return Carbon::parse($date->created_at)->format('d-m-Y'); // grouping by years
             //return Carbon::parse($date->created_at)->format('m'); // grouping by months
         }); 
 
         $data['enquiriesConverted7Days'] = auth()->user()->company->enquiries()->where('status', '1')->where('created_at', '>', Carbon::now()->subDays(7))
-                         ->where(\DB::raw('DATE(created_at)', '<', Carbon::now()->format('d-m-Y')))->get()
+                         ->where(\DB::raw('DATE(created_at)', '<=', Carbon::now()->format('d-m-Y')))->get()
         ->groupBy(function($date) {
             return Carbon::parse($date->created_at)->format('d-m-Y'); // grouping by years
             //return Carbon::parse($date->created_at)->format('m'); // grouping by months
