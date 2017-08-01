@@ -140,10 +140,8 @@ class EnquiriesController extends Controller
         $message = 'Thank You for making an enquiry at Shivang Automobiles!Your Enquiry ID is : #' . $enq->id . ".Save this is ID for further reference at Shivang Automobiles!";
 
         $client = new \GuzzleHttp\Client();
-        $res = $client->get('https://49.50.67.32/smsapi/httpapi.jsp', 
-                    ['username' => 'SHIVAN03', 'password' => 'SHIVAN03@123', 
-                    'to' => $data['phone'], 'from' => 'SHIVAN', 
-                    'text' => 'hello+world' ]);
+        $res = $client->get('https://49.50.67.32/smsapi/httpapi.jsp?username=SHIVAN03&password=SHIVAN03@123&from=SHIVAN&to=9922367414&text=hello+world'
+                   );
 
         dd($res->getBody()->getContents());
 
