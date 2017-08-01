@@ -137,6 +137,9 @@
         </div>
         @yield('content')
 
+
+        <p class="text-center">Powered by <a href="http://www.trumpetstechnologies.com">Trumpets.</a></p>
+
         </div>
 
 
@@ -177,7 +180,7 @@
                 return duration;
             }
     </script>
-    
+
   </body>
 
   <script>

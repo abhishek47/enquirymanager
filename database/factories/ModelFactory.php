@@ -61,7 +61,6 @@ $factory->define(App\Models\Enquiry::class, function (Faker\Generator $faker) {
         'rto_charges' => $rto,
         'insuarance_charges' => $ic,
         'hpa_charges' => $hpa,
-        'accessories' => $ac,
         'total' => $total,
 
 
