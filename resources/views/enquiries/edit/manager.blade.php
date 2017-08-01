@@ -240,7 +240,7 @@
                             <div class="form-group{{ $errors->has('vehicle_id') ? ' has-error' : '' }}">
                                
                                     <label for="vehicle_id" class="control-label">Vehicle Model</label>
-                                    <select id="vehicle_id" name="vehicle_id" class="form-control" readonly>
+                                    <select id="vehicle_id" name="vehicle_id" class="form-control" disabled>
                                       @foreach($vehicles as $vehicle)
                                          @if(!old('vehicle_id'))
                                           <option value="{{ $vehicle->id }}" {{ $enquiry->vehicle_id == $vehicle->id ? 'selected' : '' }} >{{ $vehicle->name }}</option>
@@ -249,6 +249,8 @@
                                          @endif   
                                       @endforeach 
                                     </select>
+
+                                    <input type="hidden" name="vehicle_id" class="form-control" value="{{ $enquiry->vehicle_id }}">
 
                                     @if ($errors->has('vehicle_id'))
                                         <span class="help-block">
