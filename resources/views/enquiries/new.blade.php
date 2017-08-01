@@ -64,7 +64,7 @@
                             <div class="form-group{{ $errors->has('buy_date') ? ' has-danger' : '' }}">
                                
                                     <label for="buy_date" class="control-label">Date to Buy</label>
-                                    <input id="buy_date" type="date" class="form-control{{ $errors->has('buy_date') ? ' form-control-danger' : '' }}" name="buy_date" value="{{ old('buy_date') ? old('buy_date') : date('Y-m-d') }}" required autofocus>
+                                    <input id="buy_date" type="date" class="form-control{{ $errors->has('buy_date') ? ' form-control-danger' : '' }}" name="buy_date" value="{{ old('buy_date') }}" required autofocus>
 
                                     @if ($errors->has('buy_date'))
                                         <span class="form-control-feedback">
@@ -80,7 +80,7 @@
                             <div class="form-group{{ $errors->has('contact_date') ? ' has-danger' : '' }}">
                                
                                     <label for="contact_date" class="control-label">Best time to contact</label>
-                                    <input id="contact_date" type="date" class="form-control {{ $errors->has('contact_date') ? ' form-control-danger' : '' }}" name="contact_date" value="{{ old('contact_date') ? old('contact_date') : date('Y-m-d') }}" required>
+                                    <input id="contact_date" type="date" class="form-control {{ $errors->has('contact_date') ? ' form-control-danger' : '' }}" name="contact_date" value="{{ old('contact_date') }}" required>
 
                                     @if ($errors->has('contact_date'))
                                         <span class="form-control-feedback">
