@@ -189,7 +189,7 @@ var myChart = new Chart(ctx, {
 <script>
 var ctx = document.getElementById("epwiseChart");
 var myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: {!! json_encode($employees) !!},
         datasets: [{
