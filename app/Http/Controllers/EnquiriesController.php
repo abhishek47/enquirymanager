@@ -37,7 +37,7 @@ class EnquiriesController extends Controller
 
         $date = '';
         
-        $enquiries = auth()->user()->company->enquiries();
+        $enquiries = auth()->user()->company->enquiries()->where('status', '-1');
 
         if($request->has('phone'))
         {
@@ -189,7 +189,7 @@ class EnquiriesController extends Controller
         {
             $enquiry->void_reason = $request->get('reason');
         }
-        
+
         $enquiry->status = $status;
         
         $enquiry->save();
