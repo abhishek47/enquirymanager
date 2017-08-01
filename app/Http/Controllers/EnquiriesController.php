@@ -145,7 +145,7 @@ class EnquiriesController extends Controller
                     'to' => $data['phone'], 'from' => 'SHIVAN', 
                     'text' => 'hello+world' ]);
 
-        dd($res->getBody());
+        dd($res->getBody()->getContents());
 
       
         if(auth()->user()->role < 2){
