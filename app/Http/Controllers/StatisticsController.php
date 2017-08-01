@@ -71,12 +71,8 @@ class StatisticsController extends Controller
 
         $data['employeeWiseEnquiries'] = array(); 
 
-        foreach ($data['employees'] as $key => $em) {
-            $data['employeeWiseEnquiries'][] = 0;
-        }
-
         foreach ($epwise as $key => $ep) {
-            $data['employeeWiseEnquiries'][$key] = count($ep);
+            $data['employeeWiseEnquiries'][] = count($ep);
         }
 
         $epwiseC = auth()->user()->company->enquiries()->select('user_id')->where('status', '1')->orderBy('user_id')->get()->groupBy('user_id');
@@ -91,12 +87,8 @@ class StatisticsController extends Controller
 
         $data['vehicleWiseEnquiries'] = array(); 
 
-        foreach ($data['vehicles'] as $key => $v) {
-            $data['vehicleWiseEnquiries'][] = 0;
-        }
-
-        foreach ($vwise as $key => $v) {
-            $data['vehicleWiseEnquiries'][$key] = count($v);
+        foreach ($vwise as $key => $ep) {
+            $data['vehicleWiseEnquiries'][] = count($ep);
         }
 
         $vwiseC = auth()->user()->company->enquiries()->select('vehicle_id')->where('status', '1')->orderBy('vehicle_id')->get()->groupBy('vehicle_id');
