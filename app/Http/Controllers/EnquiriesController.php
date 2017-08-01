@@ -145,6 +145,8 @@ class EnquiriesController extends Controller
                     'to' => $data['phone'], 'from' => 'SHIVAN', 
                     'text' => 'hello+world', 'coding' => 0 ]);
 
+        dd($res);
+
       
         if(auth()->user()->role < 2){
             flash('<h3>Enquiry Recorded!Enquiry ID : <b>' . $enq->id . '</b></h3>')->success();
