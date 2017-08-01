@@ -171,7 +171,7 @@ class EnquiriesController extends Controller
     public function update(SubmitEnquiryRequest $request, Enquiry $enquiry)
     {
     	
-        $enquiry->update($request->all(););
+        $enquiry->update($request->all());
 
         flash('<b>Enquiry #' . $enquiry->id . '</b> Updated successfully!')->success();
 
