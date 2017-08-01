@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use  Carbon\Carbon;
+use App\Models\Enquiry;
 use Illuminate\Http\Request;
 
 class StatisticsController extends Controller
@@ -24,6 +26,14 @@ class StatisticsController extends Controller
 
     public function index()
     {
+        $enquiries7days = Enquiry::where('created_at', '>', Carbon::now()->subDays(7))->get()
+        ->groupBy(function($date) {
+            return Carbon::parse($date->created_at)->format('d'); // grouping by years
+            //return Carbon::parse($date->created_at)->format('m'); // grouping by months
+        }); 
+
+        dd($enquiries7days);
+        
     	return view('statistics.index');
     }
 }

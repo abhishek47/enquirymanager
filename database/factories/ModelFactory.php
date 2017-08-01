@@ -33,9 +33,9 @@ $factory->define(App\Models\Enquiry::class, function (Faker\Generator $faker) {
 
 
 
-    $buy_date = $faker->date($format = 'Y-m-d', $min = 'now');
+    $buy_date = $faker->date($format = 'Y-m-d', $max = '', $min = 'now');
 
-    $contact_date = $faker->date($format = 'Y-m-d', $min = 'now', $max = $buy_date );
+    $contact_date = $faker->date($format = 'Y-m-d', $max = $buy_date, $min = 'now' );
 
     $vc = $faker->randomNumber(5, true);
     $rto = $faker->randomNumber(4, true);
@@ -62,7 +62,7 @@ $factory->define(App\Models\Enquiry::class, function (Faker\Generator $faker) {
         'insuarance_charges' => $ic,
         'hpa_charges' => $hpa,
         'accessories' => $ac,
-        'total' => $total
+        'total' => $total,
 
 
     ];
