@@ -33,8 +33,15 @@ class HomeController extends Controller
         $data['date'] = Carbon::today()->format('Y-m-d');
 
         $data['enquiries'] = auth()->user()->company->enquiries()->latest()->limit(10)->get();
-
-        $data['enquiriesCount'] =  auth()->user()->company->enquiries()->count();
+          
+        if(auth()->user()->role == 1) {
+          $data['countTitle'] = 'Pending Enquiries';
+          $data['enquiriesCount'] =  auth()->user()->company->enquiries()->where('status', '-1')->count();  
+        }
+        else {
+         $data['countTitle'] = 'Total Enquiries';
+         $data['enquiriesCount'] =  auth()->user()->company->enquiries()->count();
+        }
 
         $data['enquiriesSold'] = auth()->user()->company->enquiries()->where('status', 1)->count();
 

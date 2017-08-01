@@ -53,7 +53,7 @@
     <div class="col-md">
       <a href="/enquiries" class="card bg-primary" style="color: #fff;">
           <div class="card-block">
-              <div class="card-title"><b>Total Enquiries</b></div>
+              <div class="card-title"><b>{{ $countTitle }}</b></div>
 
               <h4>{{ $enquiriesCount }}</h4>
           </div>
