@@ -170,13 +170,8 @@ class EnquiriesController extends Controller
 
     public function update(SubmitEnquiryRequest $request, Enquiry $enquiry)
     {
-    	$data = $request->all();
-
-         
-        $data['total'] = $data['vehicle_cost'] + $data['rto_charges'] + $data['insuarance_charges'] + $data['hpa_charges'] + $data['accessories'];
-
-       
-        $enquiry->update($data);
+    	
+        $enquiry->update($request->all(););
 
         flash('<b>Enquiry #' . $enquiry->id . '</b> Updated successfully!')->success();
 
