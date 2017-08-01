@@ -151,6 +151,13 @@ const app = new Vue({
 				  })
 				  .then(function (response) {
 				  	 console.log(response.data);
+			  	 	select.innerHTML = "";
+				  	 response.data.forEach(function(item) {
+				  	 	var opt = document.createElement('option');
+					    opt.value = item.id;
+					    opt.innerHTML = item.name;
+					    select.appendChild(opt);
+				  	 })
 				  })
 				  .catch(function (error) {
 				    console.log(error);
