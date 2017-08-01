@@ -142,7 +142,7 @@ const app = new Vue({
 			
     	},
 
-    	loadFinanceManagers()
+    	loadFinanceManagers() 
     	{
     		    var select = document.getElementById("financer_id");
     		    var id = select.options[select.selectedIndex].value;
