@@ -67,32 +67,34 @@ class StatisticsController extends Controller
         $data['totalEnquiriesConverted'] = auth()->user()->company->enquiries()->where('status', '1')->count();
         $data['totalEnquiriesCancelled'] = auth()->user()->company->enquiries()->where('status', '2')->count(); 
         
-      
+        
+        $employees = auth()->user()->company->employees;
 
         $data['employeeWiseEnquiries'] = array(); 
 
-        foreach ($data['employees'] as $employee) {
+        foreach ($employees as $employee) {
             $data['employeeWiseEnquiries'][] = $employee->enquiries()->count();
         }
 
        
         $data['employeeWiseConvertedEnquiries'] = array(); 
 
-        foreach ($data['employees'] as $employee) {
+        foreach ($employees as $employee) {
             $data['employeeWiseConvertedEnquiries'][] = $employee->enquiries()->where('status', 1)->count();
         }
 
+        $vehicles = auth()->user()->company->vehicles;
 
         $data['vehicleWiseEnquiries'] = array(); 
 
-        foreach ($data['vehicles']  as $vehicle) {
+        foreach ($vehicles as $vehicle) {
             $data['vehicleWiseEnquiries'][] = $vehicle->enquiries()->count();
         }
 
         
         $data['vehicleWiseConvertedEnquiries'] = array(); 
 
-        foreach ($data['vehicles']  as $vehicle) {
+        foreach ($vehicles as $vehicle) {
             $data['vehicleWiseConvertedEnquiries'][] = $vehicle->enquiries()->where('status', 1)->count();
         }
       
