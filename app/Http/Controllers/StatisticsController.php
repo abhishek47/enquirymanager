@@ -26,7 +26,7 @@ class StatisticsController extends Controller
 
     public function index()
     {
-        $7days = uth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(7))
+        $e7days = uth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(7))
                          ->where(\DB::raw('DATE(created_at)', '<', Carbon::now()->format('d-m-Y')))->get()
         ->groupBy(function($date) {
             return Carbon::parse($date->created_at)->format('d-m-Y'); // grouping by years
@@ -35,12 +35,12 @@ class StatisticsController extends Controller
 
         $data['enquiries7days'] = array();
 
-        foreach ($7days as $key => $day) {
+        foreach ($e7days as $key => $day) {
             $data['enquiries7days'][] = count($day);
         }
 
 
-        $7daysConverted = auth()->user()->company->enquiries()->where('status', '1')->where('created_at', '>', Carbon::now()->subDays(7))
+        $e7daysConverted = auth()->user()->company->enquiries()->where('status', '1')->where('created_at', '>', Carbon::now()->subDays(7))
                          ->where(\DB::raw('DATE(created_at)', '<', Carbon::now()->format('d-m-Y')))->get()
         ->groupBy(function($date) {
             return Carbon::parse($date->created_at)->format('d-m-Y'); // grouping by years
@@ -49,7 +49,7 @@ class StatisticsController extends Controller
 
         $data['enquiriesConverted7Days'] = array();
 
-        foreach ($7daysConverted as $key => $day) {
+        foreach ($e7daysConverted as $key => $day) {
             $data['enquiriesConverted7Days'][] = count($day);
         }
 
