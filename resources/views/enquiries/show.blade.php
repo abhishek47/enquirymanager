@@ -18,7 +18,7 @@
         padding:30px;
         border:1px solid #000;
         box-shadow:0 0 10px rgba(0, 0, 0, .15);
-        font-size:16px;
+        font-size:14px;
         line-height:24px;
         font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color:#555;
@@ -31,7 +31,7 @@
     }
     
     .invoice-box table td{
-        padding:5px;
+        padding:2px;
         vertical-align:top;
     }
     
@@ -40,7 +40,7 @@
     }
 
     .invoice-box table tr.top table td{
-        padding-bottom:20px;
+        padding-bottom:5px;
         border-bottom: 1px solid #000;
     }
     
@@ -51,7 +51,7 @@
     }
     
     .invoice-box table tr.information table td{
-        padding-bottom:20px;
+        padding-bottom:12px;
     }
     
     .invoice-box table tr.heading td{
@@ -61,7 +61,7 @@
     }
     
     .invoice-box table tr.details td{
-        padding-bottom:20px;
+        padding-bottom:12px;
     }
     
     .invoice-box table tr.item td{
