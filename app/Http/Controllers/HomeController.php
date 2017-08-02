@@ -99,7 +99,7 @@ class HomeController extends Controller
       auth()->user()->save();
 
       flash('Your Password was updated successfully!')->success();
-        return back();
+        return redirect('/profile');
     }
 
 
