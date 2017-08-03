@@ -31,6 +31,8 @@ class StatisticsController extends Controller
 
         $data['vehicles'] = auth()->user()->company->vehicles()->get();
 
+        $data['financers'] = auth()->user()->company->financers()->get();
+
         $data['e7days'] = auth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(7))->count();
 
         $data['e30days'] = auth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(30))->count();
