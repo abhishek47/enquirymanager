@@ -55,16 +55,33 @@
                   <div class="card" >
                        <div class="card-block">
                            <div class="card-title"><b>Employee Wise Stats</b></div>
+
+                           <table class="table">
+                              <thead class="thead-inverse">
+                                <tr>
+                                  <th>Employee </th>
+                                  <th>Enquiries</th>
+                                  <th>Sales</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
                             
                             @foreach($employees as $employee)
+                            <tr>
+                              <td>{{ $employee->name }}</td>
 
-                              <h4>{{ $employee->name }}</h4>
+                              <td>{{ $employee->enquiries()->count() }} </td> 
 
-                              <p><b>Enquiries : </b> {{ $employee->enquiries()->count() }} | <b>Sales : </b> {{ $employee->enquiries()->where('status', 1)->count() }}</p>
+                              <td>{{ $employee->enquiries()->where('status', 1)->count() }}</td>
 
-                              <hr>
+                             </tr> 
 
                             @endforeach
+
+                            </tbody>
+
+                            </table>
                        </div>
                   </div>
                 </div>
