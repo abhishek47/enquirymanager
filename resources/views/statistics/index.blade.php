@@ -60,9 +60,7 @@
 
                               <h4>{{ $employee->name }}</h4>
 
-                              <p><b>Enquiries : </b> {{ $employee->enquiries()->count() }}</p>
-
-                              <p><b>Sales : </b> {{ $employee->enquiries()->where('status', 1)->count() }}</p>
+                              <p><b>Enquiries : </b> {{ $employee->enquiries()->count() }} | <b>Sales : </b> {{ $employee->enquiries()->where('status', 1)->count() }}</p>
 
                               <hr>
 
@@ -86,9 +84,7 @@
 
                               <h4>{{ $vehicle->name }}</h4>
 
-                              <p><b>Enquiries : </b> {{ $vehicle->enquiries()->count() }}</p>
-
-                              <p><b>Sales : </b> {{ $vehicle->enquiries()->where('status', 1)->count() }}</p>
+                              <p><b>Enquiries : </b> {{ $vehicle->enquiries()->count() }} | <b>Sales : </b> {{ $vehicle->enquiries()->where('status', 1)->count() }}</p>
 
                               <hr>
 
