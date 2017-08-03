@@ -54,16 +54,18 @@
                        <div class="card-block">
                            <div class="card-title"><b>Filter Statistics</b></div>
 
+                           <form action="/statistics" method="GET">
+
                             <div class="row justify-content-center"> 
                          <div class="col-md-6">
-                            <div class="form-group{{ $errors->has('buy_date') ? ' has-danger' : '' }}">
+                            <div class="form-group{{ $errors->has('start_date') ? ' has-danger' : '' }}">
                                
-                                    <label for="buy_date" class="control-label">Start Date</label>
-                                    <input id="buy_date" type="date" class="form-control{{ $errors->has('buy_date') ? ' form-control-danger' : '' }}" name="buy_date" value="{{ old('buy_date') }}" required autofocus>
+                                    <label for="start_date" class="control-label">Start Date</label>
+                                    <input id="start_date" type="date" class="form-control{{ $errors->has('start_date') ? ' form-control-danger' : '' }}" name="buy_date" value="{{ old('start_date') }}"  autofocus>
 
-                                    @if ($errors->has('buy_date'))
+                                    @if ($errors->has('start_date'))
                                         <span class="form-control-feedback">
-                                           {{ $errors->first('buy_date') }}
+                                           {{ $errors->first('start_date') }}
                                         </span>
                                     @endif
                                
@@ -75,7 +77,7 @@
                             <div class="form-group{{ $errors->has('contact_date') ? ' has-danger' : '' }}">
                                
                                     <label for="contact_date" class="control-label">End Date</label>
-                                    <input id="contact_date" type="date" class="form-control {{ $errors->has('contact_date') ? ' form-control-danger' : '' }}" name="contact_date" value="{{ old('contact_date') }}" required>
+                                    <input id="contact_date" type="date" class="form-control {{ $errors->has('contact_date') ? ' form-control-danger' : '' }}" name="contact_date" value="{{ old('end_date') }}" >
 
                                     @if ($errors->has('contact_date'))
                                         <span class="form-control-feedback">
@@ -87,7 +89,9 @@
                          </div>
 
                          </div>
-                           
+
+                         <button type="submit" class="btn btn-success">Filter Stats</button>
+                           </form>
                        </div>
                   </div>
                 </div>
@@ -123,7 +127,13 @@
 
                               <td>{{ $employee->name }}</td>
 
-                              <td>{{ $employee->enquiries()->count() }} </td> 
+                              @if(Request::has('start_date') && Request::has('end_date'))
+                                 <td>{{ $employee->enquiries()->whereBetween('created_at', [request('start_date'), request('end_date')])->count() }} </td> 
+                                 <td>{{ $employee->enquiries()->whereBetween('created_at', [request('start_date'), request('end_date')])->where('status', 1)->count() }}</td> 
+                              @else 
+                               <td>{{ $employee->enquiries()->count() }} </td>
+                                <td>{{ $employee->enquiries()->where('status', 1)->count() }}</td> 
+                              @endif 
 
                               <td>{{ $employee->enquiries()->where('status', 1)->count() }}</td>
 
