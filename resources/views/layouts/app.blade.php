@@ -40,7 +40,7 @@
     @endif
     @if(auth()->user()->isAdmin())
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="/profile id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Quick Add
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
