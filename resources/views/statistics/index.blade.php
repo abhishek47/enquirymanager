@@ -61,7 +61,7 @@
                             <div class="form-group{{ $errors->has('start_date') ? ' has-danger' : '' }}">
                                
                                     <label for="start_date" class="control-label">Start Date</label>
-                                    <input id="start_date" type="date" class="form-control{{ $errors->has('start_date') ? ' form-control-danger' : '' }}" name="start_date" value="{{ old('start_date') ? old('start_date') : request('start_date') }}"  autofocus>
+                                    <input id="start_date" type="date" class="form-control{{ $errors->has('start_date') ? ' form-control-danger' : '' }}" name="start_date" value="{{ old('start_date') ? old('start_date') : request('start_date') }}" required autofocus>
 
                                     @if ($errors->has('start_date'))
                                         <span class="form-control-feedback">
@@ -77,7 +77,7 @@
                             <div class="form-group{{ $errors->has('end_date') ? ' has-danger' : '' }}">
                                
                                     <label for="end_date" class="control-label">End Date</label>
-                                    <input id="end_date" type="date" class="form-control {{ $errors->has('end_date') ? ' form-control-danger' : '' }}" name="end_date" value="{{ old('end_date') ? old('end_date') : request('end_date') }}" >
+                                    <input id="end_date" type="date" class="form-control {{ $errors->has('end_date') ? ' form-control-danger' : '' }}" required name="end_date" value="{{ old('end_date') ? old('end_date') : request('end_date') }}" >
 
                                     @if ($errors->has('end_date'))
                                         <span class="form-control-feedback">
