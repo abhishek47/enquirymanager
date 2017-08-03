@@ -59,6 +59,7 @@
                            <table class="table">
                               <thead class="thead-inverse">
                                 <tr>
+                                  <th>#</th>
                                   <th>Employee </th>
                                   <th>Enquiries</th>
                                   <th>Sales</th>
