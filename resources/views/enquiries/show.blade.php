@@ -23,7 +23,7 @@
     }
     
     .invoice-box table{
-        padding: 2px;
+        padding: 5px;
         width:100%;
         line-height:inherit;
         text-align:left;
