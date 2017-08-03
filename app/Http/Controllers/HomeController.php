@@ -77,7 +77,7 @@ class HomeController extends Controller
 
         flash('Your Profile was updated successfully!')->success();
 
-        return back();
+        return redirect('/enquiries/new');
     }
     
     public function password(Request $request)
@@ -99,7 +99,7 @@ class HomeController extends Controller
       auth()->user()->save();
 
       flash('Your Password was updated successfully!')->success();
-        return redirect('/profile');
+        return redirect('/enquiries/new');
     }
 
 
