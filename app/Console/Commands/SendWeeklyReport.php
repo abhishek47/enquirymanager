@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\User;
+use App\Mail\WeeklyReport;
 use Illuminate\Console\Command;
 
 class SendWeeklyReport extends Command
@@ -60,7 +62,7 @@ class SendWeeklyReport extends Command
          $report = \PDF::loadView('reports.weekly', $data);
          $reportData = $report->output();
          $message = new WeeklyReport($admin);
-         $message->attachData($invoiceData, 'invoice.pdf', [
+         $message->attachData($reportData, 'weeklyreport.pdf', [
                         'mime' => 'application/pdf',
                      ]);
          \Mail::to('waniabhishek47@gmail.com')->send($message);
