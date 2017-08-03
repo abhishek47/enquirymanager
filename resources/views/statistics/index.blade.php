@@ -107,7 +107,7 @@
                 <div class="col-md-12">
                   <div class="card" >
                        <div class="card-block">
-                           <div class="card-title"><b>Employee Wise Stats {{ request('start_date') - request('end_date') }}</b></div>
+                           <div class="card-title"><b>Employee Wise Stats {{ request('start_date') . '-' . request('end_date') }}</b></div>
 
                            <table class="table">
                               <thead class="thead-inverse">
@@ -156,7 +156,7 @@
                 <div class="col-md-12">
                   <div class="card">
                       <div class="card-block">
-                          <div class="card-title"><b>Vehicle Wise Stats {{ request('start_date') - request('end_date') }}</b></div>
+                          <div class="card-title"><b>Vehicle Wise Stats {{ request('start_date') . '-' . request('end_date') }}</b></div>
 
                            <table class="table">
                               <thead class="thead-inverse">
