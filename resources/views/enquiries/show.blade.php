@@ -162,7 +162,7 @@
                 </td>
                 
                 <td>
-                    {{ $enquiry->payment_type ? 'Cash' : 'Finance' }}
+                    {{ $enquiry->payment_type ? 'Finance' : 'Cash' }}
                 </td>
             </tr>
             
