@@ -123,12 +123,16 @@
                                 <b>Address :</b> {{ $enquiry->address }}<br>
                                 <b>Phone :</b> {{ $enquiry->phone }}<br>
                                <!-- <b>Vehicle Model : </b> {{ $enquiry->vehicle_id }} | {{ $enquiry->vehicle_color }} -->
-                                <b>Vehicle Model : </b> Maestro | White Color
+                                <b>Vehicle Model : </b> {{ $enquiry->vehicle->name }} | {{ $enquiry->vehicle_color }} Color
                             </td>
 
                             <td>
                                 <b>Quotation #: </b>{{ $enquiry->id }}<br>
                                 <b>Created:</b> {{ $enquiry->created_at->format('M d, Y') }}<br>
+                                @if($enquiry->payment_type)
+                                    <b>Financer : </b> {{ $enquiry->financer->name }}<br>
+                                    <b>Finance Manager :</b> {{ $enquiry->financeManager->name }}
+                                @endif
                           </td>
                             
                         </tr>

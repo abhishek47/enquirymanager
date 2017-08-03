@@ -37,4 +37,9 @@ class Enquiry extends Model
     {
         return $this->belongsTo(Financer::class);
     }
+
+    public function financeManager()
+    {
+        return $this->belongsTo(FinanceManager::class, 'finance_manager_id');
+    }
 }
