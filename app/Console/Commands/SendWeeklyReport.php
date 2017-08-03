@@ -39,7 +39,11 @@ class SendWeeklyReport extends Command
      */
     public function handle()
     {
+        $headers = ['Name', 'Email'];
+        $this->info('Generating Weekly Reports!');
         $admins = User::where('role', 0)->get();
+        $users = User::select(['name', 'email'])->where('role', 0)->get()->toArray();   
+        $this->table($headers, $users); 
         foreach($admins as $admin) {
          $data['employees'] = $admin->company->employees()->where('role', 2)->get();
 
@@ -66,6 +70,9 @@ class SendWeeklyReport extends Command
                         'mime' => 'application/pdf',
                      ]);
          \Mail::to('waniabhishek47@gmail.com')->send($message);
+
+
+         $this->info('Weekly Reports are mailed to Admins');
       }
     }
 }
