@@ -97,15 +97,32 @@
                       <div class="card-block">
                           <div class="card-title"><b>Vehicle Wise Stats</b></div>
 
-                          @foreach($vehicles as $vehicle)
+                           <table class="table">
+                              <thead class="thead-inverse">
+                                <tr>
+                                  <th>Vehicle </th>
+                                  <th>Enquiries</th>
+                                  <th>Sales</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                            
+                            @foreach($vehicles as $vehicles)
+                            <tr>
+                              <td>{{ $vehicles->name }}</td>
 
-                              <h4>{{ $vehicle->name }}</h4>
+                              <td>{{ $vehicles->enquiries()->count() }} </td> 
 
-                              <p><b>Enquiries : </b> {{ $vehicle->enquiries()->count() }} | <b>Sales : </b> {{ $vehicle->enquiries()->where('status', 1)->count() }}</p>
+                              <td>{{ $vehicles->enquiries()->where('status', 1)->count() }}</td>
 
-                              <hr>
+                             </tr> 
 
-                          @endforeach
+                            @endforeach
+
+                            </tbody>
+
+                            </table>
                          
                       </div>
                   </div>
