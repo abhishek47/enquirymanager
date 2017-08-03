@@ -47,6 +47,22 @@
 
               <br>
 
+              <div class="row justify-content-center">
+                
+                <div class="col-md-12">
+                  <div class="card" >
+                       <div class="card-block">
+                           <div class="card-title"><b>Filter Statistics</b></div>
+
+                           
+                       </div>
+                  </div>
+                </div>
+                
+              </div>
+
+              <br>
+
 
 
 <div class="row justify-content-center">
