@@ -67,8 +67,10 @@
                               <tbody>
                                 
                             
-                            @foreach($employees as $employee)
+                            @foreach($employees as $index => $employee)
                             <tr>
+                              <td> {{ $index+1 }} </td>
+
                               <td>{{ $employee->name }}</td>
 
                               <td>{{ $employee->enquiries()->count() }} </td> 
@@ -100,6 +102,7 @@
                            <table class="table">
                               <thead class="thead-inverse">
                                 <tr>
+                                  <th>#</th>
                                   <th>Vehicle </th>
                                   <th>Enquiries</th>
                                   <th>Sales</th>
@@ -108,8 +111,10 @@
                               <tbody>
                                 
                             
-                            @foreach($vehicles as $vehicles)
+                            @foreach($vehicles as $index => $vehicles)
                             <tr>
+                              <td> {{ $index+1 }} </td>
+
                               <td>{{ $vehicles->name }}</td>
 
                               <td>{{ $vehicles->enquiries()->count() }} </td> 
