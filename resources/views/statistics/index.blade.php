@@ -20,9 +20,9 @@
                       <div class="card-block">
                           <div class="card-title"><b>Last 7 Days</b></div>
 
-                          <h2>Enquiries : {{ $e7days }}</h2>
+                          <h4>Enquiries : {{ $e7days }}</h4>
 
-                          <h2>Sales : {{ $e7daysSales }} </h2>
+                          <h4>Sales : {{ $e7daysSales }} </h4>
 
 
                          
@@ -34,9 +34,9 @@
                       <div class="card-block">
                           <div class="card-title"><b>Last 30 Days</b></div>
 
-                          <h2>Enquiries : {{ $e30days }}</h2>
+                          <h4>Enquiries : {{ $e30days }}</h4>
 
-                          <h2>Sales : {{ $e30daysSales }} </h2>
+                          <h4>Sales : {{ $e30daysSales }} </h4>
 
                          
                       </div>
@@ -58,7 +58,7 @@
                             
                             @foreach($employees as $employee)
 
-                              <h3>{{ $employee->name }}</h3>
+                              <h4>{{ $employee->name }}</h4>
 
                               <p><b>Enquiries : </b> {{ $employee->enquiries()->count() }}</p>
 
@@ -84,7 +84,7 @@
 
                           @foreach($vehicles as $vehicle)
 
-                              <h3>{{ $vehicle->name }}</h3>
+                              <h4>{{ $vehicle->name }}</h4>
 
                               <p><b>Enquiries : </b> {{ $vehicle->enquiries()->count() }}</p>
 
