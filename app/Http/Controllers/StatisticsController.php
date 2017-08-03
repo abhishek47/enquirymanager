@@ -27,78 +27,25 @@ class StatisticsController extends Controller
     public function index()
     {
 
-         $data['employees'] = auth()->user()->company->employees()->where('role', 2)->orderBy('id')->pluck('name')->toArray();
+         $data['employees'] = auth()->user()->company->employees()->where('role', 2)->get();
 
-        $data['vehicles'] = auth()->user()->company->vehicles()->orderBy('id')->pluck('name')->toArray();
+        $data['vehicles'] = auth()->user()->company->vehicles()->get();
 
-        $e7days = auth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(7))
-                         ->where(\DB::raw('DATE(created_at)', '<', Carbon::now()->format('d-m-Y')))->get()
-        ->groupBy(function($date) {
-            return Carbon::parse($date->created_at)->format('d-m-Y'); // grouping by years
-            //return Carbon::parse($date->created_at)->format('m'); // grouping by months
-        }); 
+        $data['e7days'] = auth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(7))->count();
 
-        $data['enquiries7days'] = array();
+        $data['e30days'] = auth()->user()->company->enquiries()->where('created_at', '>', Carbon::now()->subDays(30))->count();
 
-        
+        $data['e7daysSales'] = auth()->user()->company->enquiries()->where('status', 1)->where('created_at', '>', Carbon::now()->subDays(7))->count();
 
-        foreach ($e7days as $key => $day) {
-            $data['enquiries7days'][] = count($day);
-        }
+        $data['e30daysSales'] = auth()->user()->company->enquiries()->where('status', 1)->where('created_at', '>', Carbon::now()->subDays(30))->count();
+       
 
-
-
-
-        $e7daysConverted = auth()->user()->company->enquiries()->where('status', '1')->where('created_at', '>', Carbon::now()->subDays(7))
-                         ->where(\DB::raw('DATE(created_at)', '<', Carbon::now()->format('d-m-Y')))->get()
-        ->groupBy(function($date) {
-            return Carbon::parse($date->created_at)->format('d-m-Y'); // grouping by years
-            //return Carbon::parse($date->created_at)->format('m'); // grouping by months
-        }); 
-
-        $data['enquiriesConverted7Days'] = array();
-
-        foreach ($e7daysConverted as $key => $day) {
-            $data['enquiriesConverted7Days'][] = count($day);
-        }
 
        
         $data['totalEnquiriesVoid'] = auth()->user()->company->enquiries()->where('status', '0')->count();
         $data['totalEnquiriesConverted'] = auth()->user()->company->enquiries()->where('status', '1')->count();
         $data['totalEnquiriesCancelled'] = auth()->user()->company->enquiries()->where('status', '2')->count(); 
         
-        
-        $employees = auth()->user()->company->employees;
-
-        $data['employeeWiseEnquiries'] = array(); 
-
-        foreach ($employees as $employee) {
-            $data['employeeWiseEnquiries'][] = $employee->enquiries()->count();
-        }
-
-       
-        $data['employeeWiseConvertedEnquiries'] = array(); 
-
-        foreach ($employees as $employee) {
-            $data['employeeWiseConvertedEnquiries'][] = $employee->enquiries()->where('status', 1)->count();
-        }
-
-        $vehicles = auth()->user()->company->vehicles;
-
-        $data['vehicleWiseEnquiries'] = array(); 
-
-        foreach ($vehicles as $vehicle) {
-            $data['vehicleWiseEnquiries'][] = $vehicle->enquiries()->count();
-        }
-
-        
-        $data['vehicleWiseConvertedEnquiries'] = array(); 
-
-        foreach ($vehicles as $vehicle) {
-            $data['vehicleWiseConvertedEnquiries'][] = $vehicle->enquiries()->where('status', 1)->count();
-        }
-      
-
 
        
 

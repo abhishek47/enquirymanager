@@ -20,16 +20,25 @@
                       <div class="card-block">
                           <div class="card-title"><b>Last 7 Days</b></div>
 
-                          <canvas id="weekChart" width="400" height="300"></canvas>
+                          <h2>Enquiries : {{ $e7days }}</h2>
+
+                          <h2>Sales : {{ $e7daysSales }} </h2>
+
+
+                         
                       </div>
                   </div>
                 </div>
                 <div class="col-md">
                   <div class="card">
                       <div class="card-block">
-                          <div class="card-title"><b>Overall Stats</b></div>
+                          <div class="card-title"><b>Last 30 Days</b></div>
 
-                          <canvas id="overallChart" width="400" height="300"></canvas>
+                          <h2>Enquiries : {{ $e30days }}</h2>
+
+                          <h2>Sales : {{ $e30daysSales }} </h2>
+
+                         
                       </div>
                   </div>
                 </div>
@@ -46,7 +55,18 @@
                   <div class="card" >
                        <div class="card-block">
                            <div class="card-title"><b>Employee Wise Stats</b></div>
-                            <canvas id="epwiseChart" width="400" height="300"></canvas>
+                            
+                            @foreach($employees as $employee)
+
+                              <h3>{{ $employee->name }}</h3>
+
+                              <p><b>Enquiries : </b> {{ $employee->enquiries()->count() }}</p>
+
+                              <p><b>Sales : </b> {{ $employee->enquiries()->where('status', 1)->count() }}</p>
+
+                              <hr>
+
+                            @endforeach
                        </div>
                   </div>
                 </div>
@@ -62,7 +82,18 @@
                       <div class="card-block">
                           <div class="card-title"><b>Vehicle Wise Stats</b></div>
 
-                          <canvas id="vwiseChart" width="400" height="300"></canvas>
+                          @foreach($vehicles as $vehicle)
+
+                              <h3>{{ $vehicle->name }}</h3>
+
+                              <p><b>Enquiries : </b> {{ $vehicle->enquiries()->count() }}</p>
+
+                              <p><b>Sales : </b> {{ $vehicle->enquiries()->where('status', 1)->count() }}</p>
+
+                              <hr>
+
+                          @endforeach
+                         
                       </div>
                   </div>
                 </div>
@@ -77,153 +108,3 @@
 @endsection
 
 
-
-@section('js')
-
-
-
-<script>
-var ctx = document.getElementById("weekChart");
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: getLastDays(7),
-        datasets: [{
-            label: 'Count of Enquiries',
-            data: {!! json_encode($enquiries7days) !!},
-            backgroundColor:'rgba(255, 99, 132, 0.2)',
-               
-            borderColor: 'rgba(255,99,132,1)',
-          
-            borderWidth: 1
-        },
-        {
-            label: 'Count of Sales',
-            data: {!! json_encode($enquiriesConverted7Days) !!},
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            
-            borderColor: 'rgba(75, 192, 192, 1)',
-            
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-</script>
-
-
-<script>
-var ctx = document.getElementById("overallChart");
-var myChart = new Chart(ctx, {
-   type: 'pie',
-        data: {
-            datasets: [{
-                data: [
-                   {{ $totalEnquiriesConverted }},
-                    {{ $totalEnquiriesCancelled }},
-                    {{ $totalEnquiriesVoid }},
-                ],
-                backgroundColor: [
-                    'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 206, 86)',
-                ],
-                label: 'Enquiries'
-            }],
-            labels: [
-                "Sold",
-                "Cancelled",
-                "Void"            ]
-        },
-        options: {
-            responsive: true
-        }
-});
-</script>
-
-
-
-<script>
-var ctx = document.getElementById("epwiseChart");
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: {!! json_encode($employees) !!},
-        datasets: [{
-            label: 'Count of Enquiries',
-            data: {{ json_encode($employeeWiseEnquiries) }},
-            backgroundColor: 'rgb(255, 99, 132)',
-            
-            borderColor: 'rgb(255, 99, 132)',
-            
-            borderWidth: 1
-        },
-        {
-            label: 'Count of Sales',
-            data: {{ json_encode($employeeWiseConvertedEnquiries) }},
-            backgroundColor: 'rgb(100, 99, 255)',
-            
-            borderColor: 'rgb(100, 99, 255)',
-            
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-</script>
-
-<script>
-var ctx = document.getElementById("vwiseChart");
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: {!! json_encode($vehicles) !!},
-        datasets: [{
-            label: 'Count of Enquiries',
-            data: {{ json_encode($vehicleWiseEnquiries) }},
-            backgroundColor: 'rgb(255, 99, 132)',
-            
-            borderColor: 'rgb(255, 99, 132)',
-            
-            borderWidth: 1
-        },
-        {
-            label: 'Count of Sales',
-            data: {{ json_encode($vehicleWiseConvertedEnquiries) }},
-            backgroundColor: 'rgb(100, 99, 255)',
-            
-            borderColor: 'rgb(100, 99, 255)',
-            
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-</script>
-
-
-@endsection
