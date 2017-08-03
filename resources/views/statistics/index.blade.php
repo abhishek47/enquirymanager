@@ -54,6 +54,39 @@
                        <div class="card-block">
                            <div class="card-title"><b>Filter Statistics</b></div>
 
+                            <div class="row justify-content-center"> 
+                         <div class="col-md-6">
+                            <div class="form-group{{ $errors->has('buy_date') ? ' has-danger' : '' }}">
+                               
+                                    <label for="buy_date" class="control-label">Start Date</label>
+                                    <input id="buy_date" type="date" class="form-control{{ $errors->has('buy_date') ? ' form-control-danger' : '' }}" name="buy_date" value="{{ old('buy_date') }}" required autofocus>
+
+                                    @if ($errors->has('buy_date'))
+                                        <span class="form-control-feedback">
+                                           {{ $errors->first('buy_date') }}
+                                        </span>
+                                    @endif
+                               
+                            </div>
+                         </div>
+
+
+                         <div class="col-md-6">
+                            <div class="form-group{{ $errors->has('contact_date') ? ' has-danger' : '' }}">
+                               
+                                    <label for="contact_date" class="control-label">End Date</label>
+                                    <input id="contact_date" type="date" class="form-control {{ $errors->has('contact_date') ? ' form-control-danger' : '' }}" name="contact_date" value="{{ old('contact_date') }}" required>
+
+                                    @if ($errors->has('contact_date'))
+                                        <span class="form-control-feedback">
+                                            {{ $errors->first('contact_date') }}
+                                        </span>
+                                    @endif
+                               
+                            </div>
+                         </div>
+
+                         </div>
                            
                        </div>
                   </div>
