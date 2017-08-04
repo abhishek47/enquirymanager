@@ -298,8 +298,8 @@
                                 <h4 style="text-align: center;">
                                   For, <b style="text-:uppercase;">Shivang Automobiles</b>
                                 </h4>
-                                <br>
-                                <p style="text-align:center;">
+                                
+                                <p style="text-align:center;margin-top: 6px;">
                                   ( Authorised Signature )
                                 </p>
                                 
