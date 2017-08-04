@@ -78,6 +78,7 @@
     
     .invoice-box table tr.item td{
         border-bottom:1px solid #000;
+        letter-spacing: 1px;
     }
     
     .invoice-box table tr.item.last td{
