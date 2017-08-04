@@ -66,7 +66,7 @@
     }
     
     .invoice-box table tr.information table td{
-        padding-bottom:12px;
+       /* padding-bottom:12px;*/
     }
     
     .invoice-box table tr.heading td{
