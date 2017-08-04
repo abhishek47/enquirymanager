@@ -263,7 +263,7 @@
                 <td colspan="2" style="border-top: 1px solid #000;">
                     <table style="margin-top:5px;">
                         <tr>
-                            <td style="padding-bottom: 10px;">
+                            <td style="padding-bottom: 0px;">
                                 <b>Authorised Dealer : Hero Motocorp Ltd.</b><br>
                                 <b>GSTIN # :</b> 27AEJPB0313A1ZH<br>
                                 
@@ -278,7 +278,7 @@
                               </ul>
                             </td>
 
-                            <td style="padding-bottom: 10px;">
+                            <td style="padding-bottom: 0px;">
                               <div  style="border: 1px solid #000;font-size:12px;text-align:left;padding-left:0px;margin-top: 1px;">
                                 
                               
