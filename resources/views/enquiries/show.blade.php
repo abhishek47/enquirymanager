@@ -14,12 +14,13 @@
     <style>
     .invoice-box{
         max-width:800px;
-        margin:auto;
+        margin:3px;
         border:1px solid #000;
         font-size:14px;
         line-height:24px;
         font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color:#000;
+        padding: 8px;
     }
     
     .invoice-box table{
@@ -44,7 +45,7 @@
     }
 
     .invoice-box table tr.bottom table td{
-        padding-top:10px;
+        padding-top:15px;
         border-top: 1px solid #000;
 
     }
@@ -86,6 +87,10 @@
     .invoice-box table tr.total td:nth-child(2){
         border-top:2px solid #000;
         font-weight:bold;
+        font-size: 19px;
+        padding-top: 5px;
+        letter-spacing: 1px;
+
     }
     
     @media only screen and (max-width: 600px) {
