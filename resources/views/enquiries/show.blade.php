@@ -294,11 +294,18 @@
                               </ul>
                                 </div>  
 
- 
-                                 
-
-
-                                </td>
+                            <div>
+                                <h4 style="text-align: center;">
+                                  For, <b style="text-:uppercase;">Shivang Automobiles</b>
+                                </h4>
+                                <br>
+                                <p style="text-align:center;">
+                                  ( Authorised Signature )
+                                </p>
+                                
+                              </div>
+                                   
+                          </td>
                         </tr>
 
                           
@@ -322,7 +329,7 @@
             
           </tr>
 
-          
+
         </table>
     </div>
 
