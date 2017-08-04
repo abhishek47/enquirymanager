@@ -15,7 +15,7 @@
     .invoice-box{
        /* max-width:800px; */
         width: 5.5in;
-        height: 8.5in;
+        height: 8.3in;
         margin: 5px;
         margin-top: 15px;
         border:1px solid #000;
@@ -116,9 +116,6 @@
 
 <body>
     <div class="invoice-box">
-        <h3 style="text-align: center;text-decoration:underline;padding:0px;margin:0px;">
-        Customer Enquiry/Quotation 
-      </h3>
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="2">
