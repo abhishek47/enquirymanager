@@ -273,7 +273,7 @@
                                   <li>Price Pravaling at the time of delivery shall be applicable.</li>
                                   <li>Payments/Refunds will be made by account payee checks only.</li>
                                   <li>
-                                    Demand Draft/Check should be in the name of Shivang Automobiles.   
+                                    Demand Draft/Check should be in the name of "Shivang Automobiles".   
                                   </li>
                                   <li>डिमांड दराफ्ट अथवा चेक हा " शिवांग आटोमोबाइल्स " या नावाने द्यावा.</li>
                               </ul>
@@ -296,7 +296,7 @@
 
                             <div>
                                 <h4 style="text-align: center;">
-                                  For, <b style="text-:uppercase;">Shivang Automobiles</b>
+                                  For, <b style="text-transform: uppercase;">Shivang Automobiles</b>
                                 </h4>
                                 
                                 <p style="text-align:center;margin-top: 6px;">
