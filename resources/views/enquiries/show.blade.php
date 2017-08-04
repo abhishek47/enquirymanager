@@ -284,9 +284,11 @@
                               
                               <p style="border-bottom: 1px solid #000;padding-left:5px;font-weight: bold;">टीप : गाडी रेजिस्ट्रेशनसाठी खालील काकडपत्र आवश्यक आहे</p>
                               <ul style="margin: 0px;padding-left:24px;font-size:12px;">
-                                <li> फोटो </li>
+                                <li style="float: left;
+    margin-right: 120px;"> फोटो </li>
                                 <li>मतदान कार्ड</li>
-                                <li >लाईट बिल</li>
+                                <li float: left;
+    margin-right: 95px; >लाईट बिल</li>
                                 <li style="margin-bottom:5px;">पॅनकार्ड</li>
                                 
                               </ul>
