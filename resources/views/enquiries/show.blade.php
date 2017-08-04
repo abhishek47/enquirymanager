@@ -287,8 +287,7 @@
                                 <li style="float: left;
     margin-right: 120px;"> फोटो </li>
                                 <li>मतदान कार्ड</li>
-                                <li float: left;
-    margin-right: 95px; >लाईट बिल</li>
+                                <li style="float: left; margin-right: 95px;" >लाईट बिल</li>
                                 <li style="margin-bottom:5px;">पॅनकार्ड</li>
                                 
                               </ul>
