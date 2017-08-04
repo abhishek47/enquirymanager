@@ -89,8 +89,9 @@
         border-top:2px solid #000;
         font-weight:bold;
         font-size: 19px;
-        padding-top: 5px;
+        padding-top: 10px;
         letter-spacing: 1px;
+         padding-bottom: 10px;
 
     }
     
@@ -112,6 +113,9 @@
 
 <body>
     <div class="invoice-box">
+        <h3 style="text-align: center;text-decoration:underline;padding:0px;margin:0px;">
+        Customer Enquiry/Quotation 
+      </h3>
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="2">
@@ -255,21 +259,42 @@
             </tr>
 
 
-            <tr class="bottom">
-                <td colspan="2">
-                    <table>
+              <tr class="information" >
+                <td colspan="2" style="border-top: 1px solid #000;">
+                    <table style="margin-top:5px;">
                         <tr>
-                            <td class="title">
-                                <img src="http://acem.edu.np/techbihani/img/hero.png" style="width:100%; max-width:100px;">
-                            </td>
-                            
                             <td>
-                                <b style="font-size: 20px;">Shivang Automobiles</b><br>
-                                {{ auth()->user()->company->address }} <br>
-                                <b>Phone : </b> {{ str_replace(',', '/', auth()->user()->company->phones) }} | <b>Fax : </b> {{ auth()->user()->company->fax }}<br>
-                                <b>Website : </b> {{ auth()->user()->company->website }}
+                                <b>Authorised Dealer : Hero Motocorp Ltd.</b><br>
+                                <b>GSTIN # :</b> 27AEJPB0313A1ZH<br>
+                                
+                                <ul style="margin: 2px;padding-left:14px;font-size:12px;">
+                                  <li>Price are subject to change without prior notice.</li>
+                                  <li>Price Pravaling at the time of delivery shall be applicable.</li>
+                                  <li>Payments/Refunds will be made by account payee checks only.</li>
+                                  <li>
+                                    Demand Draft/Check should be in the name of Shivang Automobiles.   
+                                  </li>
+                                  <li>डिमांड दराफ्ट अथवा चेक हा " शिवांग आटोमोबाइल्स " या नावाने द्यावा.</li>
+                              </ul>
                             </td>
+
+                            <td>
+                              <div  style="border: 1px solid #000;font-size:12px;text-align:left;padding-left:0px;">
+                                
+                              
+                              <p style="border-bottom: 1px solid #000;padding-left:5px;font-weight: bold;">टीप : गाडी रेजिस्ट्रेशनसाठी खालील काकडपत्र आवश्यक आहे</p>
+                              <ul style="margin: 0px;padding-left:24px;font-size:12px;">
+                                <li> फोटो </li>
+                                <li>मतदान कार्ड</li>
+                                <li >लाईट बिल</li>
+                                <li style="margin-bottom:5px;">पॅनकार्ड</li>
+                                
+                              </ul>
+                                </div> 
                         </tr>
+
+                          
+                        
                     </table>
                 </td>
             </tr>
