@@ -14,7 +14,8 @@
     <style>
     .invoice-box{
         max-width:800px;
-        margin:3px;
+        margin: 5px;
+        margin-top: 10px;
         border:1px solid #000;
         font-size:14px;
         line-height:24px;
@@ -279,7 +280,7 @@
                             </td>
 
                             <td>
-                              <div  style="border: 1px solid #000;font-size:12px;text-align:left;padding-left:0px;">
+                              <div  style="border: 1px solid #000;font-size:12px;text-align:left;padding-left:0px;margin-top: 1px;">
                                 
                               
                               <p style="border-bottom: 1px solid #000;padding-left:5px;font-weight: bold;">टीप : गाडी रेजिस्ट्रेशनसाठी खालील काकडपत्र आवश्यक आहे</p>
@@ -291,7 +292,13 @@
                                 <li style="margin-bottom:5px;">पॅनकार्ड</li>
                                 
                               </ul>
-                                </div> 
+                                </div>  
+
+ 
+                                 
+
+
+                                </td>
                         </tr>
 
                           
@@ -299,6 +306,23 @@
                     </table>
                 </td>
             </tr>
+
+
+              <tr class="information" >
+                <td colspan="2" style="border-top: 1px solid #000;padding:0px;border-bottom:1px solid #000;">
+                    <table style="margin-top:5px;">
+                       <div style="text-align:center;">
+              
+                      <p style="margin: 0 auto;margin-top:1px;margin-bottom:0px;width:80%;padding-bottom:0px;">
+                        <b>Account Details for Bank Transfer -</b> Bank Name : HDFC Bank Ltd., Account No. : 00XX234890, IFSC CODE : HDFC0064
+                      </p>
+                     </div>
+                  </table>
+                </td>
+            
+          </tr>
+
+          
         </table>
     </div>
 
