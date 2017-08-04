@@ -14,9 +14,9 @@
     <style>
     .invoice-box{
        /* max-width:800px; */
-        width: 5.5in;
-        height: 8.3in;
-        margin: 5px;
+        width: 5.4in;
+        height: 8.0in;
+        margin: auto;
         margin-top: 15px;
         border:1px solid #000;
         font-size:12px;
@@ -263,7 +263,7 @@
                 <td colspan="2" style="border-top: 1px solid #000;">
                     <table style="margin-top:5px;">
                         <tr>
-                            <td>
+                            <td style="padding-bottom: 10px;">
                                 <b>Authorised Dealer : Hero Motocorp Ltd.</b><br>
                                 <b>GSTIN # :</b> 27AEJPB0313A1ZH<br>
                                 
@@ -278,7 +278,7 @@
                               </ul>
                             </td>
 
-                            <td>
+                            <td style="padding-bottom: 10px;">
                               <div  style="border: 1px solid #000;font-size:12px;text-align:left;padding-left:0px;margin-top: 1px;">
                                 
                               
