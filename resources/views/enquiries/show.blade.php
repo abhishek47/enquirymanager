@@ -15,7 +15,7 @@
     .invoice-box{
         max-width:800px;
         margin: 5px;
-        margin-top: 10px;
+        margin-top: 15px;
         border:1px solid #000;
         font-size:14px;
         line-height:24px;
