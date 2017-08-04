@@ -4,24 +4,20 @@
     <meta charset="utf-8">
     <title>Enquiry #{{$enquiry->id}}</title>
 
-    <style type="text/css" media="print">
-@page {
-    size: auto;   /* auto is the initial value */
-    margin: 0;  /* this affects the margin in the printer settings */
-}
-</style>
     
     <style>
     .invoice-box{
-        max-width:800px;
+       /* max-width:800px; */
+        width: 5.5in;
+        height: 8.5in;
         margin: 5px;
         margin-top: 15px;
         border:1px solid #000;
-        font-size:14px;
-        line-height:24px;
+        font-size:12px;
+        line-height:22px;
         font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color:#000;
-        padding: 8px;
+        padding: 5px;
     }
     
     .invoice-box table{
@@ -52,14 +48,14 @@
     }
 
      .invoice-box table tr.bottom table td.title{
-        font-size:45px;
-        line-height:45px;
+        font-size:35px;
+        line-height:35px;
         color:#000;
     }
     
     .invoice-box table tr.top table td.title{
-        font-size:45px;
-        line-height:45px;
+        font-size:35px;
+        line-height:35px;
         color:#000;
     }
     
@@ -89,14 +85,14 @@
     .invoice-box table tr.total td:nth-child(2){
         border-top:2px solid #000;
         font-weight:bold;
-        font-size: 19px;
-        padding-top: 10px;
+        font-size: 17px;
+        padding-top: 8px;
         letter-spacing: 1px;
-         padding-bottom: 10px;
+         padding-bottom: 8px;
 
     }
     
-    @media only screen and (max-width: 600px) {
+    @media  only screen and (max-width: 600px) {
         .invoice-box table tr.top table td{
             width:100%;
             display:block;
@@ -260,7 +256,7 @@
             </tr>
 
 
-              <tr class="information" >
+               <tr class="information" >
                 <td colspan="2" style="border-top: 1px solid #000;">
                     <table style="margin-top:5px;">
                         <tr>
@@ -268,7 +264,7 @@
                                 <b>Authorised Dealer : Hero Motocorp Ltd.</b><br>
                                 <b>GSTIN # :</b> 27AEJPB0313A1ZH<br>
                                 
-                                <ul style="margin: 2px;padding-left:14px;font-size:12px;">
+                                <ul style="margin: 2px;padding-left:14px;font-size:10px;line-height:16px">
                                   <li>Price are subject to change without prior notice.</li>
                                   <li>Price Pravaling at the time of delivery shall be applicable.</li>
                                   <li>Payments/Refunds will be made by account payee checks only.</li>
@@ -286,9 +282,9 @@
                               <p style="border-bottom: 1px solid #000;padding-left:5px;font-weight: bold;">टीप : गाडी रेजिस्ट्रेशनसाठी खालील कागदपत्र आवश्यक आहे</p>
                               <ul style="margin: 0px;padding-left:24px;font-size:12px;">
                                 <li style="float: left;
-    margin-right: 120px;"> फोटो </li>
+    margin-right: 80px;"> फोटो </li>
                                 <li>मतदान कार्ड</li>
-                                <li style="float: left; margin-right: 95px;" >लाईट बिल</li>
+                                <li style="float: left; margin-right: 55px;" >लाईट बिल</li>
                                 <li style="margin-bottom:5px;">पॅनकार्ड</li>
                                 
                               </ul>
@@ -320,7 +316,7 @@
                     <table style="margin-top:5px;">
                        <div style="text-align:center;">
               
-                      <p style="margin: 0 auto;margin-top:1px;margin-bottom:0px;width:80%;padding-bottom:0px;">
+                      <p style="font-size:8px;margin: 0 auto;margin-top:1px;margin-bottom:0px;width:100%;padding-bottom:0px;color:#000;">
                         <b>Account Details for Bank Transfer -</b> Bank Name : HDFC Bank Ltd., Account No. : 00XX234890, IFSC CODE : HDFC0064
                       </p>
                      </div>
