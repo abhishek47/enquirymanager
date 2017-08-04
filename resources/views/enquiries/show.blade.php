@@ -44,7 +44,7 @@
     }
 
     .invoice-box table tr.bottom table td{
-        padding-bottom:5px;
+        padding-top:5px;
         border-top: 1px solid #000;
 
     }
