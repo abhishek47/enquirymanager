@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <title>Enquiry #{{$enquiry->id}}</title>
 
+     <style type="text/css" media="print">
+@page {
+    margin: 0;  /* this affects the margin in the printer settings */
+}
+</style>
+
     
     <style>
     .invoice-box{
@@ -312,7 +318,7 @@
 
 
               <tr class="information" >
-                <td colspan="2" style="border-top: 1px solid #000;padding:0px;border-bottom:1px solid #000;">
+                <td colspan="2" style="border-top: 1px solid #000;padding:0px;">
                     <table style="margin-top:5px;">
                        <div style="text-align:center;">
               
