@@ -283,7 +283,7 @@
                               <div  style="border: 1px solid #000;font-size:12px;text-align:left;padding-left:0px;margin-top: 1px;">
                                 
                               
-                              <p style="border-bottom: 1px solid #000;padding-left:5px;font-weight: bold;">टीप : गाडी रेजिस्ट्रेशनसाठी खालील काकडपत्र आवश्यक आहे</p>
+                              <p style="border-bottom: 1px solid #000;padding-left:5px;font-weight: bold;">टीप : गाडी रेजिस्ट्रेशनसाठी खालील कागदपत्र आवश्यक आहे</p>
                               <ul style="margin: 0px;padding-left:24px;font-size:12px;">
                                 <li style="float: left;
     margin-right: 120px;"> फोटो </li>
