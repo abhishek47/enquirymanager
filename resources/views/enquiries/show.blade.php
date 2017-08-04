@@ -15,16 +15,15 @@
     .invoice-box{
         max-width:800px;
         margin:auto;
-        padding:30px;
         border:1px solid #000;
-        box-shadow:0 0 10px rgba(0, 0, 0, .15);
         font-size:14px;
         line-height:24px;
         font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-        color:#555;
+        color:#000;
     }
     
     .invoice-box table{
+        padding: 5px;
         width:100%;
         line-height:inherit;
         text-align:left;
@@ -47,7 +46,7 @@
     .invoice-box table tr.top table td.title{
         font-size:45px;
         line-height:45px;
-        color:#333;
+        color:#000;
     }
     
     .invoice-box table tr.information table td{
@@ -124,12 +123,16 @@
                                 <b>Address :</b> {{ $enquiry->address }}<br>
                                 <b>Phone :</b> {{ $enquiry->phone }}<br>
                                <!-- <b>Vehicle Model : </b> {{ $enquiry->vehicle_id }} | {{ $enquiry->vehicle_color }} -->
-                                <b>Vehicle Model : </b> Maestro | White Color
+                                <b>Vehicle Model : </b> {{ $enquiry->vehicle->name }} | {{ $enquiry->vehicle_color }} Color
                             </td>
 
                             <td>
                                 <b>Quotation #: </b>{{ $enquiry->id }}<br>
                                 <b>Created:</b> {{ $enquiry->created_at->format('M d, Y') }}<br>
+                                @if($enquiry->payment_type)
+                                    <b>Financer : </b> {{ $enquiry->financer->name }}<br>
+                                    <b>Finance Manager :</b> {{ $enquiry->financeManager->name }}
+                                @endif
                           </td>
                             
                         </tr>
@@ -159,7 +162,7 @@
                 </td>
                 
                 <td>
-                    {{ $enquiry->payment_type ? 'Cash' : 'Finance' }}
+                    {{ $enquiry->payment_type ? 'Finance' : 'Cash' }}
                 </td>
             </tr>
             

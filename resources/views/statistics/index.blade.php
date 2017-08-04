@@ -198,6 +198,57 @@
                
               </div>
 
+              <br>
+
+              <div class="row justify-content-center">
+                
+                <div class="col-md-12">
+                  <div class="card" >
+                       <div class="card-block">
+                           <div class="card-title"><b>Financer Wise Stats [ {{ request('start_date') . ' - ' . request('end_date') }} ]</b></div>
+
+                           <table class="table">
+                              <thead class="thead-inverse">
+                                <tr>
+                                  <th>#</th>
+                                  <th>Employee </th>
+                                  <th>Enquiries</th>
+                                  <th>Sales</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                            
+                            @foreach($financers as $index => $financer)
+                            <tr>
+                              <td> {{ $index+1 }} </td>
+
+                              <td>{{ $financer->name }}</td>
+
+                              @if(Request::has('start_date') && Request::has('end_date'))
+                                 <td>{{ $financer->enquiries()->whereBetween('created_at', [request('start_date'), request('end_date')])->count() }} </td> 
+                                 <td>{{ $financer->enquiries()->whereBetween('created_at', [request('start_date'), request('end_date')])->where('status', 1)->count() }}</td> 
+                              @else 
+                               <td>{{ $financer->enquiries()->count() }} </td>
+                                <td>{{ $financer->enquiries()->where('status', 1)->count() }}</td> 
+                              @endif 
+
+
+                             </tr> 
+
+                            @endforeach
+
+                            </tbody>
+
+                            </table>
+                       </div>
+                  </div>
+                </div>
+                
+              </div>
+
+
+
 
               <br><br><br>
 
