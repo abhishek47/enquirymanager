@@ -42,6 +42,18 @@
         padding-bottom:5px;
         border-bottom: 1px solid #000;
     }
+
+    .invoice-box table tr.bottom table td{
+        padding-bottom:5px;
+        border-top: 1px solid #000;
+
+    }
+
+     .invoice-box table tr.bottom table td.title{
+        font-size:45px;
+        line-height:45px;
+        color:#000;
+    }
     
     .invoice-box table tr.top table td.title{
         font-size:45px;
@@ -237,7 +249,7 @@
             </tr>
 
 
-            <tr class="top">
+            <tr class="bottom">
                 <td colspan="2">
                     <table>
                         <tr>
